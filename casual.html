@@ -15,17 +15,18 @@
         .brand-detail { color: #d1d5db; } 
 
         /* 近未来的なサイドバーデザイン */
+        /* 【修正】フォントサイズを 0.95rem 程度から 0.875rem (text-sm) に縮小 */
         .sidebar-link {
             padding: 8px 12px;
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s, border-color 0.2s;
-            font-size: 0.95rem; 
+            font-size: 0.875rem; /* 修正 */
             color: #9ca3af; 
             border: 1px solid transparent;
             font-weight: 900; 
             text-decoration: none; 
-            white-space: nowrap; /* 【修正】文字折り返し防止 */
+            white-space: nowrap; 
         }
         .sidebar-link:hover {
             background-color: #1f2937; 
@@ -48,13 +49,15 @@
         
         /* 中分類のスタイル */
         .sub-category {
+            /* 【修正】フォントサイズを 0.95rem 程度から 0.8125rem に縮小 */
             padding: 6px 12px 6px 20px; 
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
+            font-size: 0.8125rem; /* 修正 */
             color: #9ca3af; 
             text-decoration: none;
-            white-space: nowrap; /* 【修正】文字折り返し防止 */
+            white-space: nowrap; 
         }
         .sub-category:hover {
             background-color: #1f2937; 
@@ -76,21 +79,23 @@
         }
         
         /* --- アコーディオン（<details>）のCSS調整 --- */
+        /* 【修正】アコーディオン間のマージンを減らし、コンパクトにする */
         .system-category {
-            margin-bottom: 8px; 
+            margin-bottom: 4px; /* 8pxから4pxに減らす */
             border: 1px solid rgba(156, 163, 175, 0.1); 
             border-radius: 6px;
         }
 
         .system-category summary {
+            /* 【修正】フォントサイズとパディングを調整 */
             list-style: none;
             cursor: pointer;
             outline: none;
-            padding: 8px 12px;
+            padding: 6px 12px; /* 8px 12px から 6px 12px に変更 */
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            font-size: 0.95rem; 
+            font-size: 0.875rem; /* 修正 */
             color: #9ca3af; 
             font-weight: 900;
             transition: background-color 0.2s, color 0.2s;
@@ -136,7 +141,7 @@
 
         /* <details>展開時のリストの間隔調整 */
         .system-category-list {
-            padding: 4px 0;
+            padding: 2px 0; /* 4px 0 から 2px 0 に変更 */
             margin-left: -12px; 
             background-color: #111827; 
             border-radius: 0 0 5px 5px;
@@ -155,11 +160,11 @@
 
     <main class="max-w-7xl mx-auto py-12 px-6">
         
-        <div class="flex gap-8"> 
+        <div class="flex flex-col lg:flex-row gap-8"> 
             
-            <aside class="w-72 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700 flex-shrink-0">
+            <aside class="w-full lg:w-72 bg-gray-800 p-4 lg:p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700 flex-shrink-0">
                 
-                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
+                <h3 class="text-base lg:text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
