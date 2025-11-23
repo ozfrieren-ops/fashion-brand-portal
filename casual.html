@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【女性向け・カジュアル系】20代後半向けブランド一覧 | FASHION NAVI</title>
+    <title>【女性向け・カジュアル系】ベーシックブランド一覧 | FASHION NAVI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
@@ -11,8 +11,8 @@
         .brand-card-img { height: 16rem; } 
         
         /* ダークモードの配色 */
-        .brand-name { color: #22d3ee; } /* Cyan 400 */
-        .brand-detail { color: #d1d5db; } /* Gray 300 */
+        .brand-name { color: #22d3ee; } 
+        .brand-detail { color: #d1d5db; } 
 
         /* 近未来的なサイドバーデザイン */
         .sidebar-link {
@@ -21,20 +21,21 @@
             border-radius: 4px;
             transition: background-color 0.2s, border-color 0.2s;
             font-size: 0.95rem; 
-            color: #9ca3af; /* Gray 400 */
+            color: #9ca3af; 
             border: 1px solid transparent;
-            font-weight: 900; /* 大分類の太字を維持 */
+            font-weight: 900; 
+            text-decoration: none; 
         }
         .sidebar-link:hover {
-            background-color: #1f2937; /* Gray 800 */
-            color: #e5e7eb; /* Gray 200 */
+            background-color: #1f2937; 
+            color: #e5e7eb; 
         }
         /* 大分類のアクティブリンク：ネオンシアンの枠線とテキスト */
         .sidebar-link.active {
-            background-color: #1f2937; /* Gray 800 */
-            color: #22d3ee; /* Cyan 400 */
+            background-color: #1f2937; 
+            color: #22d3ee; 
             font-weight: 900; 
-            border-color: #22d3ee; /* Cyan 400 */
+            border-color: #22d3ee; 
         }
         
         /* 中分類のスタイル */
@@ -43,49 +44,155 @@
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
-            color: #9ca3af; /* Gray 400 */
+            color: #9ca3af; 
+            text-decoration: none;
+            white-space: nowrap; 
         }
         .sub-category:hover {
             background-color: #1f2937; 
         }
         /* アクティブな中分類 */
         .sub-category.active {
-            color: #22d3ee; /* Cyan 400 */
+            color: #22d3ee; 
             font-weight: 700;
             background-color: #111827; 
-            border-left: 3px solid #22d3ee; /* 左側にライン */
+            border-left: 3px solid #22d3ee; 
             padding-left: 17px;
         }
 
         /* カードデザインの変更 */
         .brand-card {
-            background-color: #1f2937; /* Gray 800 */
+            background-color: #1f2937; 
             border-top: none; 
-            border-left: 4px solid #06b6d4; /* モダンな左ライン */
+            border-left: 4px solid #06b6d4; 
+        }
+        
+        /* --- アコーディオン（<details>）のCSS調整 --- */
+        .system-category {
+            margin-bottom: 8px; 
+            border: 1px solid rgba(156, 163, 175, 0.1); 
+            border-radius: 6px;
         }
 
-        /* アコーディオン（<details>）のCSS調整 */
         .system-category summary {
-            /* summaryのデフォルトスタイルをリセットし、sidebar-linkのデザインを適用 */
             list-style: none;
             cursor: pointer;
             outline: none;
-            padding: 0;
-            margin: 0;
+            padding: 8px 12px;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            font-size: 0.95rem; 
+            color: #9ca3af; 
+            font-weight: 900;
+            transition: background-color 0.2s, color 0.2s;
+            border-radius: 4px;
+            border: none; 
         }
         .system-category summary::-webkit-details-marker {
             display: none;
         }
-        /* summaryとlinkのデザインを統合 */
-        .system-category .sidebar-link {
-             padding: 8px 12px;
-             margin-bottom: 4px; /* <summary>と次の要素の間隔 */
+        .system-category summary:hover {
+            background-color: #1f2937; 
+            color: #e5e7eb; 
         }
+        /* アクティブなsummaryのスタイル */
+        .system-category summary.active {
+            background-color: #1f2937; 
+            color: #22d3ee; 
+            font-weight: 900; 
+            border-radius: 5px 5px 0 0;
+        }
+        
+        /* アコーディオンアイコンのスタイル（三角） */
+        .accordion-icon {
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #9ca3af; 
+            transform: translateY(2px); 
+            transition: transform 0.3s ease-out, border-top-color 0.2s;
+            margin-left: 10px; 
+            flex-shrink: 0; 
+        }
+        /* summaryがactiveの時のアイコン色 */
+        .system-category summary.active .accordion-icon {
+            border-top-color: #22d3ee; 
+        }
+        /* detailsが開いた時のアイコン（上向きの矢印） */
+        details[open] .system-category summary .accordion-icon {
+            transform: translateY(-2px) rotate(180deg); 
+        }
+
         /* <details>展開時のリストの間隔調整 */
         .system-category-list {
-            padding-top: 4px; 
-            padding-bottom: 4px;
-            margin-left: -12px; /* sub-categoryのパディング調整用 */
+            padding: 4px 0;
+            margin-left: -12px; 
+            background-color: #111827; 
+            border-radius: 0 0 5px 5px;
+        }
+        
+        /* ラジオボタンのカスタムスタイル */
+        .custom-radio-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            font-size: 0.95rem;
+            color: #9ca3af;
+            font-weight: 900;
+        }
+
+        .custom-radio-label:hover {
+            background-color: #1f2937; 
+            color: #e5e7eb; 
+        }
+
+        /* 隠す元のラジオボタン */
+        .custom-radio-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+        }
+
+        /* カスタムチェックマークのコンテナ */
+        .radio-indicator {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #6b7280; 
+            margin-right: 10px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* チェックされた時のカスタムインジケータ */
+        .custom-radio-input:checked + .radio-indicator {
+            border-color: #22d3ee;
+        }
+
+        .custom-radio-input:checked + .radio-indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22d3ee; 
+            transform: translate(-50%, -50%);
+            display: block;
+        }
+
+        .custom-radio-input:checked ~ .radio-text {
+            color: #22d3ee; 
         }
 
     </style>
@@ -100,58 +207,57 @@
         </nav>
     </header>
 
-    <main class="max-w-6xl mx-auto py-12 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <main class="max-w-7xl mx-auto py-12 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> 
             
             <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
                 
-                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS // (系統カテゴリ)</h3>
+                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES //</h3>
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
                     <details class="system-category">
-                        <summary>
-                            <a href="feminine.html" class="sidebar-link">FEMININE (フェミニン)</a>
-                        </summary>
+                        <summary class="sidebar-link">FEMININE (フェミニン)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
-                            <a href="index.html" class="sub-category">GARLY (ガーリー)</a>
-                            <a href="sweet.html" class="sub-category">SWEET (スウィート)</a>
-                            <a href="elegant.html" class="sub-category">ELEGANT FEMININE (エレガントフェミニン)</a>
-                            <a href="romantic.html" class="sub-category">ROMANTIC (ロマンティック)</a>
-                            <a href="naturalfemi.html" class="sub-category">NATURAL FEMININE (ナチュラルフェミニン)</a>
-                            <a href="ladylike.html" class="sub-category">LADYLIKE (レディライク)</a>
+                            <a href="index.html" class="sub-category">GARLY</a>
+                            <a href="sweet.html" class="sub-category">SWEET</a>
+                            <a href="elegant.html" class="sub-category">ELEGANT FEMININE</a>
+                            <a href="romantic.html" class="sub-category">ROMANTIC</a>
+                            <a href="naturalfemi.html" class="sub-category">NATURAL FEMININE</a>
+                            <a href="ladylike.html" class="sub-category">LADYLIKE</a>
                         </div>
                     </details>
 
                     <details class="system-category" open>
-                        <summary>
-                            <a href="casual.html" class="sidebar-link active">CASUAL (カジュアル)</a>
-                        </summary>
+                        <summary class="sidebar-link">CASUAL (カジュアル)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
-                            <a href="casual.html" class="sub-category active">BASIC (ベーシック)</a>
-                            <a href="casual-street.html" class="sub-category">STREET (ストリート)</a>
-                            <a href="casual-sporty.html" class="sub-category">SPORTY (スポーティ)</a>
-                            <a href="casual-denim.html" class="sub-category">DENIM (デニム)</a>
-                            <a href="casual-natural.html" class="sub-category">NATURAL (ナチュラル)</a>
-                            <a href="casual-surf.html" class="sub-category">SURF / RELAX (サーフ／リラックス)</a>
-                            <a href="casual-military.html" class="sub-category">ARMY / MILITARY (アーミー／ミリタリー)</a>
+                            <a href="casual.html" class="sub-category">BASIC</a>
+                            <a href="casual-street.html" class="sub-category">STREET</a>
+                            <a href="casual-sporty.html" class="sub-category">SPORTY</a>
+                            <a href="casual-denim.html" class="sub-category">DENIM</a>
+                            <a href="casual-natural.html" class="sub-category">NATURAL</a>
+                            <a href="casual-surf.html" class="sub-category">SURF / RELAX</a>
+                            <a href="casual-military.html" class="sub-category">ARMY / MILITARY</a>
                         </div>
                     </details>
 
                     <details class="system-category">
-                        <summary>
-                            <a href="mode.html" class="sidebar-link">MODE (モード)</a>
-                        </summary>
-                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3 hidden">
-                            </div>
+                        <summary class="sidebar-link">MODE (モード)<span class="accordion-icon"></span></summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="mode-avantgarde.html" class="sub-category">AVANT-GARDE</a>
+                            <a href="mode-minimalism.html" class="sub-category">MINIMALISM</a>
+                            <a href="mode-black.html" class="sub-category">BLACK MODE</a>
+                            <a href="mode-stylish.html" class="sub-category">STYLISH</a>
+                        </div>
                     </details>
                     
                     <details class="system-category">
-                        <summary>
-                            <a href="elegant.html" class="sidebar-link">ELEGANT (エレガント)</a>
-                        </summary>
-                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3 hidden">
-                            </div>
+                        <summary class="sidebar-link">ELEGANT (エレガント)<span class="accordion-icon"></span></summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="elegant-office.html" class="sub-category">OFFICE / CONSERVATIVE</a>
+                            <a href="elegant-chic.html" class="sub-category">CHIC</a>
+                            <a href="elegant-minimal.html" class="sub-category">MINIMAL</a>
+                        </div>
                     </details>
 
                 </nav>
@@ -159,37 +265,52 @@
                 <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4 mt-6">FILTER //</h3>
                 
                 <div class="space-y-1 text-gray-400 mb-6">
-                    <p class="font-bold text-sm text-cyan-400 mb-2">PRICE RANGE</p>
-                    <a href="casual.html" class="sidebar-link active">~5,000 JPY (LOW)</a>
-                    <a href="casual-price_medium.html" class="sidebar-link">5K~10K JPY (MID)</a>
-                    <a href="casual-price_high.html" class="sidebar-link">10K~30K JPY (HIGH)</a>
+                    <p class="font-bold text-sm text-cyan-400 mb-2">年齢層</p>
+                    <label class="custom-radio-label">
+                        <input type="radio" name="age" value="all" class="custom-radio-input" checked>
+                        <span class="radio-indicator"></span>
+                        <span class="radio-text">ALL</span>
+                    </label>
+                    <label class="custom-radio-label">
+                        <input type="radio" name="age" value="24" class="custom-radio-input">
+                        <span class="radio-indicator"></span>
+                        <span class="radio-text">〜24歳</span>
+                    </label>
+                    <label class="custom-radio-label">
+                        <input type="radio" name="age" value="25-29" class="custom-radio-input">
+                        <span class="radio-indicator"></span>
+                        <span class="radio-text">25歳〜29歳</span>
+                    </label>
+                    <label class="custom-radio-label">
+                        <input type="radio" name="age" value="30+" class="custom-radio-input">
+                        <span class="radio-indicator"></span>
+                        <span class="radio-text">30歳以上</span>
+                    </label>
                 </div>
+                
+                <button class="w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition mt-4">
+                    検索 //
+                </button>
 
-                <div class="space-y-1 text-gray-400">
-                    <p class="font-bold text-sm text-cyan-400 mb-2">AGE TARGET</p>
-                    <a href="casual-20s.html" class="sidebar-link">~ 24 YEARS OLD</a>
-                    <a href="casual.html" class="sidebar-link active">25 ~ 29 YEARS OLD</a>
-                    <a href="casual-30s.html" class="sidebar-link">30+ YEARS OLD</a>
-                </div>
 
             </aside>
 
             <div class="md:col-span-3">
                 <p class="text-xs font-bold text-cyan-400 mb-2">// CURRENT FILTER</p>
                 <h1 class="text-3xl md:text-4xl font-extrabold text-gray-50 mb-2">
-                    CASUAL > BASIC // HIGH-GRADE LOW-COST
+                    CASUAL > BASIC // ESSENTIAL & TIMELESS
                 </h1>
                 <p class="text-gray-400 mb-8">
-                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / 25-29 y.o. / ~5,000 JPY**
+                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / ALL age**
                 </p>
                 
                 <div class="prose max-w-none">
                     <p class="text-lg mb-6 text-gray-300">
-                        ベーシックでありながら安っぽく見えない、20代後半の大人女性に向けたカジュアルブランドを厳選。着回し力と品質を兼ね備えたアイテムで、日々のスタイルをアップデート。
+                        デイリーユースに欠かせない、普遍的なデザインと高品質を両立したベーシックカジュアルブランドを厳選しました。トレンドに左右されない定番アイテムを見つけましょう。
                     </p>
         
                     <h2 class="text-2xl font-bold mt-10 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3" id="list">
-                        // CASUAL BRAND RANKING
+                        // RANKING
                     </h2>
         
                     <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-card">
@@ -199,15 +320,15 @@
                             </div>
                             <div class="w-full md:w-2/3">
                                 <div class="flex items-center mb-2">
-                                    <span class="bg-cyan-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">TOP RATED</span>
+                                    <span class="bg-cyan-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">MUST HAVE</span>
                                     <h3 class="text-2xl font-bold brand-name">BRAND C (EXAMPLE)</h3>
                                 </div>
                                 <p class="brand-detail mb-4">
-                                    **[DETAIL]:** 高品質なコットンやリネン素材を多用し、シンプルながら長く使える耐久性が魅力。大人カジュアルの定番を抑えています。
+                                    **[DETAIL]:** 高コスパで知られるユニセックスブランド。シンプルながら計算されたシルエットで、どんなスタイルにも馴染む。
                                 </p>
                                 <ul class="text-sm text-gray-400 mb-6 space-y-1">
                                     <li>PRICE: ~5,000 JPY</li>
-                                    <li>STYLE: Minimal, Natural Fiber, High Comfort</li>
+                                    <li>STYLE: Minimal, Unibasal, Quality Fabrics</li>
                                 </ul>
                                 <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition">
                                     ACCESS OFFICIAL SITE //
@@ -223,15 +344,15 @@
                             </div>
                             <div class="w-full md:w-2/3">
                                 <div class="flex items-center mb-2">
-                                    <span class="bg-gray-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">COST EFFECTIVE</span>
+                                    <span class="bg-gray-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">EASY CARE</span>
                                     <h3 class="text-2xl font-bold brand-name">BRAND D (EXAMPLE)</h3>
                                 </div>
                                 <p class="brand-detail mb-4">
-                                    **[DETAIL]:** トレンドを取り入れたTシャツやデニムを驚きの価格で提供。流行の色やシルエットを試すのに最適です。
+                                    **[DETAIL]:** リラックス感のある素材と、豊富なカラーバリエーションが魅力。自宅で手軽にケアできるアイテムが多い。
                                 </p>
                                 <ul class="text-sm text-gray-400 mb-6 space-y-1">
-                                    <li>PRICE: ~3,000 JPY</li>
-                                    <li>STYLE: Street Mix, Basic Items, Wide Range</li>
+                                    <li>PRICE: ~7,000 JPY</li>
+                                    <li>STYLE: Soft Textures, Relaxed Fit, Wide Range</li>
                                 </ul>
                                 <a href="#" class="block w-full text-center bg-gray-600 text-white font-bold py-3 rounded hover:bg-gray-500 transition">
                                     ACCESS OFFICIAL SITE //
@@ -241,12 +362,12 @@
                     </div>
                     
                     <h2 class="text-2xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
-                        // CASUAL STYLE UPGRADE TIPS
+                        // OPTIMIZATION TECHNIQUES (BASIC CASUAL)
                     </h2>
                     <ul class="list-disc list-inside text-gray-300 space-y-3">
-                        <li>**ACCESSORIZE:** カジュアルな服装には、**レザーバッグや華奢なネックレス**など、きれいめな小物をプラスして格上げする。</li>
-                        <li>**FIT CHECK:** オーバーサイズを選ぶ際も、**肩のラインや袖丈**が身体に合っているか確認し、だらしなく見えないようにする。</li>
-                        <li>**COORDINATE:** Tシャツやスウェットには、**あえてヒールのあるブーツやパンプス**を合わせ、女性らしさを残す。</li>
+                        <li>**FIT IS KEY:** シンプルなアイテムこそ、肩や裾の**サイズ感が重要**。試着でジャストフィットを探す。</li>
+                        <li>**FABRIC WEIGHT:** Tシャツやニットは**生地の厚み**を重視し、安っぽく見えないものを選ぶ。</li>
+                        <li>**COLOR BASE:** ベーシックカラー（白、黒、ネイビー）を基本に、**差し色を一点**投入して垢抜ける。</li>
                     </ul>
                 </div>
             </div>
@@ -255,8 +376,84 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.6</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V3.0</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const summaries = document.querySelectorAll('.system-category summary');
+            const subCategories = document.querySelectorAll('.sub-category');
+            
+            function deactivateAllSummaries() {
+                summaries.forEach(s => s.classList.remove('active'));
+            }
+
+            function setInitialActiveState() {
+                // 初期状態ではカテゴリリンクのアクティブ状態を設定
+                subCategories.forEach(sc => sc.classList.remove('active'));
+                deactivateAllSummaries();
+                
+                const currentPath = window.location.pathname.split('/').pop();
+
+                // 系統カテゴリのアクティブ化
+                subCategories.forEach(sub => {
+                    if (sub.getAttribute('href') && currentPath === sub.getAttribute('href').split('/').pop()) {
+                        sub.classList.add('active');
+                        const parentDetails = sub.closest('details');
+                        if (parentDetails) {
+                            const parentSummary = parentDetails.querySelector('summary');
+                            if (parentSummary) {
+                                parentSummary.classList.add('active');
+                                parentDetails.setAttribute('open', '');
+                            }
+                        }
+                    }
+                });
+
+                // casual.htmlの特殊な初期状態
+                if (currentPath === 'casual.html') {
+                    // CASUAL (summary) をアクティブ
+                    const casualSummary = document.querySelector('.system-category summary');
+                    if (casualSummary && casualSummary.textContent.includes('CASUAL')) {
+                        casualSummary.classList.add('active');
+                        casualSummary.closest('details').setAttribute('open', '');
+                    }
+                    // BASIC (sub-category) もアクティブ
+                    const basicSubCategory = document.querySelector('.sub-category[href="casual.html"]');
+                    if (basicSubCategory) {
+                        basicSubCategory.classList.add('active');
+                    }
+                    
+                    // 年齢層 ALL をチェック
+                    const ageAllRadio = document.querySelector('input[name="age"][value="all"]');
+                    if (ageAllRadio) {
+                        ageAllRadio.checked = true;
+                    }
+                }
+            }
+
+            // ページ読み込み時に初期アクティブ状態を設定
+            setInitialActiveState();
+
+            // 大分類（summary）のクリックイベント
+            summaries.forEach(summary => {
+                summary.addEventListener('click', (event) => {
+                    // クリックされたら、全てのsummaryのアクティブを解除して、自身をアクティブにする
+                    deactivateAllSummaries();
+                    summary.classList.add('active');
+                });
+            });
+
+            // ラジオボタンの変更イベント (動作確認用)
+            const radioInputs = document.querySelectorAll('.custom-radio-input');
+            radioInputs.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    console.log(`Filter changed: ${radio.name} = ${radio.value}`);
+                });
+            });
+
+        });
+    </script>
 
 </body>
 </html>
