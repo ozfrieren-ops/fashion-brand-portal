@@ -46,7 +46,7 @@
             transition: background-color 0.2s;
             color: #9ca3af; 
             text-decoration: none;
-            white-space: nowrap; /* テキストの折り返しを防止 */
+            /* テキストの折り返しはサイドバーの幅で解決を図るが、念のため設定はそのままに */
         }
         .sub-category:hover {
             background-color: #1f2937; 
@@ -69,13 +69,11 @@
         
         /* --- アコーディオン（<details>）のCSS調整 --- */
         .system-category {
-            margin-bottom: 8px; /* <details>間の間隔を広げた */
+            margin-bottom: 8px; 
             /* 大分類のうっすら罫線（<details>全体を囲む） */
-            border: 1px solid rgba(156, 163, 175, 0.1); /* Gray 400 の透明度10% */
+            border: 1px solid rgba(156, 163, 175, 0.1); 
             border-radius: 6px;
         }
-        /* <details>が開いている時、borderを強調しない */
-        /* details[open].system-category { border-color: #22d3ee; } */ 
 
         .system-category summary {
             list-style: none;
@@ -90,7 +88,7 @@
             font-weight: 900;
             transition: background-color 0.2s, color 0.2s;
             border-radius: 4px;
-            border: none; /* summary自体の境界線を削除 */
+            border: none; 
         }
         .system-category summary::-webkit-details-marker {
             display: none;
@@ -104,7 +102,6 @@
             background-color: #1f2937; 
             color: #22d3ee; 
             font-weight: 900; 
-            /* アクティブ時はsummaryの上下の角を丸くしない */
             border-radius: 5px 5px 0 0;
         }
         
@@ -115,14 +112,14 @@
             height: 0;
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
-            border-top: 5px solid #9ca3af; /* 下向きの矢印（閉じている状態） */
+            border-top: 5px solid #9ca3af; 
             transform: translateY(2px); 
             transition: transform 0.3s ease-out, border-top-color 0.2s;
-            margin-left: 10px; /* テキストとの間隔 */
+            margin-left: 10px; 
         }
         /* summaryがactiveの時のアイコン色 */
         .system-category summary.active .accordion-icon {
-            border-top-color: #22d3ee; /* アクティブ時の矢印色 */
+            border-top-color: #22d3ee; 
         }
         /* detailsが開いた時のアイコン（上向きの矢印） */
         details[open] .system-category summary .accordion-icon {
@@ -133,16 +130,14 @@
         .system-category-list {
             padding: 4px 0;
             margin-left: -12px; 
-            background-color: #111827; /* 展開時の背景色を濃くして、囲まれている感を出す */
+            background-color: #111827; 
             border-radius: 0 0 5px 5px;
-        }
-        .system-category-list a {
-            white-space: normal; /* sub-category内のテキスト折り返しを許可 */
         }
 
         /* グリッドレイアウトの調整（サイドバーの幅を相対的に広くする） */
+        /* サイドバーに最低280pxを確保し、残りをメインコンテンツに割り当てる */
         .custom-grid {
-            grid-template-columns: minmax(250px, 1fr) 3fr; /* サイドバーの最小幅を確保しつつ、メインを広く */
+            grid-template-columns: minmax(280px, 1fr) 2.5fr; 
         }
     </style>
 </head>
@@ -157,7 +152,7 @@
     </header>
 
     <main class="max-w-6xl mx-auto py-12 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 custom-grid"> 
+        <div class="grid grid-cols-1 gap-8 custom-grid"> 
             
             <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
                 
@@ -303,12 +298,11 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.3</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.4</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const systemCategories = document.querySelectorAll('.system-category');
             const summaries = document.querySelectorAll('.system-category summary');
             const subCategories = document.querySelectorAll('.sub-category');
             const filterLinks = document.querySelectorAll('aside nav:nth-of-type(2) .sidebar-link, aside nav:nth-of-type(3) .sidebar-link');
@@ -319,7 +313,6 @@
                 filterLinks.forEach(fl => fl.classList.remove('active'));
             }
 
-            // URLパスに基づいて初期アクティブ状態を設定する関数
             function setInitialActiveState() {
                 deactivateAll(); 
                 const currentPath = window.location.pathname.split('/').pop();
@@ -378,10 +371,8 @@
             // 大分類（summary）のクリックイベント
             summaries.forEach(summary => {
                 summary.addEventListener('click', (event) => {
-                    // クリックしてもリンク遷移はないため、activeクラスの切り替えは不要（ページ遷移時にsetInitialActiveStateが処理するため）
-                    // リンク（sub-category）ではないため、activeクラスは維持されるべき
-                    
                     // クリックされたら、全てのsummaryのアクティブを解除して、自身をアクティブにする
+                    // これは、アコーディオンを開閉した時に、その大分類が選択されている状態を維持するため
                     summaries.forEach(s => s.classList.remove('active'));
                     summary.classList.add('active');
                 });
