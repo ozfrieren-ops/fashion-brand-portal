@@ -6,30 +6,34 @@
     <title>【女性向け・ガーリー系】20代後半向けブランド一覧 | FASHION NAVI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; }
         .brand-card-img { height: 16rem; } 
         
-        .brand-name { color: #059669; }
-        .brand-detail { color: #4b5563; }
+        /* ダークモードの配色 */
+        .brand-name { color: #22d3ee; } /* Cyan 400 */
+        .brand-detail { color: #d1d5db; } /* Gray 300 */
 
+        /* 近未来的なサイドバーデザイン */
         .sidebar-link {
             padding: 8px 12px;
             display: block;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, border-color 0.2s;
             font-size: 0.95rem;
+            color: #9ca3af; /* Gray 400 */
+            border: 1px solid transparent;
         }
-        /* 通常のホバーカラーを上品な薄い緑に */
         .sidebar-link:hover {
-            background-color: #f0fdf4; /* Emerald 50 */
+            background-color: #1f2937; /* Gray 800 */
+            color: #e5e7eb; /* Gray 200 */
         }
-        /* 大分類のアクティブリンク：ターコイズ系にしてクールでモダンな印象に */
+        /* 大分類のアクティブリンク：ネオンシアンの枠線とテキスト */
         .sidebar-link.active {
-            background-color: #06B6D4; /* Cyan 500 */
-            color: white;
+            background-color: #1f2937; /* Gray 800 */
+            color: #22d3ee; /* Cyan 400 */
             font-weight: bold;
-            box-shadow: 0 4px 6px -1px rgba(6, 182, 212, 0.4); /* 影をつけて浮き立たせる */
+            border-color: #22d3ee; /* Cyan 400 */
         }
         
         /* 中分類のスタイル */
@@ -38,153 +42,172 @@
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
+            color: #9ca3af; /* Gray 400 */
         }
         .sub-category:hover {
-            background-color: #e0f2f1; /* Teal 100 */
+            background-color: #1f2937; 
         }
-        /* アクティブな中分類（現在ガーリー）の背景をより薄く上品に */
+        /* アクティブな中分類（現在ガーリー） */
         .sub-category.active {
-            background-color: #CCFBF1; /* Teal 200より薄い色 */
-            color: #0F766E; /* Teal 700で文字を濃く */
+            color: #22d3ee; /* Cyan 400 */
             font-weight: bold;
+            background-color: #111827; /* Gray 900より濃い */
+            border-left: 3px solid #22d3ee; /* 左側にライン */
+            padding-left: 17px;
         }
 
+        /* カードデザインの変更 */
+        .brand-card {
+            background-color: #1f2937; /* Gray 800 */
+            border-top: none; /* 上のボーダーを削除 */
+            border-left: 4px solid #06b6d4; /* モダンな左ライン */
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 pt-16">
+<body class="bg-gray-900 text-gray-200 pt-16">
 
-    <header class="w-full py-4 px-6 bg-white shadow-md flex justify-between items-center fixed top-0 z-50">
-        <div class="text-xl font-bold text-emerald-600"><a href="index.html">FASHION NAVI</a></div>
+    <header class="w-full py-4 px-6 bg-gray-800 shadow-xl flex justify-between items-center fixed top-0 z-50 border-b border-cyan-800">
+        <div class="text-xl font-black text-cyan-400"><a href="index.html">FASHION NAVI //</a></div>
         <nav>
-            <a href="index.html" class="px-4 py-2 text-emerald-600 font-semibold border-b-2 border-emerald-600 transition">ブランド一覧 (女性)</a>
-            <a href="age.html" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition">年代別 (未作成)</a>
+            <a href="index.html" class="px-4 py-2 text-cyan-400 font-bold border-b-2 border-cyan-400 transition">BRANDS</a>
+            <a href="age.html" class="px-4 py-2 text-gray-400 hover:text-cyan-400 transition">AGE //</a>
         </nav>
     </header>
 
     <main class="max-w-6xl mx-auto py-12 px-6">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             
-            <aside class="md:col-span-1 bg-white p-6 rounded-xl shadow-lg h-fit sticky top-20">
+            <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
                 
-                <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">系統カテゴリ (大分類)</h3>
+                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS //</h3>
                 
-                <nav class="space-y-3 text-gray-700 mb-6">
+                <nav class="space-y-3 text-gray-400 mb-6">
                     
                     <div>
-                        <a href="feminine.html" class="sidebar-link active">💖 フェミニン</a>
-                        <div class="mt-1 space-y-0.5 text-sm text-gray-600 border-l border-emerald-200 ml-3">
-                            <a href="index.html" class="sub-category active">✅ ガーリー (表示中)</a>
-                            <a href="sweet.html" class="sub-category">スウィート</a>
-                            <a href="elegant.html" class="sub-category">エレガント</a>
-                            <a href="consa.html" class="sub-category">コンサバ</a>
-                            <a href="romantic.html" class="sub-category">ロマンティック</a>
-                            <a href="oneesan.html" class="sub-category">お姉さん系</a>
+                        <a href="feminine.html" class="sidebar-link active">💖 FEMININE (フェミニン)</a>
+                        <div class="mt-2 space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="index.html" class="sub-category active">GARLY (ガーリー)</a>
+                            <a href="sweet.html" class="sub-category">SWEET (スウィート)</a>
+                            <a href="elegant.html" class="sub-category">ELEGANT (エレガント)</a>
+                            <a href="consa.html" class="sub-category">CONSERVATIVE (コンサバ)</a>
+                            <a href="romantic.html" class="sub-category">ROMANTIC (ロマンティック)</a>
                         </div>
                     </div>
 
                     <div>
-                        <a href="casual.html" class="sidebar-link">👖 カジュアル</a>
-                        <div class="mt-1 space-y-0.5 text-sm text-gray-600 border-l border-gray-200 ml-3 hidden">
-                            <a href="kireic.html" class="sub-category">キレイめカジュアル</a>
-                            <a href="otona.html" class="sub-category">大人カジュアル</a>
+                        <a href="casual.html" class="sidebar-link">👖 CASUAL (カジュアル)</a>
+                        <div class="mt-2 space-y-0.5 text-sm text-gray-400 ml-3 hidden">
+                            <a href="kireic.html" class="sub-category">CLEAN CASUAL</a>
+                            <a href="otona.html" class="sub-category">ADULT CASUAL</a>
                         </div>
                     </div>
 
-                    <a href="mode.html" class="sidebar-link">⚫️ クール・モード</a>
+                    <a href="mode.html" class="sidebar-link">⚫️ COOL / MODE</a>
                     
-                    <a href="classic.html" class="sidebar-link">📚 クラシック</a>
+                    <a href="classic.html" class="sidebar-link">📚 CLASSIC</a>
 
                 </nav>
 
-                <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4 mt-6">絞り込み条件（その他）</h3>
+                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4 mt-6">FILTER //</h3>
                 
-                <div class="space-y-1 text-gray-700 mb-6">
-                    <p class="font-semibold text-sm text-emerald-600 mb-2">価格帯</p>
-                    <a href="index.html" class="sidebar-link active">✅ 〜5,000円 (プチプラ)</a>
-                    <a href="price_medium.html" class="sidebar-link">5,000円〜1万円 (ミドル)</a>
-                    <a href="price_high.html" class="sidebar-link">1万円〜3万円 (高見え)</a>
+                <div class="space-y-1 text-gray-400 mb-6">
+                    <p class="font-bold text-sm text-cyan-400 mb-2">PRICE RANGE</p>
+                    <a href="index.html" class="sidebar-link active">~5,000 JPY (LOW)</a>
+                    <a href="price_medium.html" class="sidebar-link">5K~10K JPY (MID)</a>
+                    <a href="price_high.html" class="sidebar-link">10K~30K JPY (HIGH)</a>
                 </div>
 
-                <div class="space-y-1 text-gray-700">
-                    <p class="font-semibold text-sm text-emerald-600 mb-2">年齢層</p>
-                    <a href="girly_20s.html" class="sidebar-link">20代前半まで</a>
-                    <a href="index.html" class="sidebar-link active">20代後半 (表示中)</a>
-                    <a href="girly_30s.html" class="sidebar-link">30代</a>
+                <div class="space-y-1 text-gray-400">
+                    <p class="font-bold text-sm text-cyan-400 mb-2">AGE TARGET</p>
+                    <a href="girly_20s.html" class="sidebar-link">~ 24 YEARS OLD</a>
+                    <a href="index.html" class="sidebar-link active">25 ~ 29 YEARS OLD</a>
+                    <a href="girly_30s.html" class="sidebar-link">30+ YEARS OLD</a>
                 </div>
 
             </aside>
 
             <div class="md:col-span-3">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                    【ガーリー系×プチプラ】20代後半向け！高見えブランド10選
+                <p class="text-xs font-bold text-cyan-400 mb-2">// CURRENT FILTER</p>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-50 mb-2">
+                    FEMININE > GARLY // HIGH-GRADE LOW-COST
                 </h1>
-                <p class="text-gray-500 mb-8">
-                    <span class="font-bold text-emerald-600">現在の絞り込み:</span> **フェミニン > ガーリー / 〜5,000円 / 20代後半**
+                <p class="text-gray-400 mb-8">
+                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / 25-29 y.o. / ~5,000 JPY**
                 </p>
                 
                 <div class="prose max-w-none">
-                    <p class="text-lg mb-6">
-                        「大人になってもガーリーが好き」「でも若作りには見られたくない」という悩みを解決！フェミニンさを保ちつつ、オフィスにもデートにも使える、上品な高見えガーリーブランドだけを厳選しました。
+                    <p class="text-lg mb-6 text-gray-300">
+                        ターゲット層の悩みを解決する導入文。上品な高見えガーリーブランドだけを厳選しました。
                     </p>
         
-                    <h2 class="text-2xl font-bold mt-10 mb-6 text-emerald-600 border-l-4 border-emerald-600 pl-3" id="list">
-                        👑 厳選！ガーリーブランド ランキング
+                    <h2 class="text-2xl font-bold mt-10 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3" id="list">
+                        // RANKING
                     </h2>
         
-                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border-t-8 border-emerald-400">
+                    <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-card">
                         <div class="flex flex-col md:flex-row gap-6">
-                            <div class="w-full md:w-1/3 bg-gray-100 brand-card-img rounded-lg flex items-center justify-center text-gray-400">
-                                <span>[ガーリーブランド A の画像]</span>
+                            <div class="w-full md:w-1/3 bg-gray-700 brand-card-img rounded-lg flex items-center justify-center text-gray-500">
+                                <span>[GARLY BRAND A IMAGE]</span>
                             </div>
                             <div class="w-full md:w-2/3">
                                 <div class="flex items-center mb-2">
-                                    <span class="bg-yellow-400 text-xs font-bold px-2 py-1 rounded text-white mr-2">No.1 定番</span>
-                                    <h3 class="text-2xl font-bold brand-name">ブランド A（仮）</h3>
+                                    <span class="bg-cyan-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">TOP RATED</span>
+                                    <h3 class="text-2xl font-bold brand-name">BRAND A (EXAMPLE)</h3>
                                 </div>
                                 <p class="brand-detail mb-4">
-                                    **【選定理由】** 生地感とシルエットへのこだわりが群を抜いており、特にセットアップやアウター類は1万円以上の価値に見えます。トレンドを取り入れつつも失敗が少ない、まさに高見えの定番です。
+                                    **[DETAIL]:** 高品質な生地と洗練されたシルエットで、価格以上の価値を提供。定番アイテムからトレンドまで網羅。
                                 </p>
-                                <ul class="text-sm text-gray-500 mb-6 space-y-1">
-                                    <li>✅ 価格帯: 〜5,000円</li>
-                                    <li>✅ 特徴: 花柄、パフスリーブ、上品</li>
+                                <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                                    <li>PRICE: ~5,000 JPY</li>
+                                    <li>STYLE: Florals, Puff Sleeves, Elegant</li>
                                 </ul>
-                                <a href="#" class="block w-full text-center bg-emerald-500 text-white font-bold py-3 rounded hover:bg-emerald-600 transition">
-                                    公式サイトで最新アイテムをチェック &rarr;
+                                <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition">
+                                    ACCESS OFFICIAL SITE //
                                 </a>
                             </div>
                         </div>
                     </div>
         
-                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border-t-4 border-gray-300">
+                    <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-card">
                         <div class="flex flex-col md:flex-row gap-6">
-                            <div class="w-full md:w-1/3 bg-gray-100 brand-card-img rounded-lg flex items-center justify-center text-gray-400">
-                                <span>[ガーリーブランド B の画像]</span>
+                            <div class="w-full md:w-1/3 bg-gray-700 brand-card-img rounded-lg flex items-center justify-center text-gray-500">
+                                <span>[GARLY BRAND B IMAGE]</span>
                             </div>
                             <div class="w-full md:w-2/3">
                                 <div class="flex items-center mb-2">
-                                    <span class="bg-gray-400 text-xs font-bold px-2 py-1 rounded text-white mr-2">No.2 トレンド重視</span>
-                                    <h3 class="text-2xl font-bold brand-name">ブランド B（仮）</h3>
+                                    <span class="bg-gray-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">TREND FOCUS</span>
+                                    <h3 class="text-2xl font-bold brand-name">BRAND B (EXAMPLE)</h3>
                                 </div>
                                 <p class="brand-detail mb-4">
-                                    **【選定理由】** 韓国ファッションや最新の海外トレンドを即座に取り入れる速さが魅力。流行りのアイテムを試したいけれど予算を抑えたい方に最適です。サイズ展開が豊富な点も強み。
+                                    **[DETAIL]:** 韓国ファッションなどの最新トレンドを最速で取り入れ。手軽に旬のスタイルに挑戦可能。
                                 </p>
-                                <ul class="text-sm text-gray-500 mb-6 space-y-1">
-                                    <li>✅ 価格帯: 〜3,000円</li>
-                                    <li>✅ 特徴: 柔らかい素材、くすみカラー、体型カバー</li>
+                                <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                                    <li>PRICE: ~3,000 JPY</li>
+                                    <li>STYLE: Soft Textures, Muted Colors, Body Cover</li>
                                 </ul>
-                                <a href="#" class="block w-full text-center bg-gray-800 text-white font-bold py-3 rounded hover:bg-gray-900 transition">
-                                    公式サイトで最新アイテムをチェック &rarr;
+                                <a href="#" class="block w-full text-center bg-gray-600 text-white font-bold py-3 rounded hover:bg-gray-500 transition">
+                                    ACCESS OFFICIAL SITE //
                                 </a>
                             </div>
                         </div>
                     </div>
+                    
+                    <h2 class="text-2xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                        // OPTIMIZATION TECHNIQUES
+                    </h2>
+                    <ul class="list-disc list-inside text-gray-300 space-y-3">
+                        <li>**FABRIC CHECK:** シワになりにくい**ハリのある素材**を選ぶことで、安っぽさを回避する。</li>
+                        <li>**BALANCE:** 甘いデザインのアイテムには、**シンプルでタイト**なボトムスでバランスを取る。</li>
+                        <li>**ACCESSORIES:** 高見えする**シンプルな金属アクセサリー**で、大人っぽい格上げを図る。</li>
+                    </ul>
                 </div>
             </div>
+            
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8 text-center mt-12">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. All rights reserved.</p>
+    <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.2</p>
     </footer>
 
 </body>
