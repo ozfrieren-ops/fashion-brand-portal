@@ -14,24 +14,62 @@
             font-family: 'Audiowide', cursive; /* ロゴ専用フォント */
         }
         .system-list-img { height: 12rem; } 
-        
-        /* ... 省略 ... (サイドバーCSS、アコーディオンCSSはgarly.htmlと同じものを適用) */
 
-        /* --- アコーディオン（<details>）のCSS調整 --- */
-        /* 【修正4】＋/− のスタイルも garly.html と共通 */
-        .system-category summary::after {
-            content: '+'; 
-            font-size: 1rem;
-            line-height: 1;
-            margin-left: 10px;
-            transition: transform 0.2s;
-            font-weight: 900; 
-            color: #22d3ee; 
+        /* ---------------------------------------------------- */
+        /* サイドバー共通スタイル */
+        /* ---------------------------------------------------- */
+        
+        /* 大カテゴリのスタイル (FEMININE, CASUALなど) */
+        .main-category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            position: relative;
         }
 
-        .system-category[open] summary::after {
-            content: '−'; 
-            transform: rotate(0deg); 
+        /* ＋/− アイコンのCSS（ダミーアコーディオン） */
+        .main-category-item::after {
+            content: '▼'; /* ダウンアローをデフォルトアイコンに */
+            font-size: 0.6rem;
+            color: #22d3ee;
+            transition: transform 0.2s;
+        }
+        .main-category-item.expanded::after {
+            content: '▲'; /* 展開時はアップアロー */
+        }
+
+        /* サブカテゴリのリスト（GARLY, SWEETなど） */
+        .sub-category-list {
+            padding-left: 12px;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            border-left: 2px solid #06b6d4;
+        }
+        .sub-category-link {
+            padding: 4px 12px;
+            display: block;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            color: #ccc;
+            transition: background-color 0.2s;
+        }
+        .sub-category-link:hover {
+            background-color: #1f2937;
+            color: #fff;
+        }
+        
+        /* アクティブなリンク */
+        .active-link {
+            background-color: #06b6d4 !important;
+            color: #000 !important;
+            font-weight: 700;
         }
         
     </style>
@@ -52,17 +90,45 @@
             
             <aside class="w-full lg:w-72 bg-gray-800 p-4 lg:p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700 flex-shrink-0">
                 
-                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">STYLE CATEGORIES</h3>
+                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
-                    <a href="index.html" class="sidebar-link top-active hover:bg-gray-700 hover:border-gray-500 border-gray-700 mb-4 font-extrabold text-white">
+                    <a href="index.html" class="active-link hover:bg-cyan-700 block px-3 py-2 rounded font-extrabold mb-4" id="top-link">
                         TOP
                     </a>
                     
-                    </nav>
+                    <div class="main-category-item expanded">
+                        <span>FEMININE (フェミニン)</span>
+                    </div>
+                    <div class="sub-category-list space-y-0.5">
+                        <a href="garly.html" class="sub-category-link">GARLY (ガーリー)</a>
+                        <a href="#" class="sub-category-link">SWEET (スウィート)</a>
+                        <a href="#" class="sub-category-link">ELEGANT FEMININE (エレガントフェミニン)</a>
+                        </div>
+                    
+                    <div class="main-category-item">
+                        <span>CASUAL (カジュアル)</span>
+                    </div>
+                    <div class="sub-category-list hidden space-y-0.5">
+                        </div>
 
-            </aside>
+                    <div class="main-category-item">
+                        <span>MODE (モード)</span>
+                    </div>
+                    <div class="sub-category-list hidden space-y-0.5">
+                        </div>
+
+                    <div class="main-category-item">
+                        <span>ELEGANT (エレガント)</span>
+                    </div>
+                    <div class="sub-category-list hidden space-y-0.5">
+                        </div>
+
+                </nav>
+                
+                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mt-6 mb-4">FILTER //</h3>
+                </aside>
 
             <div class="flex-grow">
                 
