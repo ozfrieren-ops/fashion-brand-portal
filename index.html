@@ -15,7 +15,6 @@
         .brand-detail { color: #d1d5db; } /* Gray 300 */
 
         /* 近未来的なサイドバーデザイン */
-        /* sidebar-linkは<summary>と<a href>の共通スタイルとして使用 */
         .sidebar-link {
             padding: 8px 12px;
             display: block;
@@ -24,8 +23,8 @@
             font-size: 0.95rem; 
             color: #9ca3af; /* Gray 400 */
             border: 1px solid transparent;
-            font-weight: 900; /* 大分類の太字を維持 */
-            text-decoration: none; /* <a>タグのデフォルトの下線削除 */
+            font-weight: 900; 
+            text-decoration: none; 
         }
         .sidebar-link:hover {
             background-color: #1f2937; /* Gray 800 */
@@ -69,43 +68,111 @@
         
         /* --- アコーディオン（<details>）のCSS調整 --- */
         .system-category {
-            margin-bottom: 4px; /* <details>間の間隔調整 */
+            margin-bottom: 4px; 
         }
         .system-category summary {
-            /* summaryのデフォルトのマーカー（三角や矢印）を非表示にする */
             list-style: none;
             cursor: pointer;
             outline: none;
-            /* summaryにsidebar-linkのスタイルを適用 */
             padding: 8px 12px;
-            display: block;
+            display: flex; /* Flexboxでテキストとアイコンを配置 */
+            justify-content: space-between; /* 左右に配置 */
+            align-items: center; /* 垂直中央揃え */
             border-radius: 4px;
-            transition: background-color 0.2s, border-color 0.2s;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
             font-size: 0.95rem; 
             color: #9ca3af; 
             border: 1px solid transparent;
             font-weight: 900;
+            /* 大分類のうっすら罫線 */
+            border-bottom: 1px solid rgba(156, 163, 175, 0.2); /* Gray 400 の透明度20% */
+            margin-bottom: 4px; /* 下線と次のアコーディオンの間隔 */
         }
         .system-category summary::-webkit-details-marker {
             display: none;
         }
         .system-category summary:hover {
-            background-color: #1f2937; /* Gray 800 */
-            color: #e5e7eb; /* Gray 200 */
+            background-color: #1f2937; 
+            color: #e5e7eb; 
         }
         /* アクティブなsummaryのスタイル */
         .system-category summary.active {
-            background-color: #1f2937; /* Gray 800 */
-            color: #22d3ee; /* Cyan 400 */
+            background-color: #1f2937; 
+            color: #22d3ee; 
             font-weight: 900; 
-            border-color: #22d3ee; /* Cyan 400 */
+            border-color: #22d3ee; 
+            border-bottom-color: #22d3ee; /* アクティブ時は下線も強調 */
         }
         
+        /* アコーディオンアイコンのスタイル */
+        .accordion-icon {
+            display: block;
+            position: relative;
+            width: 16px; /* アイコン全体の幅 */
+            height: 16px; /* アイコン全体の高さ */
+            transform-origin: center center;
+            transition: transform 0.3s ease-out;
+        }
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: "";
+            position: absolute;
+            display: block;
+            background-color: #9ca3af; /* アイコンの色 */
+            transition: background-color 0.2s;
+        }
+        .accordion-icon::before {
+            width: 2px; /* 縦棒の太さ */
+            height: 12px; /* 縦棒の長さ */
+            left: 7px; /* 中央に配置 */
+            top: 2px; /* 上からの位置 */
+            transform: rotate(0deg); /* 初期状態 */
+        }
+        .accordion-icon::after {
+            width: 12px; /* 横棒の長さ */
+            height: 2px; /* 横棒の太さ */
+            left: 2px; /* 左からの位置 */
+            top: 7px; /* 中央に配置 */
+            transform: rotate(0deg); /* 初期状態 */
+        }
+        /* summaryがactiveの時のアイコン色 */
+        .system-category summary.active .accordion-icon::before,
+        .system-category summary.active .accordion-icon::after {
+            background-color: #22d3ee; /* アクティブ時のアイコン色 */
+        }
+
+        /* detailsが開いた時のアイコン（縦棒を非表示にする、または回転させる） */
+        details[open] .accordion-icon::before {
+            transform: rotate(90deg); /* 縦棒を回転させて横棒と重ねる（プラス記号がマイナスになるイメージ） */
+            opacity: 0; /* 完全に消す場合はこちら */
+        }
+        details[open] .accordion-icon::after {
+            transform: rotate(0deg); /* 横棒はそのまま */
+        }
+        /* もしくはシンプルに矢印の向きを変えるパターン */
+        .system-category summary .accordion-icon {
+             /* 擬似要素で三角を作成する */
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #9ca3af; /* 下向きの矢印 */
+            transform: translateY(2px); /* 少し下にずらす */
+            transition: transform 0.2s ease-out, border-top-color 0.2s;
+            position: static; /* spanに直接アイコン化 */
+        }
+        .system-category summary.active .accordion-icon {
+            border-top-color: #22d3ee; /* アクティブ時の矢印色 */
+        }
+        details[open] .system-category summary .accordion-icon {
+            transform: translateY(-2px) rotate(180deg); /* 開いたら上向きに回転 */
+        }
+
         /* <details>展開時のリストの間隔調整 */
         .system-category-list {
             padding-top: 4px; 
             padding-bottom: 4px;
-            margin-left: -12px; /* sub-categoryのパディング調整用 */
+            margin-left: -12px; 
         }
     </style>
 </head>
@@ -129,7 +196,7 @@
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
                     <details class="system-category" open>
-                        <summary class="sidebar-link">FEMININE (フェミニン)</summary>
+                        <summary class="sidebar-link">FEMININE (フェミニン)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="index.html" class="sub-category">GARLY (ガーリー)</a>
                             <a href="sweet.html" class="sub-category">SWEET (スウィート)</a>
@@ -141,7 +208,7 @@
                     </details>
 
                     <details class="system-category">
-                        <summary class="sidebar-link">CASUAL (カジュアル)</summary>
+                        <summary class="sidebar-link">CASUAL (カジュアル)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="casual.html" class="sub-category">BASIC (ベーシック)</a>
                             <a href="casual-street.html" class="sub-category">STREET (ストリート)</a>
@@ -154,13 +221,13 @@
                     </details>
 
                     <details class="system-category">
-                        <summary class="sidebar-link">MODE (モード)</summary>
+                        <summary class="sidebar-link">MODE (モード)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             </div>
                     </details>
                     
                     <details class="system-category">
-                        <summary class="sidebar-link">ELEGANT (エレガント)</summary>
+                        <summary class="sidebar-link">ELEGANT (エレガント)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             </div>
                     </details>
@@ -266,7 +333,7 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.1</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.2</p>
     </footer>
 
     <script>
@@ -274,7 +341,7 @@
             const systemCategories = document.querySelectorAll('.system-category');
             const summaries = document.querySelectorAll('.system-category summary');
             const subCategories = document.querySelectorAll('.sub-category');
-            const filterLinks = document.querySelectorAll('aside nav:nth-of-type(2) .sidebar-link'); // PRICE RANGE & AGE TARGET
+            const filterLinks = document.querySelectorAll('aside nav:nth-of-type(2) .sidebar-link, aside nav:nth-of-type(3) .sidebar-link'); // PRICE RANGE & AGE TARGET
 
             function deactivateAll() {
                 summaries.forEach(s => s.classList.remove('active'));
@@ -282,146 +349,106 @@
                 filterLinks.forEach(fl => fl.classList.remove('active'));
             }
 
-            // 初期アクティブ状態の設定（URLに基づいた処理）
-            const currentPath = window.location.pathname.split('/').pop();
+            // URLパスに基づいて初期アクティブ状態を設定する関数
+            function setInitialActiveState() {
+                deactivateAll(); // まず全て非アクティブにする
+                const currentPath = window.location.pathname.split('/').pop();
 
-            if (currentPath === 'index.html' || currentPath === '') {
-                // FEMININE (summary) をアクティブ
-                const feminineSummary = document.querySelector('summary.sidebar-link');
-                if (feminineSummary && feminineSummary.textContent.includes('FEMININE')) {
-                    feminineSummary.classList.add('active');
-                    // GARLY (sub-category) もアクティブ
-                    const girlySubCategory = document.querySelector('.sub-category[href="index.html"]');
-                    if (girlySubCategory) {
-                        girlySubCategory.classList.add('active');
-                        // 親のdetailsを開く
-                        girlySubCategory.closest('details').setAttribute('open', '');
-                    }
-                }
-                // PRICE RANGEの'~5,000 JPY (LOW)' をアクティブ
-                const priceLowLink = document.querySelector('aside nav:nth-of-type(2) .sidebar-link[href="index.html"]');
-                if (priceLowLink) {
-                    priceLowLink.classList.add('active');
-                }
-                // AGE TARGETの'25 ~ 29 YEARS OLD' をアクティブ
-                const ageMidLink = document.querySelector('aside nav:nth-of-type(3) .sidebar-link[href="index.html"]');
-                if (ageMidLink) {
-                    ageMidLink.classList.add('active');
-                }
-
-            } else {
-                // その他のページの場合、URLパスと一致するリンクをアクティブにする
-                const activeElement = document.querySelector(`[href="${currentPath}"]`);
-                if (activeElement) {
-                    activeElement.classList.add('active');
-                    // もしsub-categoryがアクティブになった場合、その親のsummaryもアクティブにする
-                    if (activeElement.classList.contains('sub-category')) {
-                        const parentDetails = activeElement.closest('details');
+                // 系統カテゴリのアクティブ化
+                let foundSystemActive = false;
+                subCategories.forEach(sub => {
+                    // sub.getAttribute('href')がnullでないことを確認
+                    if (sub.getAttribute('href') && currentPath === sub.getAttribute('href').split('/').pop()) {
+                        sub.classList.add('active');
+                        const parentDetails = sub.closest('details');
                         if (parentDetails) {
                             const parentSummary = parentDetails.querySelector('summary');
                             if (parentSummary) {
                                 parentSummary.classList.add('active');
                                 parentDetails.setAttribute('open', ''); // 親のdetailsを開く
+                                foundSystemActive = true;
                             }
                         }
-                    } else if (activeElement.classList.contains('sidebar-link')) { // 大分類のsummaryが直接リンクの場合
-                        const parentDetails = activeElement.closest('details');
-                        if (parentDetails) {
-                            parentDetails.setAttribute('open', ''); // 親のdetailsを開く
+                    }
+                });
+                
+                // もしサブカテゴリでアクティブが見つからなかった場合、summary自体がアクティブになるケース
+                if (!foundSystemActive) {
+                    summaries.forEach(summary => {
+                        // summaryは直接リンクではないが、対応するページがアクティブの場合に備える
+                        // (現状の設計ではsummaryは直接ページ遷移しないため、このロジックは限定的)
+                        // 例: casual.htmlが直接開かれた場合、CASUAL summaryをアクティブにする
+                        const summaryText = summary.textContent.split('(')[0].trim().toLowerCase(); // 'FEMININE'など
+                        if (currentPath.includes(summaryText + '.html')) { // 例: casual.htmlがURLに含まれる場合
+                            summary.classList.add('active');
+                            summary.closest('details').setAttribute('open', '');
                         }
+                    });
+                }
+
+
+                // FILTER部分のアクティブ化
+                filterLinks.forEach(link => {
+                     // link.getAttribute('href')がnullでないことを確認
+                    if (link.getAttribute('href') && currentPath === link.getAttribute('href').split('/').pop()) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // index.htmlの特殊な初期状態（デフォルト）
+                if (currentPath === 'index.html' || currentPath === '') {
+                    // FEMININE (summary) をアクティブ
+                    const feminineSummary = document.querySelector('.system-category summary');
+                    if (feminineSummary && feminineSummary.textContent.includes('FEMININE')) {
+                        feminineSummary.classList.add('active');
+                        feminineSummary.closest('details').setAttribute('open', '');
+                    }
+                    // GARLY (sub-category) もアクティブ
+                    const girlySubCategory = document.querySelector('.sub-category[href="index.html"]');
+                    if (girlySubCategory) {
+                        girlySubCategory.classList.add('active');
+                    }
+                    // PRICE RANGEの'~5,000 JPY (LOW)' をアクティブ
+                    const priceLowLink = document.querySelector('aside nav:nth-of-type(2) .sidebar-link[href="index.html"]');
+                    if (priceLowLink) {
+                        priceLowLink.classList.add('active');
+                    }
+                    // AGE TARGETの'25 ~ 29 YEARS OLD' をアクティブ
+                    const ageMidLink = document.querySelector('aside nav:nth-of-type(3) .sidebar-link[href="index.html"]');
+                    if (ageMidLink) {
+                        ageMidLink.classList.add('active');
                     }
                 }
             }
 
+            // ページ読み込み時に初期アクティブ状態を設定
+            setInitialActiveState();
 
             // 大分類（summary）のクリックイベント
             summaries.forEach(summary => {
                 summary.addEventListener('click', (event) => {
-                    // preventDefault() はここでは不要（details/summaryのネイティブな挙動を活かすため）
-                    // activeクラスの切り替え
+                    // アクティブクラスの切り替えはJavaScriptではなく、setInitialActiveState()がURLに基づいて行う
+                    // もしくは、summary自体がページ遷移を持たないため、単にactiveクラスを切り替える
                     deactivateAll(); // 全てのアクティブ状態をリセット
                     summary.classList.add('active'); // クリックされたsummaryをアクティブに
-                    
-                    // クリックされたsummaryが属するdetailsのサブカテゴリをアクティブにする必要はない
-                    // サブカテゴリは個別にクリックされたときにアクティブにする
                 });
             });
 
             // 中分類（sub-category）のクリックイベント
             subCategories.forEach(sub => {
                 sub.addEventListener('click', (event) => {
-                    // preventDefault() はここでは不要（リンク遷移を優先するため）
-                    deactivateAll(); // 全てのアクティブ状態をリセット
-                    sub.classList.add('active'); // クリックされたsub-categoryをアクティブに
-
-                    // その親のsummaryもアクティブにする
-                    const parentDetails = sub.closest('details');
-                    if (parentDetails) {
-                        const parentSummary = parentDetails.querySelector('summary');
-                        if (parentSummary) {
-                            parentSummary.classList.add('active');
-                        }
-                    }
+                    // リンク遷移が発生するため、その後のページでsetInitialActiveState()が処理
+                    // このイベントリスナーでは、クリックされた瞬間のUI更新は不要
                 });
             });
 
             // FILTER部分のリンククリックイベント
             filterLinks.forEach(link => {
                 link.addEventListener('click', (event) => {
-                    // preventDefault() はここでは不要
-                    deactivateAll(); // 全てのアクティブ状態をリセット
-                    link.classList.add('active'); // クリックされたリンクをアクティブに
-
-                    // もしこのリンクがシステムカテゴリのサブカテゴリでもある場合、
-                    // その親のsummaryもアクティブにする
-                    if (link.classList.contains('sub-category')) {
-                        const parentDetails = link.closest('details');
-                        if (parentDetails) {
-                            const parentSummary = parentDetails.querySelector('summary');
-                            if (parentSummary) {
-                                parentSummary.classList.add('active');
-                            }
-                        }
-                    }
+                    // リンク遷移が発生するため、その後のページでsetInitialActiveState()が処理
+                    // このイベントリスナーでは、クリックされた瞬間のUI更新は不要
                 });
             });
-
-            // 初期読み込み時のアクティブ状態を調整
-            // 例えば、index.htmlにアクセスした場合、'FEMININE' summaryと'GARLY' sub-categoryがアクティブになるように
-            // この部分はDOMContentLoadedの初期設定で既に処理されているはずですが、念のため
-            const currentUrl = window.location.href;
-            summaries.forEach(summary => {
-                // summaryに直接hrefがないため、対応するサブカテゴリのアクティブ状態をチェック
-                const subCategoryLinks = summary.nextElementSibling.querySelectorAll('.sub-category');
-                let hasActiveSubCategory = false;
-                subCategoryLinks.forEach(sub => {
-                    if (currentUrl.includes(sub.getAttribute('href'))) {
-                        sub.classList.add('active');
-                        hasActiveSubCategory = true;
-                    }
-                });
-                if (hasActiveSubCategory) {
-                    summary.classList.add('active');
-                    summary.closest('details').setAttribute('open', '');
-                }
-            });
-
-            filterLinks.forEach(link => {
-                if (currentUrl.includes(link.getAttribute('href'))) {
-                    link.classList.add('active');
-                }
-            });
-
-            // index.htmlの初期状態を改めて設定（FEMININE & GARLY & PRICE LOW & AGE MID）
-            if (currentPath === 'index.html' || currentPath === '') {
-                deactivateAll(); // すべてをリセット
-                document.querySelector('summary.sidebar-link:nth-of-type(1)').classList.add('active'); // FEMININE summary
-                document.querySelector('.sub-category[href="index.html"]').classList.add('active'); // GARLY sub-category
-                document.querySelector('aside nav:nth-of-type(2) .sidebar-link[href="index.html"]').classList.add('active'); // PRICE LOW
-                document.querySelector('aside nav:nth-of-type(3) .sidebar-link[href="index.html"]').classList.add('active'); // AGE MID
-                document.querySelector('details.system-category').setAttribute('open', ''); // FEMININE detailsを開く
-            }
-
         });
     </script>
 
