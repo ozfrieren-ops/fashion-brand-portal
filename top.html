@@ -11,12 +11,12 @@
         
         body { font-family: 'Noto Sans JP', sans-serif; }
         .logo-font {
-            font-family: 'Audiowide', cursive; /* ロゴ専用フォント */
+            font-family: 'Audiowide', cursive;
         }
-        .system-list-img { height: 12rem; } 
+        .system-list-img { height: 12rem; }
 
         /* ---------------------------------------------------- */
-        /* サイドバー共通スタイル */
+        /* サイドバー共通スタイル (アコーディオン用CSS) */
         /* ---------------------------------------------------- */
         
         /* 大カテゴリのスタイル (FEMININE, CASUALなど) */
@@ -33,16 +33,20 @@
             transition: background-color 0.2s;
             position: relative;
         }
+        .main-category-item:hover {
+            background-color: #374151; /* hoverで少し濃くなる */
+        }
 
-        /* ＋/− アイコンのCSS（ダミーアコーディオン） */
+        /* ＋/− アイコンのCSS */
         .main-category-item::after {
-            content: '▼'; /* ダウンアローをデフォルトアイコンに */
-            font-size: 0.6rem;
+            content: '+';
+            font-size: 0.8rem;
             color: #22d3ee;
             transition: transform 0.2s;
+            font-weight: 900;
         }
         .main-category-item.expanded::after {
-            content: '▲'; /* 展開時はアップアロー */
+            content: '−';
         }
 
         /* サブカテゴリのリスト（GARLY, SWEETなど） */
@@ -98,43 +102,43 @@
                         TOP
                     </a>
                     
-                    <div class="main-category-item expanded">
+                    <div class="main-category-item expanded" data-target="femi-list">
                         <span>FEMININE (フェミニン)</span>
                     </div>
-                    <div class="sub-category-list space-y-0.5">
+                    <div class="sub-category-list space-y-0.5" id="femi-list">
                         <a href="garly.html" class="sub-category-link">GARLY (ガーリー)</a>
-                        <a href="#" class="sub-category-link">SWEET (スウィート)</a>
-                        <a href="#" class="sub-category-link">ELEGANT FEMININE (エレガントフェミニン)</a>
+                        <a href="sweet.html" class="sub-category-link">SWEET (スウィート)</a>
+                        <a href="elegant.html" class="sub-category-link">ELEGANT FEMININE (エレガントフェミニン)</a>
                         </div>
                     
-                    <div class="main-category-item">
+                    <div class="main-category-item" data-target="casual-list">
                         <span>CASUAL (カジュアル)</span>
                     </div>
-                    <div class="sub-category-list hidden space-y-0.5">
+                    <div class="sub-category-list hidden space-y-0.5" id="casual-list">
                         </div>
 
-                    <div class="main-category-item">
+                    <div class="main-category-item" data-target="mode-list">
                         <span>MODE (モード)</span>
                     </div>
-                    <div class="sub-category-list hidden space-y-0.5">
+                    <div class="sub-category-list hidden space-y-0.5" id="mode-list">
                         </div>
 
-                    <div class="main-category-item">
+                    <div class="main-category-item" data-target="elegant-list">
                         <span>ELEGANT (エレガント)</span>
                     </div>
-                    <div class="sub-category-list hidden space-y-0.5">
+                    <div class="sub-category-list hidden space-y-0.5" id="elegant-list">
                         </div>
 
                 </nav>
                 
-                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mt-6 mb-4">FILTER //</h3>
+                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mt-6 mb-4">FILTERS</h3>
                 </aside>
 
             <div class="flex-grow">
                 
                 <div class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-12 border border-cyan-800">
                     <h1 class="text-2xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
-                        FASHION NAVI // SITE OVERVIEW
+                        FASHION NAVI
                     </h1>
                     <p class="text-base text-gray-300">
                         FASHION NAVIは、<strong class="text-cyan-400">「本当に自分に合ったブランド」</strong>を効率的に見つけるためのナビゲーションシステムです。
@@ -167,7 +171,7 @@
                                     → **分類**: ガーリー、スウィート、エレガントフェミニン、ロマンティック、ナチュラルフェミニン、レディライク
                                 </p>
                                 <a href="garly.html" class="inline-block bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded hover:bg-cyan-400 transition text-sm">
-                                    EXPLORE FEMININE //
+                                    EXPLORE FEMININE
                                 </a>
                             </div>
                         </div>
@@ -187,7 +191,7 @@
                                     → **分類**: ベーシック、ストリート、スポーティ、デニム、ナチュラル、サーフ/リラックス、アーミー/ミリタリー
                                 </p>
                                 <a href="casual.html" class="inline-block bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded hover:bg-cyan-400 transition text-sm">
-                                    EXPLORE CASUAL //
+                                    EXPLORE CASUAL
                                 </a>
                             </div>
                         </div>
@@ -223,5 +227,25 @@
         <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. - SYSTEM V3.1</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainCategories = document.querySelectorAll('.main-category-item');
+
+            mainCategories.forEach(item => {
+                item.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetList = document.getElementById(targetId);
+
+                    if (targetList) {
+                        // Tailwindのhiddenクラスをトグルして表示/非表示を切り替える
+                        targetList.classList.toggle('hidden');
+                        
+                        // 展開状態のクラスをトグルしてアイコンを変える
+                        this.classList.toggle('expanded');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
