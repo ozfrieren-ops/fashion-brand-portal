@@ -116,7 +116,7 @@
             transform: translateY(2px); 
             transition: transform 0.3s ease-out, border-top-color 0.2s;
             margin-left: 10px; 
-            flex-shrink: 0; /* アイコンが縮まないようにする */
+            flex-shrink: 0; 
         }
         /* summaryがactiveの時のアイコン色 */
         .system-category summary.active .accordion-icon {
@@ -134,8 +134,6 @@
             background-color: #111827; 
             border-radius: 0 0 5px 5px;
         }
-
-        /* カスタムグリッド設定は削除し、Tailwindのユーティリティに依存します */
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
@@ -148,10 +146,10 @@
         </nav>
     </header>
 
-    <main class="max-w-6xl mx-auto py-12 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-8"> 
+    <main class="max-w-7xl mx-auto py-12 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> 
             
-            <aside class="md:col-span-2 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
+            <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
                 
                 <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS // (系統カテゴリ)</h3>
                 
@@ -295,7 +293,7 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.5</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.6</p>
     </footer>
 
     <script>
