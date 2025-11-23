@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【女性向け・フェミニン系】ガーリーブランド一覧 | FASHION NAVI</title>
+    <title>FASHION NAVI - 系統カテゴリとサイト概要</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* ... (CSSは前回のものをそのまま使用します) ... */
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+        /* CSSは前回の修正で提示した共通スタイルを使用します */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght400;700;900&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; }
         .brand-card-img { height: 16rem; } 
         
         /* ダークモードの配色 */
         .brand-name { color: #22d3ee; } 
         .brand-detail { color: #d1d5db; } 
+        .system-card-img { height: 12rem; } 
+        .system-name { color: #22d3ee; } 
 
         /* 近未来的なサイドバーデザイン */
         .sidebar-link {
@@ -35,6 +37,14 @@
         .sidebar-link.active {
             background-color: #1f2937; 
             color: #22d3ee; 
+            font-weight: 900; 
+            border-color: #22d3ee; 
+        }
+        /* TOPリンクのアクティブスタイル (TOPが選ばれている状態) */
+        .sidebar-link.top-active {
+            /* TOPが選ばれているため、背景と文字色を反転させ目立たせる */
+            background-color: #06b6d4; 
+            color: #1f2937; 
             font-weight: 900; 
             border-color: #22d3ee; 
         }
@@ -61,11 +71,15 @@
             padding-left: 17px;
         }
 
-        /* カードデザインの変更 */
-        .brand-card {
+        /* カードデザインの変更 (トップページ系統カード) */
+        .system-card {
             background-color: #1f2937; 
-            border-top: none; 
             border-left: 4px solid #06b6d4; 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(34, 213, 238, 0.2), 0 4px 6px -2px rgba(34, 213, 238, 0.05); 
         }
         
         /* --- アコーディオン（<details>）のCSS調整 --- */
@@ -155,15 +169,15 @@
                 <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
-
-                    <a href="top.html" class="sidebar-link hover:bg-gray-700 hover:border-gray-500 border-gray-700 mb-4 font-extrabold text-cyan-400">
-                        🏠 ALL SYSTEMS (TOP)
-                    </a>
                     
-                    <details class="system-category" open>
+                    <a href="index.html" class="sidebar-link top-active hover:bg-gray-700 hover:border-gray-500 border-gray-700 mb-4 font-extrabold text-white">
+                        TOP
+                    </a>
+
+                    <details class="system-category">
                         <summary class="sidebar-link">FEMININE (フェミニン)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
-                            <a href="index.html" class="sub-category active">GARLY</a>
+                            <a href="garly.html" class="sub-category">GARLY</a>
                             <a href="sweet.html" class="sub-category">SWEET</a>
                             <a href="elegant.html" class="sub-category">ELEGANT FEMININE</a>
                             <a href="romantic.html" class="sub-category">ROMANTIC</a>
@@ -206,82 +220,83 @@
 
                 </nav>
 
-                </aside>
+            </aside>
 
             <div class="md:col-span-3">
-                <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT CATEGORY</p>
-                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-50 mb-2">
-                    FEMININE > GARLY - CUTE & TRENDY
-                </h1>
-                <p class="text-gray-400 mb-8">
-                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE**
-                </p>
                 
-                <div class="prose max-w-none">
-                    <p class="text-lg mb-6 text-gray-300">
-                        ロマンティックな要素と、トレンドを取り入れたデザインが魅力のガーリーブランドを厳選。日常使いしやすいアイテムを中心に紹介します。
+                <div class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-12 border border-cyan-800">
+                    <h1 class="text-3xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
+                        FASHION NAVI とは？
+                    </h1>
+                    <p class="text-lg text-gray-300">
+                        FASHION NAVIは、<strong class="text-cyan-400">「本当に自分に合ったブランド」</strong>を効率的に見つけるためのナビゲーションシステムです。
                     </p>
-        
-                    <h2 class="text-2xl font-bold mt-10 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3" id="list">
-                        RANKING
-                    </h2>
-        
-                    <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-card">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="w-full md:w-1/3 bg-gray-700 brand-card-img rounded-lg flex items-center justify-center text-gray-500">
-                                <span>[GARLY BRAND A IMAGE]</span>
-                            </div>
-                            <div class="w-full md:w-2/3">
-                                <div class="flex items-center mb-2">
-                                    <span class="bg-cyan-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">TOP TREND</span>
-                                    <h3 class="text-2xl font-bold brand-name">BRAND A (EXAMPLE)</h3>
-                                </div>
-                                <p class="brand-detail mb-4">
-                                    **[DETAIL]:** 高品質な生地と洗練されたシルエットで、価格以上の価値を提供。定番アイテムからトレンドまで網羅。
-                                </p>
-                                <ul class="text-sm text-gray-400 mb-6 space-y-1">
-                                    <li>PRICE: ~5,000 JPY</li>
-                                    <li>STYLE: Florals, Puff Sleeves, Elegant</li>
-                                </ul>
-                                <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition">
-                                    ACCESS OFFICIAL SITE
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-card">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="w-full md:w-1/3 bg-gray-700 brand-card-img rounded-lg flex items-center justify-center text-gray-500">
-                                <span>[GARLY BRAND B IMAGE]</span>
-                            </div>
-                            <div class="w-full md:w-2/3">
-                                <div class="flex items-center mb-2">
-                                    <span class="bg-gray-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">EASY BUY</span>
-                                    <h3 class="text-2xl font-bold brand-name">BRAND B (EXAMPLE)</h3>
-                                </div>
-                                <p class="brand-detail mb-4">
-                                    **[DETAIL]:** 韓国ファッションなどの最新トレンドを取り入れ、手軽に旬のスタイルに挑戦可能。
-                                </p>
-                                <ul class="text-sm text-gray-400 mb-6 space-y-1">
-                                    <li>PRICE: ~3,000 JPY</li>
-                                    <li>STYLE: Soft Textures, Muted Colors, Body Cover</li>
-                                </ul>
-                                <a href="#" class="block w-full text-center bg-gray-600 text-white font-bold py-3 rounded hover:bg-gray-500 transition">
-                                    ACCESS OFFICIAL SITE
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="text-2xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
-                        OPTIMIZATION TECHNIQUES (GARLY)
-                    </h2>
-                    <ul class="list-disc list-inside text-gray-300 space-y-3">
-                        <li>**FABRIC CHECK:** シワになりにくい**ハリのある素材**を選ぶことで、安っぽさを回避する。</li>
-                        <li>**BALANCE:** 甘いデザインのアイテムには、**シンプルなタイトなボトムス**でバランスを取る。</li>
-                        <li>**ACCESSORIES:** **高見えするシンプルな金属アクセサリー**で、大人っぽい格上げを図る。</li>
+                    <ul class="text-md text-gray-400 mt-4 space-y-2 list-disc list-inside ml-4">
+                        <li><strong class="text-gray-200">系統カテゴリ別</strong>（フェミニン、カジュアルなど）にブランドを徹底分類。</li>
+                        <li>価格帯や年齢層といった**詳細なフィルターは現在準備中**です。</li>
+                        <li>各カテゴリの**最新トレンド**と**着こなしの最適化テクニック**も合わせて提案します。</li>
                     </ul>
+                </div>
+
+                <p class="text-xs font-bold text-cyan-400 mb-2">SYSTEM OVERVIEW</p>
+                <h2 class="text-4xl font-extrabold text-gray-50 mb-8">
+                    FASHION STYLES - 系統カテゴリ
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <a href="garly.html" class="block">
+                        <div class="p-6 rounded-xl shadow-2xl system-card">
+                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                                <span>[FEMININE STYLE IMAGE]</span>
+                            </div>
+                            <h3 class="text-2xl font-bold system-name mb-2">FEMININE (フェミニン)</h3>
+                            <p class="text-gray-300 text-sm">
+                                **柔らかな素材と曲線的なシルエット**を基調とし、女性らしい優雅さや可愛らしさを追求したスタイルです。ロマンティックなディテールが特徴です。
+                            </p>
+                            <p class="text-sm text-cyan-400 font-bold mt-3">→ ガーリー、スイート、エレガントフェミニンなど</p>
+                        </div>
+                    </a>
+
+                    <a href="casual.html" class="block">
+                        <div class="p-6 rounded-xl shadow-2xl system-card">
+                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                                <span>[CASUAL STYLE IMAGE]</span>
+                            </div>
+                            <h3 class="text-2xl font-bold system-name mb-2">CASUAL (カジュアル)</h3>
+                            <p class="text-gray-300 text-sm">
+                                **快適性と実用性**を重視した、日常的でリラックス感のあるスタイル。Tシャツ、デニム、スニーカーなど、普遍的で着回しのきくアイテムが中心です。
+                            </p>
+                            <p class="text-sm text-cyan-400 font-bold mt-3">→ ベーシック、ストリート、スポーティなど</p>
+                        </div>
+                    </a>
+
+                    <a href="mode-avantgarde.html" class="block">
+                        <div class="p-6 rounded-xl shadow-2xl system-card">
+                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                                <span>[MODE STYLE IMAGE]</span>
+                            </div>
+                            <h3 class="text-2xl font-bold system-name mb-2">MODE (モード)</h3>
+                            <p class="text-gray-300 text-sm">
+                                **斬新なデザインやモノトーンの配色**を多用し、個性的で前衛的な表現を追求します。芸術性や構築的なシルエットに重きを置いたスタイルです。
+                            </p>
+                            <p class="text-sm text-cyan-400 font-bold mt-3">→ アバンギャルド、ミニマリズム、ブラックモードなど</p>
+                        </div>
+                    </a>
+
+                    <a href="elegant-office.html" class="block">
+                        <div class="p-6 rounded-xl shadow-2xl system-card">
+                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                                <span>[ELEGANT STYLE IMAGE]</span>
+                            </div>
+                            <h3 class="text-2xl font-bold system-name mb-2">ELEGANT (エレガント)</h3>
+                            <p class="text-gray-300 text-sm">
+                                **上質で洗練された素材**を用い、控えめながらも気品を感じさせるスタイル。シンプルでクラシックなデザインは、オフィスやフォーマルな場にも適しています。
+                            </p>
+                            <p class="text-sm text-cyan-400 font-bold mt-3">→ オフィス、シック、ミニマルなど</p>
+                        </div>
+                    </a>
+                    
                 </div>
             </div>
             
@@ -294,62 +309,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const summaries = document.querySelectorAll('.system-category summary');
-            const subCategories = document.querySelectorAll('.sub-category');
-            
-            function deactivateAllSummaries() {
-                summaries.forEach(s => s.classList.remove('active'));
+            const topLink = document.querySelector('.sidebar-link[href="index.html"]');
+            if (topLink) {
+                // TOPページなのでTOPリンクをアクティブにする
+                topLink.classList.add('top-active');
             }
-
-            function setInitialActiveState() {
-                subCategories.forEach(sc => sc.classList.remove('active'));
-                deactivateAllSummaries();
-                
-                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-
-                subCategories.forEach(sub => {
-                    if (sub.getAttribute('href') && currentPath === sub.getAttribute('href').split('/').pop()) {
-                        sub.classList.add('active');
-                        const parentDetails = sub.closest('details');
-                        if (parentDetails) {
-                            const parentSummary = parentDetails.querySelector('summary');
-                            if (parentSummary) {
-                                parentSummary.classList.add('active');
-                                parentDetails.setAttribute('open', '');
-                            }
-                        }
-                    }
-                });
-
-                if (currentPath === 'index.html') {
-                    const feminineSummary = document.querySelector('.system-category summary');
-                    if (feminineSummary && feminineSummary.textContent.includes('FEMININE')) {
-                        feminineSummary.classList.add('active');
-                        feminineSummary.closest('details').setAttribute('open', '');
-                    }
-                    const garlySubCategory = document.querySelector('.sub-category[href="index.html"]');
-                    if (garlySubCategory) {
-                        garlySubCategory.classList.add('active');
-                    }
-                }
-                
-                // STATUS表示の更新 (ACTIVE)
-                const statusElement = document.querySelector('.text-gray-400.mb-8');
-                if (statusElement) {
-                    statusElement.innerHTML = '<span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE**';
-                }
-            }
-
-            setInitialActiveState();
-
-            // 大分類（summary）のクリックイベント
-            summaries.forEach(summary => {
-                summary.addEventListener('click', (event) => {
-                    deactivateAllSummaries();
-                    summary.classList.add('active');
-                });
-            });
-
         });
     </script>
 
