@@ -18,26 +18,37 @@
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
-            font-size: 0.95rem; /* メニューの文字を少し小さく */
+            font-size: 0.95rem;
         }
+        /* 通常のホバーカラーを上品な薄い緑に */
         .sidebar-link:hover {
-            background-color: #ecfdf5; 
+            background-color: #f0fdf4; /* Emerald 50 */
         }
+        /* 大分類のアクティブリンク：ターコイズ系にしてクールでモダンな印象に */
         .sidebar-link.active {
-            background-color: #059669; 
+            background-color: #06B6D4; /* Cyan 500 */
             color: white;
             font-weight: bold;
+            box-shadow: 0 4px 6px -1px rgba(6, 182, 212, 0.4); /* 影をつけて浮き立たせる */
         }
+        
         /* 中分類のスタイル */
         .sub-category {
-            padding: 6px 12px 6px 20px; /* インデントを深めに */
+            padding: 6px 12px 6px 20px; 
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
         }
         .sub-category:hover {
-            background-color: #f0fdf4; /* Light green hover */
+            background-color: #e0f2f1; /* Teal 100 */
         }
+        /* アクティブな中分類（現在ガーリー）の背景をより薄く上品に */
+        .sub-category.active {
+            background-color: #CCFBF1; /* Teal 200より薄い色 */
+            color: #0F766E; /* Teal 700で文字を濃く */
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 pt-16">
@@ -62,13 +73,13 @@
                     <div>
                         <a href="feminine.html" class="sidebar-link active">💖 フェミニン</a>
                         <div class="mt-1 space-y-0.5 text-sm text-gray-600 border-l border-emerald-200 ml-3">
-                            <a href="index.html" class="sub-category bg-emerald-100 font-bold text-emerald-800">✅ ガーリー (表示中)</a>
+                            <a href="index.html" class="sub-category active">✅ ガーリー (表示中)</a>
                             <a href="sweet.html" class="sub-category">スウィート</a>
                             <a href="elegant.html" class="sub-category">エレガント</a>
                             <a href="consa.html" class="sub-category">コンサバ</a>
                             <a href="romantic.html" class="sub-category">ロマンティック</a>
                             <a href="oneesan.html" class="sub-category">お姉さん系</a>
-                            </div>
+                        </div>
                     </div>
 
                     <div>
@@ -76,7 +87,7 @@
                         <div class="mt-1 space-y-0.5 text-sm text-gray-600 border-l border-gray-200 ml-3 hidden">
                             <a href="kireic.html" class="sub-category">キレイめカジュアル</a>
                             <a href="otona.html" class="sub-category">大人カジュアル</a>
-                            </div>
+                        </div>
                     </div>
 
                     <a href="mode.html" class="sidebar-link">⚫️ クール・モード</a>
@@ -167,18 +178,8 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <h2 class="text-2xl font-bold mt-12 mb-6 text-emerald-600 border-l-4 border-emerald-600 pl-3">
-                        ガーリーアイテムを高見えさせる3つのテクニック
-                    </h2>
-                    <ul class="list-disc list-inside text-gray-700 space-y-3">
-                        <li>**素材チェック:** シワになりにくい**ハリのある素材**を選ぶことで、安っぽさを回避する。</li>
-                        <li>**甘さの引き算:** フリルやレースが豊富なトップスには、**ボトムスはシンプルでタイト**なものを選ぶなど、甘さを調整する。</li>
-                        <li>**アクセサリー:** 高見えする**シンプルな金属アクセサリー**をプラスすることで、一気に大人っぽく格上げできる。</li>
-                    </ul>
                 </div>
             </div>
-            
         </div>
     </main>
 
