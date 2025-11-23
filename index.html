@@ -17,13 +17,13 @@
         .system-name { color: #22d3ee; } 
 
         /* 近未来的なサイドバーデザイン */
-        /* 【修正】フォントサイズを 0.95rem 程度から 0.875rem (text-sm) に縮小 */
+        /* サイドバー項目（大分類）のフォントサイズを 0.875rem (text-sm) に固定 */
         .sidebar-link {
-            padding: 8px 12px;
+            padding: 6px 12px; /* パディングをさらに縮小 */
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s, border-color 0.2s;
-            font-size: 0.875rem; /* 修正 */
+            font-size: 0.875rem; /* text-sm */
             color: #9ca3af; 
             border: 1px solid transparent;
             font-weight: 900; 
@@ -34,14 +34,14 @@
             background-color: #1f2937; 
             color: #e5e7eb; 
         }
-        /* 大分類のアクティブリンク：ネオンシアンの枠線とテキスト */
+        /* 大分類のアクティブリンク */
         .sidebar-link.active {
             background-color: #1f2937; 
             color: #22d3ee; 
             font-weight: 900; 
             border-color: #22d3ee; 
         }
-        /* TOPリンクのアクティブスタイル (TOPが選ばれている状態) */
+        /* TOPリンクのアクティブスタイル */
         .sidebar-link.top-active {
             background-color: #06b6d4; 
             color: #1f2937; 
@@ -51,12 +51,12 @@
         
         /* 中分類のスタイル */
         .sub-category {
-            /* 【修正】フォントサイズを 0.95rem 程度から 0.8125rem に縮小 */
-            padding: 6px 12px 6px 20px; 
+            /* 中分類のフォントサイズを 0.75rem (text-xs) に近づけ、より小さく */
+            padding: 4px 12px 4px 20px; /* パディングをさらに縮小 */
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
-            font-size: 0.8125rem; /* 修正 */
+            font-size: 0.8125rem; /* text-xs と text-sm の中間 */
             color: #9ca3af; 
             text-decoration: none;
             white-space: nowrap; 
@@ -85,23 +85,22 @@
         }
         
         /* --- アコーディオン（<details>）のCSS調整 --- */
-        /* 【修正】アコーディオン間のマージンを減らし、コンパクトにする */
         .system-category {
-            margin-bottom: 4px; /* 8pxから4pxに減らす */
+            margin-bottom: 4px; 
             border: 1px solid rgba(156, 163, 175, 0.1); 
             border-radius: 6px;
         }
 
         .system-category summary {
-            /* 【修正】フォントサイズとパディングを調整 */
+            /* パディングをさらに詰める */
+            padding: 5px 12px; /* 6px 12px から 5px 12px に変更 */
             list-style: none;
             cursor: pointer;
             outline: none;
-            padding: 6px 12px; /* 8px 12px から 6px 12px に変更 */
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            font-size: 0.875rem; /* 修正 */
+            font-size: 0.875rem; /* text-sm */
             color: #9ca3af; 
             font-weight: 900;
             transition: background-color 0.2s, color 0.2s;
@@ -115,7 +114,6 @@
             background-color: #1f2937; 
             color: #e5e7eb; 
         }
-        /* アクティブなsummaryのスタイル */
         .system-category summary.active {
             background-color: #1f2937; 
             color: #22d3ee; 
@@ -123,31 +121,9 @@
             border-radius: 5px 5px 0 0;
         }
         
-        /* アコーディオンアイコンのスタイル（三角） */
-        .accordion-icon {
-            display: block;
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid #9ca3af; 
-            transform: translateY(2px); 
-            transition: transform 0.3s ease-out, border-top-color 0.2s;
-            margin-left: 10px; 
-            flex-shrink: 0; 
-        }
-        /* summaryがactiveの時のアイコン色 */
-        .system-category summary.active .accordion-icon {
-            border-top-color: #22d3ee; 
-        }
-        /* detailsが開いた時のアイコン（上向きの矢印） */
-        details[open] .system-category summary .accordion-icon {
-            transform: translateY(-2px) rotate(180deg); 
-        }
-
         /* <details>展開時のリストの間隔調整 */
         .system-category-list {
-            padding: 2px 0; /* 4px 0 から 2px 0 に変更 */
+            padding: 2px 0; 
             margin-left: -12px; 
             background-color: #111827; 
             border-radius: 0 0 5px 5px;
@@ -171,7 +147,7 @@
             
             <aside class="w-full lg:w-72 bg-gray-800 p-4 lg:p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700 flex-shrink-0">
                 
-                <h3 class="text-base lg:text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
+                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
@@ -180,7 +156,7 @@
                     </a>
 
                     <details class="system-category">
-                        <summary class="sidebar-link">FEMININE (フェミニン)<span class="accordion-icon"></span></summary>
+                        <summary class="sidebar-link">FEMININE (フェミニン)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="garly.html" class="sub-category">GARLY</a>
                             <a href="sweet.html" class="sub-category">SWEET</a>
@@ -190,9 +166,8 @@
                             <a href="ladylike.html" class="sub-category">LADYLIKE</a>
                         </div>
                     </details>
-
                     <details class="system-category">
-                        <summary class="sidebar-link">CASUAL (カジュアル)<span class="accordion-icon"></span></summary>
+                        <summary class="sidebar-link">CASUAL (カジュアル)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="casual.html" class="sub-category">BASIC</a>
                             <a href="casual-street.html" class="sub-category">STREET</a>
@@ -205,7 +180,7 @@
                     </details>
 
                     <details class="system-category">
-                        <summary class="sidebar-link">MODE (モード)<span class="accordion-icon"></span></summary>
+                        <summary class="sidebar-link">MODE (モード)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="mode-avantgarde.html" class="sub-category">AVANT-GARDE</a>
                             <a href="mode-minimalism.html" class="sub-category">MINIMALISM</a>
@@ -215,7 +190,7 @@
                     </details>
                     
                     <details class="system-category">
-                        <summary class="sidebar-link">ELEGANT (エレガント)<span class="accordion-icon"></span></summary>
+                        <summary class="sidebar-link">ELEGANT (エレガント)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="elegant-office.html" class="sub-category">OFFICE / CONSERVATIVE</a>
                             <a href="elegant-chic.html" class="sub-category">CHIC</a>
@@ -230,13 +205,13 @@
             <div class="flex-grow">
                 
                 <div class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-12 border border-cyan-800">
-                    <h1 class="text-3xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
+                    <h1 class="text-2xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
                         FASHION NAVI とは？
                     </h1>
-                    <p class="text-lg text-gray-300">
+                    <p class="text-base text-gray-300">
                         FASHION NAVIは、<strong class="text-cyan-400">「本当に自分に合ったブランド」</strong>を効率的に見つけるためのナビゲーションシステムです。
                     </p>
-                    <ul class="text-md text-gray-400 mt-4 space-y-2 list-disc list-inside ml-4">
+                    <ul class="text-sm text-gray-400 mt-4 space-y-2 list-disc list-inside ml-4">
                         <li><strong class="text-gray-200">系統カテゴリ別</strong>（フェミニン、カジュアルなど）にブランドを徹底分類。</li>
                         <li>価格帯や年齢層といった**詳細なフィルターは現在準備中**です。</li>
                         <li>各カテゴリの**最新トレンド**と**着こなしの最適化テクニック**も合わせて提案します。</li>
@@ -244,65 +219,12 @@
                 </div>
 
                 <p class="text-xs font-bold text-cyan-400 mb-2">SYSTEM OVERVIEW</p>
-                <h2 class="text-4xl font-extrabold text-gray-50 mb-8">
+                <h2 class="text-3xl font-extrabold text-gray-50 mb-8">
                     FASHION STYLES - 系統カテゴリ
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                    <a href="garly.html" class="block">
-                        <div class="p-6 rounded-xl shadow-2xl system-card">
-                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
-                                <span>[FEMININE STYLE IMAGE]</span>
-                            </div>
-                            <h3 class="text-2xl font-bold system-name mb-2">FEMININE (フェミニン)</h3>
-                            <p class="text-gray-300 text-sm">
-                                **柔らかな素材と曲線的なシルエット**を基調とし、女性らしい優雅さや可愛らしさを追求したスタイルです。ロマンティックなディテールが特徴です。
-                            </p>
-                            <p class="text-sm text-cyan-400 font-bold mt-3">→ ガーリー、スイート、エレガントフェミニンなど</p>
-                        </div>
-                    </a>
-
-                    <a href="casual.html" class="block">
-                        <div class="p-6 rounded-xl shadow-2xl system-card">
-                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
-                                <span>[CASUAL STYLE IMAGE]</span>
-                            </div>
-                            <h3 class="text-2xl font-bold system-name mb-2">CASUAL (カジュアル)</h3>
-                            <p class="text-gray-300 text-sm">
-                                **快適性と実用性**を重視した、日常的でリラックス感のあるスタイル。Tシャツ、デニム、スニーカーなど、普遍的で着回しのきくアイテムが中心です。
-                            </p>
-                            <p class="text-sm text-cyan-400 font-bold mt-3">→ ベーシック、ストリート、スポーティなど</p>
-                        </div>
-                    </a>
-
-                    <a href="mode-avantgarde.html" class="block">
-                        <div class="p-6 rounded-xl shadow-2xl system-card">
-                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
-                                <span>[MODE STYLE IMAGE]</span>
-                            </div>
-                            <h3 class="text-2xl font-bold system-name mb-2">MODE (モード)</h3>
-                            <p class="text-gray-300 text-sm">
-                                **斬新なデザインやモノトーンの配色**を多用し、個性的で前衛的な表現を追求します。芸術性や構築的なシルエットに重きを置いたスタイルです。
-                            </p>
-                            <p class="text-sm text-cyan-400 font-bold mt-3">→ アバンギャルド、ミニマリズム、ブラックモードなど</p>
-                        </div>
-                    </a>
-
-                    <a href="elegant-office.html" class="block">
-                        <div class="p-6 rounded-xl shadow-2xl system-card">
-                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
-                                <span>[ELEGANT STYLE IMAGE]</span>
-                            </div>
-                            <h3 class="text-2xl font-bold system-name mb-2">ELEGANT (エレガント)</h3>
-                            <p class="text-gray-300 text-sm">
-                                **上質で洗練された素材**を用い、控えめながらも気品を感じさせるスタイル。シンプルでクラシックなデザインは、オフィスやフォーマルな場にも適しています。
-                            </p>
-                            <p class="text-sm text-cyan-400 font-bold mt-3">→ オフィス、シック、ミニマルなど</p>
-                        </div>
-                    </a>
-                    
-                </div>
+                    </div>
             </div>
             
         </div>
