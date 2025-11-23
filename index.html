@@ -134,66 +134,7 @@
             border-radius: 0 0 5px 5px;
         }
         
-        /* ラジオボタンのカスタムスタイル */
-        .custom-radio-label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-            font-size: 0.95rem;
-            color: #9ca3af;
-            font-weight: 900;
-        }
-
-        .custom-radio-label:hover {
-            background-color: #1f2937; 
-            color: #e5e7eb; 
-        }
-
-        /* 隠す元のラジオボタン */
-        .custom-radio-input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-            margin: 0;
-            padding: 0;
-            position: absolute;
-        }
-
-        /* カスタムチェックマークのコンテナ */
-        .radio-indicator {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            border: 2px solid #6b7280; 
-            margin-right: 10px;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        /* チェックされた時のカスタムインジケータ */
-        .custom-radio-input:checked + .radio-indicator {
-            border-color: #22d3ee;
-        }
-
-        .custom-radio-input:checked + .radio-indicator::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #22d3ee; 
-            transform: translate(-50%, -50%);
-            display: block;
-        }
-
-        .custom-radio-input:checked ~ .radio-text {
-            color: #22d3ee; 
-        }
+        /* 旧ラジオボタンのカスタムスタイル（今回は削除されるため、未使用） */
 
     </style>
 </head>
@@ -262,27 +203,6 @@
 
                 </nav>
 
-                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4 mt-6">FILTER</h3>
-                
-                <div class="space-y-1 text-gray-400 mb-6">
-                    <p class="font-bold text-sm text-cyan-400 mb-2">ムード／コンセプト</p>
-                    <label class="custom-radio-label">
-                        <input type="radio" name="mood" value="all" class="custom-radio-input" checked>
-                        <span class="radio-indicator"></span>
-                        <span class="radio-text">ALL</span>
-                    </label>
-                    <label class="custom-radio-label">
-                        <input type="radio" name="mood" value="high_cost_perf" class="custom-radio-input">
-                        <span class="radio-indicator"></span>
-                        <span class="radio-text">高見え・コスパ重視</span>
-                    </label>
-                    <label class="custom-radio-label">
-                        <input type="radio" name="mood" value="sustainable" class="custom-radio-input">
-                        <span class="radio-indicator"></span>
-                        <span class="radio-text">サステナブル／エシカル</span>
-                    </label>
-                </div>
-
                 </aside>
 
             <div class="md:col-span-3">
@@ -291,7 +211,7 @@
                     FEMININE > GARLY - CUTE & TRENDY
                 </h1>
                 <p class="text-gray-400 mb-8">
-                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / ALL MOOD**
+                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE**
                 </p>
                 
                 <div class="prose max-w-none">
@@ -382,7 +302,7 @@
                 subCategories.forEach(sc => sc.classList.remove('active'));
                 deactivateAllSummaries();
                 
-                const currentPath = window.location.pathname.split('/').pop() || 'index.html'; // ページ名の取得
+                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
                 subCategories.forEach(sub => {
                     if (sub.getAttribute('href') && currentPath === sub.getAttribute('href').split('/').pop()) {
@@ -410,10 +330,10 @@
                     }
                 }
                 
-                // STATUS表示の更新 (ALL age -> ALL MOOD)
+                // STATUS表示の更新 (ALL MOOD -> ACTIVE)
                 const statusElement = document.querySelector('.text-gray-400.mb-8');
                 if (statusElement) {
-                    statusElement.innerHTML = '<span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / ALL MOOD**';
+                    statusElement.innerHTML = '<span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE**';
                 }
             }
 
@@ -427,14 +347,7 @@
                 });
             });
 
-            // ラジオボタンの変更イベント (動作確認用)
-            const radioInputs = document.querySelectorAll('.custom-radio-input');
-            radioInputs.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    console.log(`Filter changed: ${radio.name} = ${radio.value}`);
-                    // 実際にはここでコンテンツの絞り込み処理を行う
-                });
-            });
+            // フィルタのJSは全て削除されました。
 
         });
     </script>
