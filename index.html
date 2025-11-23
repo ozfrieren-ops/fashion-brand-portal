@@ -5,25 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>【FASHION NAVI】ブランドカテゴリ一覧 (TOP)</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        /* 1. Audiowideフォントをロゴ用に導入 */
         @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Noto+Sans+JP:wght@400;700;900&display=swap');
-        
+
         body { font-family: 'Noto Sans JP', sans-serif; }
         .logo-font {
             font-family: 'Audiowide', cursive;
         }
-        /* index.htmlではブランドリストがないため、このCSSは一旦残しつつ、後で調整可能です */
+
         .brand-photo { height: 16rem; }
         .brand-detail-card {
             background-color: #1f2937; 
             border-left: 4px solid #06b6d4; 
         }
-        
-        /* ---------------------------------------------------- */
-        /* サイドバー共通スタイル (アコーディオン用CSS) */
-        /* ---------------------------------------------------- */
-        
+
+        /* アコーディオン */
         .main-category-item {
             display: flex;
             justify-content: space-between;
@@ -50,12 +47,14 @@
         .main-category-item.expanded::after {
             content: '−';
         }
+
         .sub-category-list {
             padding-left: 12px;
             margin-top: 4px;
             margin-bottom: 8px;
             border-left: 2px solid #06b6d4;
         }
+
         .sub-category-link {
             padding: 4px 12px;
             display: block;
@@ -68,153 +67,162 @@
             background-color: #1f2937;
             color: #fff;
         }
+
         .active-link {
             background-color: #06b6d4 !important;
             color: #000 !important;
             font-weight: 700;
         }
-        /* TOPリンク専用のスタイル（アクティブ時） */
+
         #top-link.active-top {
             background-color: #06b6d4;
             color: #000;
             border: 1px solid #06b6d4;
             font-weight: 900;
         }
-        
     </style>
 </head>
+
 <body class="bg-gray-900 text-gray-200 pt-16">
 
-    <header class="w-full py-4 px-6 bg-gray-800 shadow-xl flex justify-between items-center fixed top-0 z-50 border-b border-cyan-800">
-        <div class="text-xl font-black text-cyan-400 logo-font"><a href="index.html">FASHION NAVI</a></div>
-        <nav>
-            <a href="index.html" class="px-4 py-2 text-cyan-400 font-bold border-b-2 border-cyan-400 transition">BRANDS</a>
-            <a href="age.html" class="px-4 py-2 text-gray-400 hover:text-cyan-400 transition">AGE</a>
-        </nav>
-    </header>
+<header class="w-full py-4 px-6 bg-gray-800 shadow-xl flex justify-between items-center fixed top-0 z-50 border-b border-cyan-800">
+    <div class="text-xl font-black text-cyan-400 logo-font"><a href="index.html">FASHION NAVI</a></div>
+    <nav>
+        <a href="index.html" class="px-4 py-2 text-cyan-400 font-bold border-b-2 border-cyan-400 transition">BRANDS</a>
+        <a href="age.html" class="px-4 py-2 text-gray-400 hover:text-cyan-400 transition">AGE</a>
+    </nav>
+</header>
 
-    <main class="max-w-7xl mx-auto py-12 px-6">
-        
-        <div class="flex flex-col lg:flex-row gap-8"> 
-            
-            <aside class="w-full lg:w-72 bg-gray-800 p-4 lg:p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700 flex-shrink-0">
-                
-                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
-                
-                <nav class="space-y-1 text-gray-400 mb-6">
-                    
-                    <a href="index.html" class="hover:bg-cyan-600/50 block px-3 py-2 rounded font-extrabold mb-4 active-top" id="top-link">
-                        TOP
-                    </a>
-                    
-                    <div class="main-category-item" data-target="femi-list">
-                        <span>FEMININE (フェミニン)</span>
-                    </div>
-                    <div class="sub-category-list space-y-0.5 hidden" id="femi-list">
-                        <a href="garly.html" class="sub-category-link">GARLY (ガーリー)</a>
-                        <a href="#" class="sub-category-link">SWEET (スウィート)</a>
-                        <a href="#" class="sub-category-link">ELEGANT FEMININE (エレガントフェミニン)</a>
-                        <a href="#" class="sub-category-link">ROMANTIC (ロマンティック)</a>
-                        <a href="#" class="sub-category-link">NATURAL FEMININE (ナチュラルフェミニン)</a>
-                        <a href="#" class="sub-category-link">LADYLIKE (レディライク)</a>
-                    </div>
-                    
-                    <div class="main-category-item" data-target="casual-list">
-                        <span>CASUAL (カジュアル)</span>
-                    </div>
-                    <div class="sub-category-list hidden space-y-0.5" id="casual-list">
-                        <a href="casual_basic.html" class="sub-category-link">BASIC (ベーシック)</a>
-                        <a href="casual_army.html" class="sub-category-link">アーミー／ミリタリー</a>
-                        <a href="casual_street.html" class="sub-category-link">STREET (ストリート)</a>
-                        <a href="casual_sporty.html" class="sub-category-link">スポーティ</a>
-                        <a href="casual_work.html" class="sub-category-link">ワーク</a>
-                        <a href="casual_denim.html" class="sub-category-link">デニム</a>
-                        <a href="casual_safari.html" class="sub-category-link">サファリ</a>
-                        <a href="casual_surf.html" class="sub-category-link">サーフ／ビーチ</a>
-                        <a href="casual_marine.html" class="sub-category-link">マリン／トラッド</a>
-                    </div>
+<main class="max-w-7xl mx-auto py-12 px-6">
 
-                    <div class="main-category-item" data-target="mode-list">
-                        <span>MODE (モード)</span>
-                    </div>
-                    <div class="sub-category-list hidden space-y-0.5" id="mode-list">
-                        <a href="mode_avantgarde.html" class="sub-category-link">アバンギャルド</a>
-                        <a href="mode_minimalism.html" class="sub-category-link">ミニマリズム (モード寄り)</a>
-                        <a href="mode_black.html" class="sub-category-link">ブラック／モノトーン</a>
-                        <a href="mode_stylish.html" class="sub-category-link">スタイリッシュ</a>
-                        <a href="mode_art.html" class="sub-category-link">アート／コンセプチュアル</a>
-                    </div>
+    <div class="flex flex-col lg:flex-row gap-8">
 
-                    <div class="main-category-item" data-target="elegant-list">
-                        <span>ELEGANT (エレガント)</span>
-                    </div>
-                    <div class="sub-category-list hidden space-y-0.5" id="elegant-list">
-                        <a href="elegant_main.html" class="sub-category-link">エレガント</a>
-                        <a href="elegant_office.html" class="sub-category-link">オフィス／通勤</a>
-                        <a href="elegant_conservative.html" class="sub-category-link">コンサバ</a>
-                    </div>
+        <!-- サイドバー -->
+        <aside class="w-full lg:w-72 bg-gray-800 p-4 lg:p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700 flex-shrink-0">
 
-                </nav>
-                
-            </aside>
+            <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
 
-            <div class="flex-grow">
-                
-                <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT CATEGORY</p>
-                <h1 class="text-2xl font-extrabold text-gray-50 mb-4">
-                    FASHION NAVI / TOP
-                </h1>
-                <p class="text-sm text-gray-400 mb-8">
-                    <span class="font-bold text-cyan-400">WELCOME:</span> すべてのファッションカテゴリをナビゲートします。サイドバーからスタイルを選んでください。
-                </p>
+            <nav class="space-y-1 text-gray-400 mb-6">
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-cyan-500">
-                        <h2 class="text-xl font-bold text-cyan-400 mb-3">人気のブランドスタイル</h2>
-                        <ul class="text-sm text-gray-300 space-y-2">
-                            <li><a href="garly.html" class="hover:text-cyan-300 transition">▶ ガーリー (FEMININE)</a></li>
-                            <li><a href="casual_basic.html" class="hover:text-cyan-300 transition">▶ ベーシック (CASUAL)</a></li>
-                            <li><a href="mode_black.html" class="hover:text-cyan-300 transition">▶ ブラック／モノトーン (MODE)</a></li>
-                            <li><a href="elegant_main.html" class="hover:text-cyan-300 transition">▶ エレガント (ELEGANT)</a></li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-cyan-500">
-                        <h2 class="text-xl font-bold text-cyan-400 mb-3">最新の更新情報</h2>
-                        <p class="text-sm text-gray-300">
-                            2025/11/24: CASUALカテゴリに新規ブランドを複数追加しました。
-                        </p>
-                    </div>
+                <a href="index.html" class="hover:bg-cyan-600/50 block px-3 py-2 rounded font-extrabold mb-4 active-top" id="top-link">
+                    TOP
+                </a>
+
+                <!-- FEMININE -->
+                <div class="main-category-item" data-target="femi-list">
+                    <span>FEMININE (フェミニン)</span>
+                </div>
+                <div class="sub-category-list space-y-0.5 hidden" id="femi-list">
+                    <a href="garly.html" class="sub-category-link">GARLY (ガーリー)</a>
+                    <a href="#" class="sub-category-link">SWEET (スウィート)</a>
+                    <a href="#" class="sub-category-link">ELEGANT FEMININE (エレガントフェミニン)</a>
+                    <a href="#" class="sub-category-link">ROMANTIC (ロマンティック)</a>
+                    <a href="#" class="sub-category-link">NATURAL FEMININE (ナチュラルフェミニン)</a>
+                    <a href="#" class="sub-category-link">LADYLIKE (レディライク)</a>
                 </div>
 
+                <!-- CASUAL -->
+                <div class="main-category-item" data-target="casual-list">
+                    <span>CASUAL (カジュアル)</span>
                 </div>
-            
-        </div>
-    </main>
+                <div class="sub-category-list hidden space-y-0.5" id="casual-list">
+                    <a href="casual_basic.html" class="sub-category-link">BASIC (ベーシック)</a>
+                    <a href="casual_army.html" class="sub-category-link">アーミー／ミリタリー</a>
+                    <a href="casual_street.html" class="sub-category-link">STREET (ストリート)</a>
+                    <a href="casual_sporty.html" class="sub-category-link">スポーティ</a>
+                    <a href="casual_work.html" class="sub-category-link">ワーク</a>
+                    <a href="casual_denim.html" class="sub-category-link">デニム</a>
+                    <a href="casual_safari.html" class="sub-category-link">サファリ</a>
+                    <a href="casual_surf.html" class="sub-category-link">サーフ／ビーチ</a>
+                    <a href="casual_marine.html" class="sub-category-link">マリン／トラッド</a>
+                </div>
 
-    <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. - SYSTEM V3.1</p>
-    </footer>
+                <!-- MODE -->
+                <div class="main-category-item" data-target="mode-list">
+                    <span>MODE (モード)</span>
+                </div>
+                <div class="sub-category-list hidden space-y-0.5" id="mode-list">
+                    <a href="mode_avantgarde.html" class="sub-category-link">アバンギャルド</a>
+                    <a href="mode_minimalism.html" class="sub-category-link">ミニマリズム (モード寄り)</a>
+                    <a href="mode_black.html" class="sub-category-link">ブラック／モノトーン</a>
+                    <a href="mode_stylish.html" class="sub-category-link">スタイリッシュ</a>
+                    <a href="mode_art.html" class="sub-category-link">アート／コンセプチュアル</a>
+                </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // カテゴリの開閉を管理
-            const mainCategories = document.querySelectorAll('.main-category-item');
+                <!-- ELEGANT -->
+                <div class="main-category-item" data-target="elegant-list">
+                    <span>ELEGANT (エレガント)</span>
+                </div>
+                <div class="sub-category-list hidden space-y-0.5" id="elegant-list">
+                    <a href="elegant_main.html" class="sub-category-link">エレガント</a>
+                    <a href="elegant_office.html" class="sub-category-link">オフィス／通勤</a>
+                    <a href="elegant_conservative.html" class="sub-category-link">コンサバ</a>
+                </div>
 
-            mainCategories.forEach(item => {
-                item.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const targetList = document.getElementById(targetId);
+            </nav>
+        </aside>
 
-                    if (targetList) {
-                        // hiddenクラスをトグルして表示/非表示を切り替える (Tailwind)
-                        targetList.classList.toggle('hidden');
-                        
-                        // expandedクラスをトグルしてアイコンを切り替える (CSS)
-                        this.classList.toggle('expanded');
-                    }
-                });
+        <!-- メインコンテンツ -->
+        <div class="flex-grow">
+
+            <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT CATEGORY</p>
+
+            <h1 class="text-2xl font-extrabold text-gray-50 mb-4">
+                FASHION NAVI / TOP
+            </h1>
+
+            <p class="text-sm text-gray-400 mb-8">
+                <span class="font-bold text-cyan-400">WELCOME:</span>
+                すべてのファッションカテゴリをナビゲートします。サイドバーからスタイルを選んでください。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-cyan-500">
+                    <h2 class="text-xl font-bold text-cyan-400 mb-3">人気のブランドスタイル</h2>
+                    <ul class="text-sm text-gray-300 space-y-2">
+                        <li><a href="garly.html" class="hover:text-cyan-300 transition">▶ ガーリー (FEMININE)</a></li>
+                        <li><a href="casual_basic.html" class="hover:text-cyan-300 transition">▶ ベーシック (CASUAL)</a></li>
+                        <li><a href="mode_black.html" class="hover:text-cyan-300 transition">▶ ブラック／モノトーン (MODE)</a></li>
+                        <li><a href="elegant_main.html" class="hover:text-cyan-300 transition">▶ エレガント (ELEGANT)</a></li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-cyan-500">
+                    <h2 class="text-xl font-bold text-cyan-400 mb-3">最新の更新情報</h2>
+                    <p class="text-sm text-gray-300">
+                        2025/11/24: CASUALカテゴリに新規ブランドを複数追加しました。
+                    </p>
+                </div>
+
+            </div>
+
+        </div> <!-- /.flex-grow -->
+
+    </div> <!-- /.flex -->
+</main>
+
+<footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
+    <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. - SYSTEM V3.1</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mainCategories = document.querySelectorAll('.main-category-item');
+
+        mainCategories.forEach(item => {
+            item.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetList = document.getElementById(targetId);
+
+                if (targetList) {
+                    targetList.classList.toggle('hidden');
+                    this.classList.toggle('expanded');
+                }
             });
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
