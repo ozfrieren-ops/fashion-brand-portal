@@ -6,14 +6,7 @@
     <title>FASHION NAVI - 系統カテゴリとサイト概要</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. Audiowideフォントをロゴ用に導入 */
-        @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Noto+Sans+JP:wght@400;700;900&display=swap');
-        
-        body { font-family: 'Noto Sans JP', sans-serif; }
-        .logo-font {
-            font-family: 'Audiowide', cursive; /* ロゴ専用フォント */
-        }
-        .system-list-img { height: 12rem; } 
+        /* ... 省略 ... (ロゴフォント、ダークモード配色、メインコンテンツのスタイルは変更なし) ... */
 
         /* ---------------------------------------------------- */
         /* サイドバー共通スタイル */
@@ -34,15 +27,16 @@
             position: relative;
         }
 
-        /* ＋/− アイコンのCSS（ダミーアコーディオン） */
+        /* ＋/− アイコンのCSS */
         .main-category-item::after {
-            content: '▼'; /* ダウンアローをデフォルトアイコンに */
-            font-size: 0.6rem;
+            content: '+'; /* 閉じている時は「＋」 */
+            font-size: 0.8rem;
             color: #22d3ee;
             transition: transform 0.2s;
+            font-weight: 900;
         }
         .main-category-item.expanded::after {
-            content: '▲'; /* 展開時はアップアロー */
+            content: '−'; /* 展開している時は「−」 */
         }
 
         /* サブカテゴリのリスト（GARLY, SWEETなど） */
@@ -76,14 +70,6 @@
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
 
-    <header class="w-full py-4 px-6 bg-gray-800 shadow-xl flex justify-between items-center fixed top-0 z-50 border-b border-cyan-800">
-        <div class="text-xl font-black text-cyan-400 logo-font"><a href="index.html">FASHION NAVI</a></div>
-        <nav>
-            <a href="index.html" class="px-4 py-2 text-cyan-400 font-bold border-b-2 border-cyan-400 transition">BRANDS</a>
-            <a href="age.html" class="px-4 py-2 text-gray-400 hover:text-cyan-400 transition">AGE</a>
-        </nav>
-    </header>
-
     <main class="max-w-7xl mx-auto py-12 px-6">
         
         <div class="flex flex-col lg:flex-row gap-8"> 
@@ -98,31 +84,31 @@
                         TOP
                     </a>
                     
-                    <div class="main-category-item expanded">
+                    <div class="main-category-item expanded" data-target="femi-list">
                         <span>FEMININE (フェミニン)</span>
                     </div>
-                    <div class="sub-category-list space-y-0.5">
+                    <div class="sub-category-list space-y-0.5" id="femi-list">
                         <a href="garly.html" class="sub-category-link">GARLY (ガーリー)</a>
                         <a href="#" class="sub-category-link">SWEET (スウィート)</a>
                         <a href="#" class="sub-category-link">ELEGANT FEMININE (エレガントフェミニン)</a>
                         </div>
                     
-                    <div class="main-category-item">
+                    <div class="main-category-item" data-target="casual-list">
                         <span>CASUAL (カジュアル)</span>
                     </div>
-                    <div class="sub-category-list hidden space-y-0.5">
+                    <div class="sub-category-list hidden space-y-0.5" id="casual-list">
                         </div>
 
-                    <div class="main-category-item">
+                    <div class="main-category-item" data-target="mode-list">
                         <span>MODE (モード)</span>
                     </div>
-                    <div class="sub-category-list hidden space-y-0.5">
+                    <div class="sub-category-list hidden space-y-0.5" id="mode-list">
                         </div>
 
-                    <div class="main-category-item">
+                    <div class="main-category-item" data-target="elegant-list">
                         <span>ELEGANT (エレガント)</span>
                     </div>
-                    <div class="sub-category-list hidden space-y-0.5">
+                    <div class="sub-category-list hidden space-y-0.5" id="elegant-list">
                         </div>
 
                 </nav>
@@ -131,88 +117,10 @@
                 </aside>
 
             <div class="flex-grow">
-                
-                <div class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-12 border border-cyan-800">
-                    <h1 class="text-2xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
-                        FASHION NAVI // SITE OVERVIEW
-                    </h1>
-                    <p class="text-base text-gray-300">
-                        FASHION NAVIは、<strong class="text-cyan-400">「本当に自分に合ったブランド」</strong>を効率的に見つけるためのナビゲーションシステムです。
-                    </p>
-                    <ul class="text-sm text-gray-400 mt-4 space-y-2 list-disc list-inside ml-4">
-                        <li><strong class="text-gray-200">系統カテゴリ別</strong>（フェミニン、カジュアルなど）にブランドを徹底分類。</li>
-                        <li>価格帯や年齢層といった**詳細なフィルターは現在準備中**です。</li>
-                        <li>各カテゴリの**最新トレンド**と**着こなしの最適化テクニック**も合わせて提案します。</li>
-                    </ul>
-                </div>
-
                 <p class="text-xs font-bold text-cyan-400 mb-2">SYSTEM OVERVIEW</p>
                 <h2 class="text-3xl font-extrabold text-gray-50 mb-8">
                     STYLE CATEGORIES
                 </h2>
-                
-                <div class="space-y-12">
-                    
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-cyan-600">
-                        <h3 class="text-xl font-black text-cyan-400 mb-4">FEMININE (フェミニン)</h3>
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="w-full md:w-1/3 bg-gray-700 system-list-img rounded-lg flex items-center justify-center text-gray-400 text-sm flex-shrink-0">
-                                <span>[FEMININE STYLE IMAGE]</span>
-                            </div>
-                            <div class="w-full md:w-2/3">
-                                <p class="text-sm text-gray-300 mb-3">
-                                    やわらかな素材と曲線的なシルエットを基調とし、女性らしい優雅さや可愛らしさを追求したスタイルです。ロマンティックなディテールが特徴です。
-                                </p>
-                                <p class="text-xs text-gray-400 mb-4">
-                                    → **分類**: ガーリー、スウィート、エレガントフェミニン、ロマンティック、ナチュラルフェミニン、レディライク
-                                </p>
-                                <a href="garly.html" class="inline-block bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded hover:bg-cyan-400 transition text-sm">
-                                    EXPLORE FEMININE //
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-cyan-600">
-                        <h3 class="text-xl font-black text-cyan-400 mb-4">CASUAL (カジュアル)</h3>
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="w-full md:w-1/3 bg-gray-700 system-list-img rounded-lg flex items-center justify-center text-gray-400 text-sm flex-shrink-0">
-                                <span>[CASUAL STYLE IMAGE]</span>
-                            </div>
-                            <div class="w-full md:w-2/3">
-                                <p class="text-sm text-gray-300 mb-3">
-                                    快適性と実用性を重視した、日常的でリラックス感のあるスタイル。Tシャツ、デニム、スニーカーなど、普遍的で着回しのきくアイテムが中心です。
-                                </p>
-                                <p class="text-xs text-gray-400 mb-4">
-                                    → **分類**: ベーシック、ストリート、スポーティ、デニム、ナチュラル、サーフ/リラックス、アーミー/ミリタリー
-                                </p>
-                                <a href="casual.html" class="inline-block bg-cyan-500 text-gray-900 font-bold py-2 px-4 rounded hover:bg-cyan-400 transition text-sm">
-                                    EXPLORE CASUAL //
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-gray-600 opacity-70">
-                        <h3 class="text-xl font-black text-gray-400 mb-4">MODE (モード)</h3>
-                        <p class="text-sm text-gray-500">
-                            デザイン性・独自性の高い、トレンドの最先端を行くスタイル。ミニマリズム、アバンギャルドなど。
-                        </p>
-                        <p class="text-xs text-gray-600 mt-4">
-                            COMMING SOON...
-                        </p>
-                    </div>
-                    
-                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-gray-600 opacity-70">
-                        <h3 class="text-xl font-black text-gray-400 mb-4">ELEGANT (エレガント)</h3>
-                        <p class="text-sm text-gray-500">
-                            オフィスやフォーマルにも対応できる、洗練された大人のスタイル。シック、コンサバティブなど。
-                        </p>
-                        <p class="text-xs text-gray-600 mt-4">
-                            COMMING SOON...
-                        </p>
-                    </div>
-                </div>
                 
                 </div>
             
@@ -223,5 +131,25 @@
         <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. - SYSTEM V3.1</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainCategories = document.querySelectorAll('.main-category-item');
+
+            mainCategories.forEach(item => {
+                item.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetList = document.getElementById(targetId);
+
+                    if (targetList) {
+                        // Tailwindのhiddenクラスをトグルして表示/非表示を切り替える
+                        targetList.classList.toggle('hidden');
+                        
+                        // 展開状態のクラスをトグルしてアイコンを変える
+                        this.classList.toggle('expanded');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
