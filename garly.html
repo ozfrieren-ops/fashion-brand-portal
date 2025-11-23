@@ -15,16 +15,17 @@
         .brand-detail { color: #d1d5db; } 
 
         /* 近未来的なサイドバーデザイン */
-        /* サイドバー項目（大分類）のフォントサイズを 0.875rem (text-sm) に固定 */
+        
+        /* 【修正】大分類のフォントサイズと太さを調整 (よりコンパクトに) */
         .sidebar-link {
-            padding: 6px 12px; /* パディングをさらに縮小 */
+            padding: 6px 12px; 
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s, border-color 0.2s;
-            font-size: 0.875rem; /* text-sm */
+            font-size: 0.8125rem; /* 0.875rem (text-sm) から一段階縮小 */
             color: #9ca3af; 
             border: 1px solid transparent;
-            font-weight: 900; 
+            font-weight: 700; /* 太さを少し抑える */
             text-decoration: none; 
             white-space: nowrap; 
         }
@@ -32,14 +33,12 @@
             background-color: #1f2937; 
             color: #e5e7eb; 
         }
-        /* 大分類のアクティブリンク */
         .sidebar-link.active {
             background-color: #1f2937; 
             color: #22d3ee; 
-            font-weight: 900; 
+            font-weight: 900; /* アクティブなものは太字を維持 */
             border-color: #22d3ee; 
         }
-        /* TOPリンクのアクティブスタイル */
         .sidebar-link.top-active {
             background-color: #06b6d4; 
             color: #1f2937; 
@@ -47,14 +46,13 @@
             border-color: #22d3ee; 
         }
         
-        /* 中分類のスタイル */
+        /* 【修正】中分類のスタイル (text-xs に設定) */
         .sub-category {
-            /* 中分類のフォントサイズを 0.75rem (text-xs) に近づけ、より小さく */
-            padding: 4px 12px 4px 20px; /* パディングをさらに縮小 */
+            padding: 3px 12px 3px 20px; /* 上下のパディングをさらに縮小 */
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
-            font-size: 0.8125rem; /* text-xs と text-sm の中間 */
+            font-size: 0.75rem; /* text-xs (12px) に設定 */
             color: #9ca3af; 
             text-decoration: none;
             white-space: nowrap; 
@@ -62,7 +60,6 @@
         .sub-category:hover {
             background-color: #1f2937; 
         }
-        /* アクティブな中分類 */
         .sub-category.active {
             color: #22d3ee; 
             font-weight: 700;
@@ -71,15 +68,15 @@
             padding-left: 17px;
         }
 
-        /* フィルター項目のスタイル */
+        /* 【修正】フィルター項目のスタイル (パディング・太さ・サイズを調整) */
         .filter-item {
-            padding: 4px 12px; /* 項目を詰める */
+            padding: 3px 12px; /* 項目を詰める */
             display: block;
             border-radius: 4px;
-            font-size: 0.875rem; /* text-sm */
+            font-size: 0.8125rem; /* text-sm から一段階縮小 */
             color: #9ca3af; 
             border: 1px solid transparent;
-            font-weight: 700;
+            font-weight: 500; /* 太字を解除 */
             text-decoration: none;
             white-space: nowrap;
         }
@@ -108,17 +105,16 @@
         }
 
         .system-category summary {
-            /* パディングをさらに詰める */
-            padding: 5px 12px; /* 6px 12px から 5px 12px に変更 */
+            padding: 5px 12px; 
             list-style: none;
             cursor: pointer;
             outline: none;
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            font-size: 0.875rem; /* text-sm */
+            font-size: 0.8125rem; /* sidebar-link と統一 */
             color: #9ca3af; 
-            font-weight: 900;
+            font-weight: 700; /* sidebar-link と統一 */
             transition: background-color 0.2s, color 0.2s;
             border-radius: 4px;
             border: none; 
@@ -189,7 +185,8 @@
                             <a href="casual.html" class="sub-category">BASIC (ベーシック)</a>
                             </div>
                     </details>
-                    </nav>
+
+                </nav>
                 
                 <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mt-6 mb-4">FILTER //</h3>
                 
@@ -294,7 +291,7 @@
     </footer>
 
     <script>
-        // アクティブ状態の切り替えロジックは前回から変更なし
+        // アクティブ状態の切り替えロジックは省略
     </script>
 
 </body>
