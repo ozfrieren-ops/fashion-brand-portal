@@ -23,7 +23,6 @@
         /* サイドバー共通スタイル (アコーディオン用CSS) */
         /* ---------------------------------------------------- */
         
-        /* 大カテゴリのスタイル (FEMININE, CASUALなど) */
         .main-category-item {
             display: flex;
             justify-content: space-between;
@@ -38,10 +37,8 @@
             position: relative;
         }
         .main-category-item:hover {
-            background-color: #374151; /* hoverで少し濃くなる */
+            background-color: #374151;
         }
-
-        /* ＋/− アイコンのCSS */
         .main-category-item::after {
             content: '+';
             font-size: 0.8rem;
@@ -52,8 +49,6 @@
         .main-category-item.expanded::after {
             content: '−';
         }
-
-        /* サブカテゴリのリスト（GARLY, SWEETなど） */
         .sub-category-list {
             padding-left: 12px;
             margin-top: 4px;
@@ -72,8 +67,6 @@
             background-color: #1f2937;
             color: #fff;
         }
-        
-        /* アクティブなリンク */
         .active-link {
             background-color: #06b6d4 !important;
             color: #000 !important;
@@ -138,9 +131,10 @@
 
                 </nav>
                 
-                </aside>
+            </aside>
 
             <div class="flex-grow">
+                
                 <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT CATEGORY</p>
                 <h1 class="text-2xl font-extrabold text-gray-50 mb-2">
                     FEMININE / GARLY
@@ -152,22 +146,573 @@
                 <h2 class="text-xl font-bold mt-10 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
                     (1) 王道ガーリー・フェミニン (Mainstream Feminine)
                 </h2>
+                <p class="text-sm text-gray-300 mb-6">
+                    流行に左右されない上品さで、幅広い年代の女性に愛される定番ブランドをご紹介。オフィスから休日まで、様々なシーンで活躍するアイテムが揃います。
+                </p>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Misch Masch 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Misch Masch <span class="text-sm font-normal text-gray-400">(ミッシュマッシュ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                上品で可愛らしい、大人フェミニンスタイルの王道ブランド。オフィスにも着ていけるきれいめワンピースやスカートが人気で、高見えする素材感とシルエットも魅力です。
+                            </p>
+                            <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                                <li>**PRICE**: トップス \~8,000 JPY / ワンピース \~12,000 JPY</li>
+                                <li>**TARGET**: 20代中盤 - 30代前半</li>
+                                <li>**STYLE**: エレガントフェミニン、きれいめ、通勤</li>
+                            </ul>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[dazzlin 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">dazzlin <span class="text-sm font-normal text-gray-400">(ダズリン)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT: 旬なトレンドとガーリーな要素をミックスしたカジュアルフェミニンブランド。]
+                            </p>
+                            <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                                <li>**PRICE**: トップス \~7,000 JPY / スカート \~9,000 JPY</li>
+                                <li>**TARGET**: 20代前半</li>
+                            </ul>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[snidel 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">snidel <span class="text-sm font-normal text-gray-400">(スナイデル)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                ストリートとエレガンスを融合させた「スナイデル」独自のフェミニン路線。デザイン性の高いトレンドアイテムが多く、特に20代に絶大な人気を誇ります。
+                            </p>
+                            <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                                <li>**PRICE**: トップス \~11,000 JPY / ワンピース \~18,000 JPY</li>
+                                <li>**TARGET**: 20代前半 - 20代後半</li>
+                                <li>**STYLE**: ストリートフォーマル、デザイントレンド</li>
+                            </ul>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[JILL by JILLSTUART 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">JILL by JILLSTUART <span class="text-sm font-normal text-gray-400">(ジルバイジルスチュアート)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Noela 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Noela <span class="text-sm font-normal text-gray-400">(ノエラ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[PROPORTION BODY DRESSING 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">PROPORTION BODY DRESSING <span class="text-sm font-normal text-gray-400">(プロポーション ボディドレッシング)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[tocco closet 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">tocco closet <span class="text-sm font-normal text-gray-400">(トッコクローゼット)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[MAJESTIC LEGON 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">MAJESTIC LEGON <span class="text-sm font-normal text-gray-400">(マジェスティックレゴン)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[titty&Co. 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">titty&Co. <span class="text-sm font-normal text-gray-400">(ティティーアンドコー)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Feroux 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Feroux <span class="text-sm font-normal text-gray-400">(フェルゥ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+
                 <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
                     (2) 量産型・地雷系ガーリー寄り (Idol/Subculture Feminine)
                 </h2>
+                <p class="text-sm text-gray-300 mb-6">
+                    フリル、リボン、レースを多用した、個性的でデコラティブな「量産型」や「地雷系」の要素を取り入れたガーリーブランド。
+                </p>
+                
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[LIZ LISA 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">LIZ LISA <span class="text-sm font-normal text-gray-400">(リズリサ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Ank Rouge 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Ank Rouge <span class="text-sm font-normal text-gray-400">(アンクルージュ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Honey Cinnamon 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Honey Cinnamon <span class="text-sm font-normal text-gray-400">(ハニーシナモン)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Swankiss 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Swankiss <span class="text-sm font-normal text-gray-400">(スワンキス)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[DearMyLove 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">DearMyLove <span class="text-sm font-normal text-gray-400">(ディアマイラブ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Bobon21 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Bobon21 <span class="text-sm font-normal text-gray-400">(ボボンニジュウイチ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
                     (3) ロマンティック・クラシカルガーリー (Romantic & Classical)
                 </h2>
+                <p class="text-sm text-gray-300 mb-6">
+                    [SECTION DESCRIPTION]
+                </p>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[axes femme 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">axes femme <span class="text-sm font-normal text-gray-400">(アクシーズファム)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Fint 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Fint <span class="text-sm font-normal text-gray-400">(フィント)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[an another angelus 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">an another angelus <span class="text-sm font-normal text-gray-400">(アンアナザーアンジェラス)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Emily Temple cute 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Emily Temple cute <span class="text-sm font-normal text-gray-400">(エミリーテンプルキュート)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[MILK 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">MILK <span class="text-sm font-normal text-gray-400">(ミルク)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Innocent World 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Innocent World <span class="text-sm font-normal text-gray-400">(イノセントワールド)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
                     (4) ロリータ・クラシカル寄り (Lolita-Influenced)
                 </h2>
+                <p class="text-sm text-gray-300 mb-6">
+                    [SECTION DESCRIPTION]
+                </p>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[BABY, THE STARS SHINE BRIGHT 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">BABY, THE STARS SHINE BRIGHT <span class="text-sm font-normal text-gray-400">(ベイビー)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Angelic Pretty 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Angelic Pretty <span class="text-sm font-normal text-gray-400">(アンジェリックプリティ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Mary Magdalene 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Mary Magdalene <span class="text-sm font-normal text-gray-400">(メアリーマグダレン)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
                 <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
                     (5) 韓国ガーリー (K-Style Feminine)
                 </h2>
+                <p class="text-sm text-gray-300 mb-6">
+                    [SECTION DESCRIPTION]
+                </p>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Chuu 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Chuu <span class="text-sm font-normal text-gray-400">(チュー)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[mixxmix 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">mixxmix <span class="text-sm font-normal text-gray-400">(ミックスミックス)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Dazzle 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Dazzle <span class="text-sm font-normal text-gray-400">(ダズル)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Stylenanda 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Stylenanda <span class="text-sm font-normal text-gray-400">(スタイルナンダ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[NANING9 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">NANING9 <span class="text-sm font-normal text-gray-400">(ナンニングナイン)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
                 <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
                     OPTIMIZATION TECHNIQUES (GARLY)
                 </h2>
-                </div>
+                <ul class="list-disc list-inside text-gray-300 space-y-3 text-sm">
+                    <li>**FABRIC CHECK:** シワになりにくい**ハリのある素材**を選ぶことで、安っぽさを回避する。</li>
+                    <li>**BALANCE:** 甘いデザインのアイテムには、**シンプルなタイトなボトムス**でバランスを取る。</li>
+                    <li>**ACCESSORIES:** **高見えするシンプルな金属アクセサリー**で、大人っぽい格上げを図る。</li>
+                </ul>
+            </div>
             
         </div>
     </main>
