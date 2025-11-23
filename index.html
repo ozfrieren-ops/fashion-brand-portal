@@ -70,7 +70,6 @@
         /* --- アコーディオン（<details>）のCSS調整 --- */
         .system-category {
             margin-bottom: 8px; 
-            /* 大分類のうっすら罫線（<details>全体を囲む） */
             border: 1px solid rgba(156, 163, 175, 0.1); 
             border-radius: 6px;
         }
@@ -134,6 +133,68 @@
             background-color: #111827; 
             border-radius: 0 0 5px 5px;
         }
+        
+        /* ラジオボタンのカスタムスタイル */
+        .custom-radio-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            font-size: 0.95rem;
+            color: #9ca3af;
+            font-weight: 900;
+        }
+
+        .custom-radio-label:hover {
+            background-color: #1f2937; 
+            color: #e5e7eb; 
+        }
+
+        /* 隠す元のラジオボタン */
+        .custom-radio-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+        }
+
+        /* カスタムチェックマークのコンテナ */
+        .radio-indicator {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #6b7280; 
+            margin-right: 10px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* チェックされた時のカスタムインジケータ */
+        .custom-radio-input:checked + .radio-indicator {
+            border-color: #22d3ee;
+        }
+
+        .custom-radio-input:checked + .radio-indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22d3ee; 
+            transform: translate(-50%, -50%);
+            display: block;
+        }
+
+        .custom-radio-input:checked ~ .radio-text {
+            color: #22d3ee; 
+        }
+
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
@@ -151,7 +212,7 @@
             
             <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
                 
-                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS // (系統カテゴリ)</h3>
+                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES //</h3>
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
@@ -204,18 +265,33 @@
                 <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4 mt-6">FILTER //</h3>
                 
                 <div class="space-y-1 text-gray-400 mb-6">
-                    <p class="font-bold text-sm text-cyan-400 mb-2">PRICE RANGE</p>
-                    <a href="index.html" class="sidebar-link">~5,000 JPY (LOW)</a>
-                    <a href="price_medium.html" class="sidebar-link">5K~10K JPY (MID)</a>
-                    <a href="price_high.html" class="sidebar-link">10K~30K JPY (HIGH)</a>
+                    <p class="font-bold text-sm text-cyan-400 mb-2">年齢層</p>
+                    <label class="custom-radio-label">
+                        <input type="radio" name="age" value="all" class="custom-radio-input" checked>
+                        <span class="radio-indicator"></span>
+                        <span class="radio-text">ALL</span>
+                    </label>
+                    <label class="custom-radio-label">
+                        <input type="radio" name="age" value="24" class="custom-radio-input">
+                        <span class="radio-indicator"></span>
+                        <span class="radio-text">〜24歳</span>
+                    </label>
+                    <label class="custom-radio-label">
+                        <input type="radio" name="age" value="25-29" class="custom-radio-input">
+                        <span class="radio-indicator"></span>
+                        <span class="radio-text">25歳〜29歳</span>
+                    </label>
+                    <label class="custom-radio-label">
+                        <input type="radio" name="age" value="30+" class="custom-radio-input">
+                        <span class="radio-indicator"></span>
+                        <span class="radio-text">30歳以上</span>
+                    </label>
                 </div>
+                
+                <button class="w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition mt-4">
+                    検索 //
+                </button>
 
-                <div class="space-y-1 text-gray-400">
-                    <p class="font-bold text-sm text-cyan-400 mb-2">AGE TARGET</p>
-                    <a href="girly_20s.html" class="sidebar-link">~ 24 YEARS OLD</a>
-                    <a href="index.html" class="sidebar-link">25 ~ 29 YEARS OLD</a>
-                    <a href="girly_30s.html" class="sidebar-link">30+ YEARS OLD</a>
-                </div>
 
             </aside>
 
@@ -225,7 +301,7 @@
                     FEMININE > GARLY // HIGH-GRADE LOW-COST
                 </h1>
                 <p class="text-gray-400 mb-8">
-                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / 25-29 y.o. / ~5,000 JPY**
+                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / 25-29 y.o.**
                 </p>
                 
                 <div class="prose max-w-none">
@@ -253,6 +329,7 @@
                                 <ul class="text-sm text-gray-400 mb-6 space-y-1">
                                     <li>PRICE: ~5,000 JPY</li>
                                     <li>STYLE: Florals, Puff Sleeves, Elegant</li>
+                                
                                 </ul>
                                 <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition">
                                     ACCESS OFFICIAL SITE //
@@ -300,23 +377,23 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.8</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.10</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const summaries = document.querySelectorAll('.system-category summary');
             const subCategories = document.querySelectorAll('.sub-category');
-            const filterLinks = document.querySelectorAll('aside nav:nth-of-type(2) .sidebar-link, aside nav:nth-of-type(3) .sidebar-link');
-
-            function deactivateAll() {
+            
+            function deactivateAllSummaries() {
                 summaries.forEach(s => s.classList.remove('active'));
-                subCategories.forEach(sc => sc.classList.remove('active'));
-                filterLinks.forEach(fl => fl.classList.remove('active'));
             }
 
             function setInitialActiveState() {
-                deactivateAll(); 
+                // 初期状態ではカテゴリリンクのアクティブ状態を設定
+                subCategories.forEach(sc => sc.classList.remove('active'));
+                deactivateAllSummaries();
+                
                 const currentPath = window.location.pathname.split('/').pop();
 
                 // 系統カテゴリのアクティブ化
@@ -333,13 +410,6 @@
                         }
                     }
                 });
-                
-                // FILTER部分のアクティブ化
-                filterLinks.forEach(link => {
-                    if (link.getAttribute('href') && currentPath === link.getAttribute('href').split('/').pop()) {
-                        link.classList.add('active');
-                    }
-                });
 
                 // index.htmlの特殊な初期状態（デフォルト）
                 if (currentPath === 'index.html' || currentPath === '') {
@@ -354,16 +424,8 @@
                     if (girlySubCategory) {
                         girlySubCategory.classList.add('active');
                     }
-                    // PRICE RANGEの'~5,000 JPY (LOW)' をアクティブ
-                    const priceLowLink = document.querySelector('aside nav:nth-of-type(2) .sidebar-link[href="index.html"]');
-                    if (priceLowLink) {
-                        priceLowLink.classList.add('active');
-                    }
-                    // AGE TARGETの'25 ~ 29 YEARS OLD' をアクティブ
-                    const ageMidLink = document.querySelector('aside nav:nth-of-type(3) .sidebar-link[href="index.html"]');
-                    if (ageMidLink) {
-                        ageMidLink.classList.add('active');
-                    }
+                    
+                    // ラジオボタンの初期設定はHTML側で checked 属性により対応済み
                 }
             }
 
@@ -374,10 +436,19 @@
             summaries.forEach(summary => {
                 summary.addEventListener('click', (event) => {
                     // クリックされたら、全てのsummaryのアクティブを解除して、自身をアクティブにする
-                    summaries.forEach(s => s.classList.remove('active'));
+                    deactivateAllSummaries();
                     summary.classList.add('active');
                 });
             });
+
+            // ラジオボタンの変更イベント (動作確認用)
+            const radioInputs = document.querySelectorAll('.custom-radio-input');
+            radioInputs.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    console.log(`Filter changed: ${radio.name} = ${radio.value}`);
+                });
+            });
+
         });
     </script>
 
