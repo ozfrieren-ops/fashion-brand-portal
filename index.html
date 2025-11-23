@@ -69,21 +69,36 @@
             margin-bottom: 4px; /* <details>間の間隔調整 */
         }
         .system-category summary {
-            /* summaryのデフォルトスタイルをリセットし、sidebar-linkのデザインを適用 */
+            /* summaryのデフォルトのマーカー（三角や矢印）を非表示にする */
             list-style: none;
             cursor: pointer;
             outline: none;
-            padding: 0;
-            margin: 0;
         }
         .system-category summary::-webkit-details-marker {
             display: none;
         }
-        /* summaryとlinkのデザインを統合 */
-        .system-category .sidebar-link {
-             /* summary内のaタグにはmargin-bottomは不要 */
-             margin-bottom: 0;
+        /* <summary>に直接大分類のスタイルを適用 */
+        .system-category summary {
+            padding: 8px 12px;
+            display: block; /* sidebar-linkと同じくブロック要素として扱う */
+            border-radius: 4px;
+            transition: background-color 0.2s, border-color 0.2s;
+            font-size: 0.95rem; 
+            color: #9ca3af; /* Gray 400 */
+            border: 1px solid transparent;
+            font-weight: 900;
         }
+        .system-category summary:hover {
+            background-color: #1f2937; /* Gray 800 */
+            color: #e5e7eb; /* Gray 200 */
+        }
+        .system-category summary.active {
+            background-color: #1f2937; /* Gray 800 */
+            color: #22d3ee; /* Cyan 400 */
+            font-weight: 900; 
+            border-color: #22d3ee; /* Cyan 400 */
+        }
+        
         /* <details>展開時のリストの間隔調整 */
         .system-category-list {
             padding-top: 4px; 
@@ -112,9 +127,7 @@
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
                     <details class="system-category" open>
-                        <summary>
-                            <a href="feminine.html" class="sidebar-link active">FEMININE (フェミニン)</a>
-                        </summary>
+                        <summary class="sidebar-link active">FEMININE (フェミニン)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="index.html" class="sub-category active">GARLY (ガーリー)</a>
                             <a href="sweet.html" class="sub-category">SWEET (スウィート)</a>
@@ -126,9 +139,7 @@
                     </details>
 
                     <details class="system-category">
-                        <summary>
-                            <a href="casual.html" class="sidebar-link">CASUAL (カジュアル)</a>
-                        </summary>
+                        <summary class="sidebar-link">CASUAL (カジュアル)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="casual.html" class="sub-category">BASIC (ベーシック)</a>
                             <a href="casual-street.html" class="sub-category">STREET (ストリート)</a>
@@ -141,17 +152,13 @@
                     </details>
 
                     <details class="system-category">
-                        <summary>
-                            <a href="mode.html" class="sidebar-link">MODE (モード)</a>
-                        </summary>
+                        <summary class="sidebar-link">MODE (モード)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             </div>
                     </details>
                     
                     <details class="system-category">
-                        <summary>
-                            <a href="elegant.html" class="sidebar-link">ELEGANT (エレガント)</a>
-                        </summary>
+                        <summary class="sidebar-link">ELEGANT (エレガント)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             </div>
                     </details>
@@ -257,7 +264,7 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.8</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.9</p>
     </footer>
 
 </body>
