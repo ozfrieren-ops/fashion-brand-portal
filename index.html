@@ -23,6 +23,7 @@
             font-size: 0.95rem; 
             color: #9ca3af; /* Gray 400 */
             border: 1px solid transparent;
+            font-weight: 900; /* 大分類の太字を維持 */
         }
         .sidebar-link:hover {
             background-color: #1f2937; /* Gray 800 */
@@ -32,7 +33,7 @@
         .sidebar-link.active {
             background-color: #1f2937; /* Gray 800 */
             color: #22d3ee; /* Cyan 400 */
-            font-weight: 900; /* より太く強調 */
+            font-weight: 900; 
             border-color: #22d3ee; /* Cyan 400 */
         }
         
@@ -62,6 +63,30 @@
             border-top: none; 
             border-left: 4px solid #06b6d4; /* モダンな左ライン */
         }
+        
+        /* --- アコーディオン（<details>）のCSS調整 --- */
+        .system-category summary {
+            /* summaryのデフォルトスタイルをリセットし、sidebar-linkのデザインを適用 */
+            list-style: none;
+            cursor: pointer;
+            outline: none;
+            padding: 0;
+            margin: 0;
+        }
+        .system-category summary::-webkit-details-marker {
+            display: none;
+        }
+        /* summaryとlinkのデザインを統合 */
+        .system-category .sidebar-link {
+             padding: 8px 12px;
+             margin-bottom: 4px; /* <summary>と次の要素の間隔 */
+        }
+        /* <details>展開時のリストの間隔調整 */
+        .system-category-list {
+            padding-top: 4px; 
+            padding-bottom: 4px;
+            margin-left: -12px; /* sub-categoryのパディング調整用 */
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
@@ -81,11 +106,13 @@
                 
                 <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS // (系統カテゴリ)</h3>
                 
-                <nav class="space-y-3 text-gray-400 mb-6">
+                <nav class="space-y-1 text-gray-400 mb-6">
                     
-                    <div>
-                        <a href="feminine.html" class="sidebar-link active font-extrabold">FEMININE (フェミニン)</a>
-                        <div class="mt-2 space-y-0.5 text-sm text-gray-400 ml-3">
+                    <details class="system-category" open>
+                        <summary>
+                            <a href="feminine.html" class="sidebar-link active">FEMININE (フェミニン)</a>
+                        </summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="index.html" class="sub-category active">GARLY (ガーリー)</a>
                             <a href="sweet.html" class="sub-category">SWEET (スウィート)</a>
                             <a href="elegant.html" class="sub-category">ELEGANT FEMININE (エレガントフェミニン)</a>
@@ -93,22 +120,38 @@
                             <a href="naturalfemi.html" class="sub-category">NATURAL FEMININE (ナチュラルフェミニン)</a>
                             <a href="ladylike.html" class="sub-category">LADYLIKE (レディライク)</a>
                         </div>
-                    </div>
+                    </details>
 
-                    <div>
-                        <a href="casual.html" class="sidebar-link font-extrabold">CASUAL (カジュアル)</a>
-                        <div class="mt-2 space-y-0.5 text-sm text-gray-400 ml-3 hidden">
-                            <a href="basic.html" class="sub-category">BASIC (ベーシック)</a>
-                            <a href="street.html" class="sub-category">STREET (ストリート)</a>
-                            <a href="sporty.html" class="sub-category">SPORTY (スポーティ)</a>
-                            <a href="denim.html" class="sub-category">DENIM (デニム)</a>
-                            <a href="natural.html" class="sub-category">NATURAL (ナチュラル)</a>
+                    <details class="system-category">
+                        <summary>
+                            <a href="casual.html" class="sidebar-link">CASUAL (カジュアル)</a>
+                        </summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="casual.html" class="sub-category">BASIC (ベーシック)</a>
+                            <a href="casual-street.html" class="sub-category">STREET (ストリート)</a>
+                            <a href="casual-sporty.html" class="sub-category">SPORTY (スポーティ)</a>
+                            <a href="casual-denim.html" class="sub-category">DENIM (デニム)</a>
+                            <a href="casual-natural.html" class="sub-category">NATURAL (ナチュラル)</a>
+                            <a href="casual-surf.html" class="sub-category">SURF / RELAX (サーフ／リラックス)</a>
+                            <a href="casual-military.html" class="sub-category">ARMY / MILITARY (アーミー／ミリタリー)</a>
                         </div>
-                    </div>
+                    </details>
 
-                    <a href="mode.html" class="sidebar-link font-extrabold">MODE (モード)</a>
+                    <details class="system-category">
+                        <summary>
+                            <a href="mode.html" class="sidebar-link">MODE (モード)</a>
+                        </summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            </div>
+                    </details>
                     
-                    <a href="elegant.html" class="sidebar-link font-extrabold">ELEGANT (エレガント)</a>
+                    <details class="system-category">
+                        <summary>
+                            <a href="elegant.html" class="sidebar-link">ELEGANT (エレガント)</a>
+                        </summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            </div>
+                    </details>
 
                 </nav>
 
@@ -211,7 +254,7 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.4</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.7</p>
     </footer>
 
 </body>
