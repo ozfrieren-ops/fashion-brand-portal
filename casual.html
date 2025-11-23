@@ -11,74 +11,66 @@
         
         body { font-family: 'Noto Sans JP', sans-serif; }
         .logo-font {
-            font-family: 'Audiowide', cursive; /* ロゴ専用フォント */
+            font-family: 'Audiowide', cursive;
         }
-        .brand-card-img { height: 16rem; } 
+        .brand-photo { height: 16rem; }
+        .brand-detail-card {
+            background-color: #1f2937; 
+            border-left: 4px solid #06b6d4; 
+        }
         
-        /* ... 省略 ... (サイドバーCSS、アコーディオンCSSはgarly.htmlと同じものを適用) */
-
-        /* 近未来的なサイドバーデザイン */
-        .sidebar-link {
-            padding: 6px 12px; 
-            display: block;
+        /* ---------------------------------------------------- */
+        /* サイドバー共通スタイル (アコーディオン用CSS) */
+        /* ---------------------------------------------------- */
+        
+        .main-category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
             border-radius: 4px;
-            transition: background-color 0.2s, border-color 0.2s;
-            font-size: 0.8rem; /* 0.8125rem からさらに微細調整 */
-            color: #9ca3af; 
-            border: 1px solid transparent;
-            font-weight: 700; 
-            text-decoration: none; 
-            white-space: nowrap; 
-        }
-        /* ... 中分類 sub-category のCSSは変更なし ... */
-
-        /* フィルター項目のスタイル (0.8rem で統一) */
-        .filter-item {
-            padding: 3px 12px; 
-            display: block;
-            border-radius: 4px;
-            font-size: 0.8rem; 
-            color: #9ca3af; 
-            /* ... 省略 ... */
-        }
-
-        /* --- アコーディオン（<details>）のCSS調整 --- */
-        .system-category {
-            margin-bottom: 4px; 
-            border: 1px solid rgba(156, 163, 175, 0.1); 
-            border-radius: 6px;
-        }
-
-        .system-category summary {
-            padding: 5px 12px; 
-            list-style: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #9ca3af;
             cursor: pointer;
-            outline: none;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            font-size: 0.8rem; 
-            /* ... 省略 ... */
-            position: relative; 
+            transition: background-color 0.2s;
+            position: relative;
         }
-        .system-category summary::-webkit-details-marker {
-            display: none;
+        .main-category-item:hover {
+            background-color: #374151;
         }
-        /* 【修正4】＋アイコンの定義 */
-        .system-category summary::after {
-            content: '+'; 
-            font-size: 1rem;
-            line-height: 1;
-            margin-left: 10px;
+        .main-category-item::after {
+            content: '+';
+            font-size: 0.8rem;
+            color: #22d3ee;
             transition: transform 0.2s;
-            font-weight: 900; 
-            color: #22d3ee; 
+            font-weight: 900;
         }
-
-        /* 【修正4】−アイコンの定義 (details[open]時) */
-        .system-category[open] summary::after {
-            content: '−'; 
-            transform: rotate(0deg); 
+        .main-category-item.expanded::after {
+            content: '−';
+        }
+        .sub-category-list {
+            padding-left: 12px;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            border-left: 2px solid #06b6d4;
+        }
+        .sub-category-link {
+            padding: 4px 12px;
+            display: block;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            color: #ccc;
+            transition: background-color 0.2s;
+        }
+        .sub-category-link:hover {
+            background-color: #1f2937;
+            color: #fff;
+        }
+        .active-link {
+            background-color: #06b6d4 !important;
+            color: #000 !important;
+            font-weight: 700;
         }
         
     </style>
@@ -99,37 +91,138 @@
             
             <aside class="w-full lg:w-72 bg-gray-800 p-4 lg:p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700 flex-shrink-0">
                 
-                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">STYLE CATEGORIES</h3>
+                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
-                    <a href="index.html" class="sidebar-link hover:bg-gray-700 hover:border-gray-500 border-gray-700 mb-4 font-extrabold text-cyan-400" id="top-link">
+                    <a href="index.html" class="hover:bg-cyan-600/50 block px-3 py-2 rounded font-extrabold mb-4" id="top-link">
                         TOP
                     </a>
                     
-                    <details class="system-category">
-                        <summary class="sidebar-link">FEMININE (フェミニン)</summary>
-                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
-                            <a href="garly.html" class="sub-category">GARLY (ガーリー)</a>
-                            </div>
-                    </details>
+                    <div class="main-category-item" data-target="femi-list">
+                        <span>FEMININE (フェミニン)</span>
+                    </div>
+                    <div class="sub-category-list space-y-0.5 hidden" id="femi-list">
+                        <a href="garly.html" class="sub-category-link">GARLY (ガーリー)</a>
+                        <a href="#" class="sub-category-link">SWEET (スウィート)</a>
+                        <a href="#" class="sub-category-link">ELEGANT FEMININE (エレガントフェミニン)</a>
+                        <a href="#" class="sub-category-link">ROMANTIC (ロマンティック)</a>
+                        <a href="#" class="sub-category-link">NATURAL FEMININE (ナチュラルフェミニン)</a>
+                        <a href="#" class="sub-category-link">LADYLIKE (レディライク)</a>
+                    </div>
                     
-                    <details class="system-category" open>
-                        <summary class="sidebar-link active">CASUAL (カジュアル)</summary>
-                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
-                            <a href="casual.html" class="sub-category active">BASIC (ベーシック)</a>
-                            <a href="casual-street.html" class="sub-category">STREET (ストリート)</a>
-                            </div>
-                    </details>
-                    
-                    </nav>
+                    <div class="main-category-item expanded bg-cyan-800/50 border border-cyan-500" data-target="casual-list">
+                        <span>CASUAL (カジュアル)</span>
+                    </div>
+                    <div class="sub-category-list space-y-0.5" id="casual-list">
+                        <a href="casual_basic.html" class="sub-category-link active-link">BASIC (ベーシック)</a>
+                        <a href="casual_army.html" class="sub-category-link">アーミー／ミリタリー</a>
+                        <a href="casual_street.html" class="sub-category-link">STREET (ストリート)</a>
+                        <a href="casual_sporty.html" class="sub-category-link">スポーティ</a>
+                        <a href="casual_work.html" class="sub-category-link">ワーク</a>
+                        <a href="casual_denim.html" class="sub-category-link">デニム</a>
+                        <a href="casual_safari.html" class="sub-category-link">サファリ</a>
+                        <a href="casual_surf.html" class="sub-category-link">サーフ／ビーチ</a>
+                        <a href="casual_marine.html" class="sub-category-link">マリン／トラッド</a>
+                    </div>
+
+                    <div class="main-category-item" data-target="mode-list">
+                        <span>MODE (モード)</span>
+                    </div>
+                    <div class="sub-category-list hidden space-y-0.5" id="mode-list">
+                        <a href="mode_avantgarde.html" class="sub-category-link">アバンギャルド</a>
+                        <a href="mode_minimalism.html" class="sub-category-link">ミニマリズム (モード寄り)</a>
+                        <a href="mode_black.html" class="sub-category-link">ブラック／モノトーン</a>
+                        <a href="mode_stylish.html" class="sub-category-link">スタイリッシュ</a>
+                        <a href="mode_art.html" class="sub-category-link">アート／コンセプチュアル</a>
+                    </div>
+
+                    <div class="main-category-item" data-target="elegant-list">
+                        <span>ELEGANT (エレガント)</span>
+                    </div>
+                    <div class="sub-category-list hidden space-y-0.5" id="elegant-list">
+                        <a href="elegant_main.html" class="sub-category-link">エレガント</a>
+                        <a href="elegant_office.html" class="sub-category-link">オフィス／通勤</a>
+                        <a href="elegant_conservative.html" class="sub-category-link">コンサバ</a>
+                    </div>
+
+                </nav>
                 
-                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mt-6 mb-4">FILTER //</h3>
-                
-                </aside>
+            </aside>
 
             <div class="flex-grow">
+                
+                <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT CATEGORY</p>
+                <h1 class="text-2xl font-extrabold text-gray-50 mb-2">
+                    CASUAL / BASIC
+                </h1>
+                <p class="text-sm text-gray-400 mb-6">
+                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE**
+                </p>
+
+                <h2 class="text-xl font-bold mt-10 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    (1) 王道ガーリー・フェミニン (Mainstream Feminine)
+                </h2>
+                <p class="text-sm text-gray-300 mb-6">
+                    流行に左右されない上品さで、幅広い年代の女性に愛される定番ブランドをご紹介。オフィスから休日まで、様々なシーンで活躍するアイテムが揃います。
+                </p>
+
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Misch Masch 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Misch Masch <span class="text-sm font-normal text-gray-400">(ミッシュマッシュ)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                上品で可愛らしい、大人フェミニンスタイルの王道ブランド。オフィスにも着ていけるきれいめワンピースやスカートが人気で、高見えする素材感とシルエットも魅力です。
+                            </p>
+                            <ul class="text-xs text-gray-400 mb-6 space-y-1">
+                                <li>**PRICE**: トップス \~8,000 JPY / ワンピース \~12,000 JPY</li>
+                                <li>**TARGET**: 20代中盤 - 30代前半</li>
+                                <li>**STYLE**: エレガントフェミニン、きれいめ、通勤</li>
+                            </ul>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
                 </div>
+                
+                <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-detail-card">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-full md:w-1/3 bg-gray-700 brand-photo rounded-lg flex items-center justify-center text-gray-500 text-sm">
+                            <span>[Mary Magdalene 代表写真]</span>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-xl font-bold text-cyan-400 mb-2">Mary Magdalene <span class="text-sm font-normal text-gray-400">(メアリーマグダレン)</span></h3>
+                            <p class="mb-4 text-sm text-gray-300">
+                                [DETAIL CONTENT]
+                            </p>
+                            <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition text-sm">
+                                ACCESS OFFICIAL SITE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    (5) 韓国ガーリー (K-Style Feminine)
+                </h2>
+                <p class="text-sm text-gray-300 mb-6">
+                    [SECTION DESCRIPTION]
+                </p>
+
+                <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    OPTIMIZATION TECHNIQUES (GARLY)
+                </h2>
+                <ul class="list-disc list-inside text-gray-300 space-y-3 text-sm">
+                    <li>**FABRIC CHECK:** シワになりにくい**ハリのある素材**を選ぶことで、安っぽさを回避する。</li>
+                    <li>**BALANCE:** 甘いデザインのアイテムには、**シンプルなタイトなボトムス**でバランスを取る。</li>
+                    <li>**ACCESSORIES:** **高見えするシンプルな金属アクセサリー**で、大人っぽい格上げを図る。</li>
+                </ul>
+            </div>
             
         </div>
     </main>
@@ -138,5 +231,26 @@
         <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. - SYSTEM V3.1</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // カテゴリの開閉を管理
+            const mainCategories = document.querySelectorAll('.main-category-item');
+
+            mainCategories.forEach(item => {
+                item.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const targetList = document.getElementById(targetId);
+
+                    if (targetList) {
+                        // hiddenクラスをトグルして表示/非表示を切り替える (Tailwind)
+                        targetList.classList.toggle('hidden');
+                        
+                        // expandedクラスをトグルしてアイコンを切り替える (CSS)
+                        this.classList.toggle('expanded');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
