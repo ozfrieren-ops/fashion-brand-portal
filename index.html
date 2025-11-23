@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【ガーリー系】本当に使える高見えプチプラブランド10選 | FASHION NAVI</title>
+    <title>【女性向け・ガーリー系】20代後半向けブランド一覧 | FASHION NAVI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; }
-        .gradient-bg { background: linear-gradient(to right, #34d399, #06b6d4); }
         .brand-card-img { height: 16rem; } 
         
         .brand-name { color: #059669; }
@@ -19,6 +18,7 @@
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
+            font-size: 0.95rem; /* メニューの文字を少し小さく */
         }
         .sidebar-link:hover {
             background-color: #ecfdf5; 
@@ -28,6 +28,16 @@
             color: white;
             font-weight: bold;
         }
+        /* 中分類のスタイル */
+        .sub-category {
+            padding: 6px 12px 6px 20px; /* インデントを深めに */
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .sub-category:hover {
+            background-color: #f0fdf4; /* Light green hover */
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 pt-16">
@@ -35,7 +45,7 @@
     <header class="w-full py-4 px-6 bg-white shadow-md flex justify-between items-center fixed top-0 z-50">
         <div class="text-xl font-bold text-emerald-600"><a href="index.html">FASHION NAVI</a></div>
         <nav>
-            <a href="index.html" class="px-4 py-2 text-emerald-600 font-semibold border-b-2 border-emerald-600 transition">ブランド一覧</a>
+            <a href="index.html" class="px-4 py-2 text-emerald-600 font-semibold border-b-2 border-emerald-600 transition">ブランド一覧 (女性)</a>
             <a href="age.html" class="px-4 py-2 text-gray-600 hover:text-emerald-600 transition">年代別 (未作成)</a>
         </nav>
     </header>
@@ -45,16 +55,37 @@
             
             <aside class="md:col-span-1 bg-white p-6 rounded-xl shadow-lg h-fit sticky top-20">
                 
-                <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">系統カテゴリ</h3>
-                <nav class="space-y-1 text-gray-700 mb-6">
-                    <a href="index.html" class="sidebar-link active">👚 ガーリー (表示中)</a>
-                    <a href="casual.html" class="sidebar-link">👖 カジュアル (未作成)</a>
-                    <a href="kireime.html" class="sidebar-link">✨ きれいめ (未作成)</a>
-                    <a href="mode.html" class="sidebar-link">⚫️ モード (未作成)</a>
-                    <a href="street.html" class="sidebar-link">👟 ストリート (未作成)</a>
+                <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4">系統カテゴリ (大分類)</h3>
+                
+                <nav class="space-y-3 text-gray-700 mb-6">
+                    
+                    <div>
+                        <a href="feminine.html" class="sidebar-link active">💖 フェミニン</a>
+                        <div class="mt-1 space-y-0.5 text-sm text-gray-600 border-l border-emerald-200 ml-3">
+                            <a href="index.html" class="sub-category bg-emerald-100 font-bold text-emerald-800">✅ ガーリー (表示中)</a>
+                            <a href="sweet.html" class="sub-category">スウィート</a>
+                            <a href="elegant.html" class="sub-category">エレガント</a>
+                            <a href="consa.html" class="sub-category">コンサバ</a>
+                            <a href="romantic.html" class="sub-category">ロマンティック</a>
+                            <a href="oneesan.html" class="sub-category">お姉さん系</a>
+                            </div>
+                    </div>
+
+                    <div>
+                        <a href="casual.html" class="sidebar-link">👖 カジュアル</a>
+                        <div class="mt-1 space-y-0.5 text-sm text-gray-600 border-l border-gray-200 ml-3 hidden">
+                            <a href="kireic.html" class="sub-category">キレイめカジュアル</a>
+                            <a href="otona.html" class="sub-category">大人カジュアル</a>
+                            </div>
+                    </div>
+
+                    <a href="mode.html" class="sidebar-link">⚫️ クール・モード</a>
+                    
+                    <a href="classic.html" class="sidebar-link">📚 クラシック</a>
+
                 </nav>
 
-                <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4 mt-6">絞り込み条件</h3>
+                <h3 class="text-lg font-bold text-gray-800 border-b pb-2 mb-4 mt-6">絞り込み条件（その他）</h3>
                 
                 <div class="space-y-1 text-gray-700 mb-6">
                     <p class="font-semibold text-sm text-emerald-600 mb-2">価格帯</p>
@@ -77,7 +108,7 @@
                     【ガーリー系×プチプラ】20代後半向け！高見えブランド10選
                 </h1>
                 <p class="text-gray-500 mb-8">
-                    <span class="font-bold text-emerald-600">現在の絞り込み:</span> **ガーリー / 〜5,000円 / 20代後半**
+                    <span class="font-bold text-emerald-600">現在の絞り込み:</span> **フェミニン > ガーリー / 〜5,000円 / 20代後半**
                 </p>
                 
                 <div class="prose max-w-none">
