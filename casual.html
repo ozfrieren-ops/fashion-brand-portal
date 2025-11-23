@@ -6,7 +6,7 @@
     <title>【女性向け・カジュアル系】ベーシックブランド一覧 | FASHION NAVI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* ... (CSSは前回のものをそのまま使用します) ... */
+        /* ... (CSSは index.html と garly.html に合わせて変更なし) ... */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; }
         .brand-card-img { height: 16rem; } 
@@ -35,6 +35,13 @@
         .sidebar-link.active {
             background-color: #1f2937; 
             color: #22d3ee; 
+            font-weight: 900; 
+            border-color: #22d3ee; 
+        }
+        /* TOPリンクのアクティブスタイル */
+        .sidebar-link.top-active {
+            background-color: #06b6d4; 
+            color: #1f2937; 
             font-weight: 900; 
             border-color: #22d3ee; 
         }
@@ -155,14 +162,14 @@
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
-                    <a href="top.html" class="sidebar-link hover:bg-gray-700 hover:border-gray-500 border-gray-700 mb-4 font-extrabold text-cyan-400">
-                        🏠 ALL SYSTEMS (TOP)
+                    <a href="index.html" class="sidebar-link hover:bg-gray-700 hover:border-gray-500 border-gray-700 mb-4 font-extrabold text-cyan-400" id="top-link">
+                        TOP
                     </a>
 
                     <details class="system-category">
                         <summary class="sidebar-link">FEMININE (フェミニン)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
-                            <a href="index.html" class="sub-category">GARLY</a>
+                            <a href="garly.html" class="sub-category">GARLY</a>
                             <a href="sweet.html" class="sub-category">SWEET</a>
                             <a href="elegant.html" class="sub-category">ELEGANT FEMININE</a>
                             <a href="romantic.html" class="sub-category">ROMANTIC</a>
@@ -295,6 +302,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const summaries = document.querySelectorAll('.system-category summary');
             const subCategories = document.querySelectorAll('.sub-category');
+            const topLink = document.getElementById('top-link');
             
             function deactivateAllSummaries() {
                 summaries.forEach(s => s.classList.remove('active'));
@@ -305,6 +313,11 @@
                 deactivateAllSummaries();
                 
                 const currentPath = window.location.pathname.split('/').pop();
+
+                // TOPリンクのアクティブ解除（カテゴリページなので）
+                if (topLink) {
+                    topLink.classList.remove('top-active');
+                }
 
                 subCategories.forEach(sub => {
                     if (sub.getAttribute('href') && currentPath === sub.getAttribute('href').split('/').pop()) {
