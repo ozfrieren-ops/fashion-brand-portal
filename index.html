@@ -6,7 +6,6 @@
     <title>FASHION NAVI - 系統カテゴリとサイト概要</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* CSSは前回の修正で提示した共通スタイルを使用します */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght400;700;900&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; }
         .brand-card-img { height: 16rem; } 
@@ -42,7 +41,6 @@
         }
         /* TOPリンクのアクティブスタイル (TOPが選ばれている状態) */
         .sidebar-link.top-active {
-            /* TOPが選ばれているため、背景と文字色を反転させ目立たせる */
             background-color: #06b6d4; 
             color: #1f2937; 
             font-weight: 900; 
@@ -162,9 +160,10 @@
     </header>
 
     <main class="max-w-7xl mx-auto py-12 px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> 
+        
+        <div class="flex flex-col md:flex-row gap-8"> 
             
-            <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
+            <aside class="w-full md:w-64 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700 flex-shrink-0">
                 
                 <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
                 
@@ -222,7 +221,7 @@
 
             </aside>
 
-            <div class="md:col-span-3">
+            <div class="flex-grow">
                 
                 <div class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-12 border border-cyan-800">
                     <h1 class="text-3xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
