@@ -129,9 +129,9 @@
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
                     <details class="system-category" open>
-                        <summary class="sidebar-link active">FEMININE (フェミニン)</summary>
+                        <summary class="sidebar-link">FEMININE (フェミニン)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
-                            <a href="index.html" class="sub-category active">GARLY (ガーリー)</a>
+                            <a href="index.html" class="sub-category">GARLY (ガーリー)</a>
                             <a href="sweet.html" class="sub-category">SWEET (スウィート)</a>
                             <a href="elegant.html" class="sub-category">ELEGANT FEMININE (エレガントフェミニン)</a>
                             <a href="romantic.html" class="sub-category">ROMANTIC (ロマンティック)</a>
@@ -171,7 +171,7 @@
                 
                 <div class="space-y-1 text-gray-400 mb-6">
                     <p class="font-bold text-sm text-cyan-400 mb-2">PRICE RANGE</p>
-                    <a href="index.html" class="sidebar-link active">~5,000 JPY (LOW)</a>
+                    <a href="index.html" class="sidebar-link">~5,000 JPY (LOW)</a>
                     <a href="price_medium.html" class="sidebar-link">5K~10K JPY (MID)</a>
                     <a href="price_high.html" class="sidebar-link">10K~30K JPY (HIGH)</a>
                 </div>
@@ -179,7 +179,7 @@
                 <div class="space-y-1 text-gray-400">
                     <p class="font-bold text-sm text-cyan-400 mb-2">AGE TARGET</p>
                     <a href="girly_20s.html" class="sidebar-link">~ 24 YEARS OLD</a>
-                    <a href="index.html" class="sidebar-link active">25 ~ 29 YEARS OLD</a>
+                    <a href="index.html" class="sidebar-link">25 ~ 29 YEARS OLD</a>
                     <a href="girly_30s.html" class="sidebar-link">30+ YEARS OLD</a>
                 </div>
 
@@ -266,8 +266,164 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.0</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.1</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const systemCategories = document.querySelectorAll('.system-category');
+            const summaries = document.querySelectorAll('.system-category summary');
+            const subCategories = document.querySelectorAll('.sub-category');
+            const filterLinks = document.querySelectorAll('aside nav:nth-of-type(2) .sidebar-link'); // PRICE RANGE & AGE TARGET
+
+            function deactivateAll() {
+                summaries.forEach(s => s.classList.remove('active'));
+                subCategories.forEach(sc => sc.classList.remove('active'));
+                filterLinks.forEach(fl => fl.classList.remove('active'));
+            }
+
+            // 初期アクティブ状態の設定（URLに基づいた処理）
+            const currentPath = window.location.pathname.split('/').pop();
+
+            if (currentPath === 'index.html' || currentPath === '') {
+                // FEMININE (summary) をアクティブ
+                const feminineSummary = document.querySelector('summary.sidebar-link');
+                if (feminineSummary && feminineSummary.textContent.includes('FEMININE')) {
+                    feminineSummary.classList.add('active');
+                    // GARLY (sub-category) もアクティブ
+                    const girlySubCategory = document.querySelector('.sub-category[href="index.html"]');
+                    if (girlySubCategory) {
+                        girlySubCategory.classList.add('active');
+                        // 親のdetailsを開く
+                        girlySubCategory.closest('details').setAttribute('open', '');
+                    }
+                }
+                // PRICE RANGEの'~5,000 JPY (LOW)' をアクティブ
+                const priceLowLink = document.querySelector('aside nav:nth-of-type(2) .sidebar-link[href="index.html"]');
+                if (priceLowLink) {
+                    priceLowLink.classList.add('active');
+                }
+                // AGE TARGETの'25 ~ 29 YEARS OLD' をアクティブ
+                const ageMidLink = document.querySelector('aside nav:nth-of-type(3) .sidebar-link[href="index.html"]');
+                if (ageMidLink) {
+                    ageMidLink.classList.add('active');
+                }
+
+            } else {
+                // その他のページの場合、URLパスと一致するリンクをアクティブにする
+                const activeElement = document.querySelector(`[href="${currentPath}"]`);
+                if (activeElement) {
+                    activeElement.classList.add('active');
+                    // もしsub-categoryがアクティブになった場合、その親のsummaryもアクティブにする
+                    if (activeElement.classList.contains('sub-category')) {
+                        const parentDetails = activeElement.closest('details');
+                        if (parentDetails) {
+                            const parentSummary = parentDetails.querySelector('summary');
+                            if (parentSummary) {
+                                parentSummary.classList.add('active');
+                                parentDetails.setAttribute('open', ''); // 親のdetailsを開く
+                            }
+                        }
+                    } else if (activeElement.classList.contains('sidebar-link')) { // 大分類のsummaryが直接リンクの場合
+                        const parentDetails = activeElement.closest('details');
+                        if (parentDetails) {
+                            parentDetails.setAttribute('open', ''); // 親のdetailsを開く
+                        }
+                    }
+                }
+            }
+
+
+            // 大分類（summary）のクリックイベント
+            summaries.forEach(summary => {
+                summary.addEventListener('click', (event) => {
+                    // preventDefault() はここでは不要（details/summaryのネイティブな挙動を活かすため）
+                    // activeクラスの切り替え
+                    deactivateAll(); // 全てのアクティブ状態をリセット
+                    summary.classList.add('active'); // クリックされたsummaryをアクティブに
+                    
+                    // クリックされたsummaryが属するdetailsのサブカテゴリをアクティブにする必要はない
+                    // サブカテゴリは個別にクリックされたときにアクティブにする
+                });
+            });
+
+            // 中分類（sub-category）のクリックイベント
+            subCategories.forEach(sub => {
+                sub.addEventListener('click', (event) => {
+                    // preventDefault() はここでは不要（リンク遷移を優先するため）
+                    deactivateAll(); // 全てのアクティブ状態をリセット
+                    sub.classList.add('active'); // クリックされたsub-categoryをアクティブに
+
+                    // その親のsummaryもアクティブにする
+                    const parentDetails = sub.closest('details');
+                    if (parentDetails) {
+                        const parentSummary = parentDetails.querySelector('summary');
+                        if (parentSummary) {
+                            parentSummary.classList.add('active');
+                        }
+                    }
+                });
+            });
+
+            // FILTER部分のリンククリックイベント
+            filterLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // preventDefault() はここでは不要
+                    deactivateAll(); // 全てのアクティブ状態をリセット
+                    link.classList.add('active'); // クリックされたリンクをアクティブに
+
+                    // もしこのリンクがシステムカテゴリのサブカテゴリでもある場合、
+                    // その親のsummaryもアクティブにする
+                    if (link.classList.contains('sub-category')) {
+                        const parentDetails = link.closest('details');
+                        if (parentDetails) {
+                            const parentSummary = parentDetails.querySelector('summary');
+                            if (parentSummary) {
+                                parentSummary.classList.add('active');
+                            }
+                        }
+                    }
+                });
+            });
+
+            // 初期読み込み時のアクティブ状態を調整
+            // 例えば、index.htmlにアクセスした場合、'FEMININE' summaryと'GARLY' sub-categoryがアクティブになるように
+            // この部分はDOMContentLoadedの初期設定で既に処理されているはずですが、念のため
+            const currentUrl = window.location.href;
+            summaries.forEach(summary => {
+                // summaryに直接hrefがないため、対応するサブカテゴリのアクティブ状態をチェック
+                const subCategoryLinks = summary.nextElementSibling.querySelectorAll('.sub-category');
+                let hasActiveSubCategory = false;
+                subCategoryLinks.forEach(sub => {
+                    if (currentUrl.includes(sub.getAttribute('href'))) {
+                        sub.classList.add('active');
+                        hasActiveSubCategory = true;
+                    }
+                });
+                if (hasActiveSubCategory) {
+                    summary.classList.add('active');
+                    summary.closest('details').setAttribute('open', '');
+                }
+            });
+
+            filterLinks.forEach(link => {
+                if (currentUrl.includes(link.getAttribute('href'))) {
+                    link.classList.add('active');
+                }
+            });
+
+            // index.htmlの初期状態を改めて設定（FEMININE & GARLY & PRICE LOW & AGE MID）
+            if (currentPath === 'index.html' || currentPath === '') {
+                deactivateAll(); // すべてをリセット
+                document.querySelector('summary.sidebar-link:nth-of-type(1)').classList.add('active'); // FEMININE summary
+                document.querySelector('.sub-category[href="index.html"]').classList.add('active'); // GARLY sub-category
+                document.querySelector('aside nav:nth-of-type(2) .sidebar-link[href="index.html"]').classList.add('active'); // PRICE LOW
+                document.querySelector('aside nav:nth-of-type(3) .sidebar-link[href="index.html"]').classList.add('active'); // AGE MID
+                document.querySelector('details.system-category').setAttribute('open', ''); // FEMININE detailsを開く
+            }
+
+        });
+    </script>
 
 </body>
 </html>
