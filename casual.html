@@ -6,6 +6,7 @@
     <title>【女性向け・カジュアル系】ベーシックブランド一覧 | FASHION NAVI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* ... (CSSは前回のものをそのまま使用します) ... */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; }
         .brand-card-img { height: 16rem; } 
@@ -133,8 +134,6 @@
             background-color: #111827; 
             border-radius: 0 0 5px 5px;
         }
-        
-        /* 旧ラジオボタンのカスタムスタイル（今回は削除されるため、未使用） */
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
@@ -156,6 +155,10 @@
                 
                 <nav class="space-y-1 text-gray-400 mb-6">
                     
+                    <a href="top.html" class="sidebar-link hover:bg-gray-700 hover:border-gray-500 border-gray-700 mb-4 font-extrabold text-cyan-400">
+                        🏠 ALL SYSTEMS (TOP)
+                    </a>
+
                     <details class="system-category">
                         <summary class="sidebar-link">FEMININE (フェミニン)<span class="accordion-icon"></span></summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
@@ -205,7 +208,7 @@
                 </aside>
 
             <div class="md:col-span-3">
-                <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT FILTER</p>
+                <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT CATEGORY</p>
                 <h1 class="text-3xl md:text-4xl font-extrabold text-gray-50 mb-2">
                     CASUAL > BASIC - ESSENTIAL & TIMELESS
                 </h1>
@@ -329,7 +332,7 @@
                     }
                 }
                 
-                // STATUS表示の更新 (ALL MOOD -> ACTIVE)
+                // STATUS表示の更新 (ACTIVE)
                 const statusElement = document.querySelector('.text-gray-400.mb-8');
                 if (statusElement) {
                     statusElement.innerHTML = '<span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE**';
@@ -345,8 +348,6 @@
                     summary.classList.add('active');
                 });
             });
-
-            // フィルタのJSは全て削除されました。
 
         });
     </script>
