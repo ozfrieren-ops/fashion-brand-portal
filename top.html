@@ -3,17 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FASHION NAVI - システム全体概要</title>
+    <title>FASHION NAVI - 系統カテゴリとサイト概要</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght400;700;900&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; }
-        .system-card-img { height: 12rem; } 
+        .brand-card-img { height: 16rem; } 
         
         /* ダークモードの配色 */
+        .brand-name { color: #22d3ee; } 
+        .brand-detail { color: #d1d5db; } 
+        .system-card-img { height: 12rem; } 
         .system-name { color: #22d3ee; } 
 
-        /* カードデザイン */
+        /* 近未来的なサイドバーデザイン */
+        .sidebar-link {
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s, border-color 0.2s;
+            font-size: 0.95rem; 
+            color: #9ca3af; 
+            border: 1px solid transparent;
+            font-weight: 900; 
+            text-decoration: none; 
+        }
+        .sidebar-link:hover {
+            background-color: #1f2937; 
+            color: #e5e7eb; 
+        }
+        /* 大分類のアクティブリンク：ネオンシアンの枠線とテキスト */
+        .sidebar-link.active {
+            background-color: #1f2937; 
+            color: #22d3ee; 
+            font-weight: 900; 
+            border-color: #22d3ee; 
+        }
+        /* TOPリンクのアクティブスタイル (TOPが選ばれている状態) */
+        .sidebar-link.top-active {
+            background-color: #06b6d4; 
+            color: #1f2937; 
+            font-weight: 900; 
+            border-color: #22d3ee; 
+        }
+        
+        /* 中分類のスタイル */
+        .sub-category {
+            padding: 6px 12px 6px 20px; 
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            color: #9ca3af; 
+            text-decoration: none;
+            white-space: nowrap; 
+        }
+        .sub-category:hover {
+            background-color: #1f2937; 
+        }
+        /* アクティブな中分類 */
+        .sub-category.active {
+            color: #22d3ee; 
+            font-weight: 700;
+            background-color: #111827; 
+            border-left: 3px solid #22d3ee; 
+            padding-left: 17px;
+        }
+
+        /* カードデザインの変更 (トップページ系統カード) */
         .system-card {
             background-color: #1f2937; 
             border-left: 4px solid #06b6d4; 
@@ -23,7 +79,74 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(34, 213, 238, 0.2), 0 4px 6px -2px rgba(34, 213, 238, 0.05); 
         }
+        
+        /* --- アコーディオン（<details>）のCSS調整 --- */
+        .system-category {
+            margin-bottom: 8px; 
+            border: 1px solid rgba(156, 163, 175, 0.1); 
+            border-radius: 6px;
+        }
 
+        .system-category summary {
+            list-style: none;
+            cursor: pointer;
+            outline: none;
+            padding: 8px 12px;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            font-size: 0.95rem; 
+            color: #9ca3af; 
+            font-weight: 900;
+            transition: background-color 0.2s, color 0.2s;
+            border-radius: 4px;
+            border: none; 
+        }
+        .system-category summary::-webkit-details-marker {
+            display: none;
+        }
+        .system-category summary:hover {
+            background-color: #1f2937; 
+            color: #e5e7eb; 
+        }
+        /* アクティブなsummaryのスタイル */
+        .system-category summary.active {
+            background-color: #1f2937; 
+            color: #22d3ee; 
+            font-weight: 900; 
+            border-radius: 5px 5px 0 0;
+        }
+        
+        /* アコーディオンアイコンのスタイル（三角） */
+        .accordion-icon {
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #9ca3af; 
+            transform: translateY(2px); 
+            transition: transform 0.3s ease-out, border-top-color 0.2s;
+            margin-left: 10px; 
+            flex-shrink: 0; 
+        }
+        /* summaryがactiveの時のアイコン色 */
+        .system-category summary.active .accordion-icon {
+            border-top-color: #22d3ee; 
+        }
+        /* detailsが開いた時のアイコン（上向きの矢印） */
+        details[open] .system-category summary .accordion-icon {
+            transform: translateY(-2px) rotate(180deg); 
+        }
+
+        /* <details>展開時のリストの間隔調整 */
+        .system-category-list {
+            padding: 4px 0;
+            margin-left: -12px; 
+            background-color: #111827; 
+            border-radius: 0 0 5px 5px;
+        }
+        
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
@@ -37,79 +160,143 @@
     </header>
 
     <main class="max-w-7xl mx-auto py-12 px-6">
-        
-        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-12 border border-cyan-800">
-            <h1 class="text-3xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
-                FASHION NAVI とは？
-            </h1>
-            <p class="text-lg text-gray-300">
-                FASHION NAVIは、<strong class="text-cyan-400">「本当に自分に合ったブランド」</strong>を効率的に見つけるためのナビゲーションシステムです。
-            </p>
-            <ul class="text-md text-gray-400 mt-4 space-y-2 list-disc list-inside ml-4">
-                <li><strong class="text-gray-200">系統カテゴリ別</strong>（フェミニン、カジュアルなど）にブランドを徹底分類。</li>
-                <li>価格帯や年齢層といった**詳細なフィルターは現在準備中**です。</li>
-                <li>各カテゴリの**最新トレンド**と**着こなしの最適化テクニック**も合わせて提案します。</li>
-            </ul>
-        </div>
-        
-        <p class="text-xs font-bold text-cyan-400 mb-2">SYSTEM OVERVIEW</p>
-        <h2 class="text-4xl font-extrabold text-gray-50 mb-8">
-            FASHION STYLES - 系統カテゴリ
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8"> 
+            
+            <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
+                
+                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">CATEGORIES</h3>
+                
+                <nav class="space-y-1 text-gray-400 mb-6">
+                    
+                    <a href="index.html" class="sidebar-link top-active hover:bg-gray-700 hover:border-gray-500 border-gray-700 mb-4 font-extrabold text-white">
+                        TOP
+                    </a>
 
-            <a href="index.html" class="block">
-                <div class="p-6 rounded-xl shadow-2xl system-card">
-                    <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
-                        <span>[FEMININE STYLE IMAGE]</span>
-                    </div>
-                    <h3 class="text-2xl font-bold system-name mb-2">FEMININE (フェミニン)</h3>
-                    <p class="text-gray-300 text-sm">
-                        **柔らかな素材と曲線的なシルエット**を基調とし、女性らしい優雅さや可愛らしさを追求したスタイルです。ロマンティックなディテールが特徴です。
-                    </p>
-                    <p class="text-sm text-cyan-400 font-bold mt-3">→ ガーリー、スイート、エレガントフェミニンなど</p>
-                </div>
-            </a>
+                    <details class="system-category">
+                        <summary class="sidebar-link">FEMININE (フェミニン)<span class="accordion-icon"></span></summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="garly.html" class="sub-category">GARLY</a>
+                            <a href="sweet.html" class="sub-category">SWEET</a>
+                            <a href="elegant.html" class="sub-category">ELEGANT FEMININE</a>
+                            <a href="romantic.html" class="sub-category">ROMANTIC</a>
+                            <a href="naturalfemi.html" class="sub-category">NATURAL FEMININE</a>
+                            <a href="ladylike.html" class="sub-category">LADYLIKE</a>
+                        </div>
+                    </details>
 
-            <a href="casual.html" class="block">
-                <div class="p-6 rounded-xl shadow-2xl system-card">
-                    <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
-                        <span>[CASUAL STYLE IMAGE]</span>
-                    </div>
-                    <h3 class="text-2xl font-bold system-name mb-2">CASUAL (カジュアル)</h3>
-                    <p class="text-gray-300 text-sm">
-                        **快適性と実用性**を重視した、日常的でリラックス感のあるスタイル。Tシャツ、デニム、スニーカーなど、普遍的で着回しのきくアイテムが中心です。
-                    </p>
-                    <p class="text-sm text-cyan-400 font-bold mt-3">→ ベーシック、ストリート、スポーティなど</p>
-                </div>
-            </a>
+                    <details class="system-category">
+                        <summary class="sidebar-link">CASUAL (カジュアル)<span class="accordion-icon"></span></summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="casual.html" class="sub-category">BASIC</a>
+                            <a href="casual-street.html" class="sub-category">STREET</a>
+                            <a href="casual-sporty.html" class="sub-category">SPORTY</a>
+                            <a href="casual-denim.html" class="sub-category">DENIM</a>
+                            <a href="casual-natural.html" class="sub-category">NATURAL</a>
+                            <a href="casual-surf.html" class="sub-category">SURF / RELAX</a>
+                            <a href="casual-military.html" class="sub-category">ARMY / MILITARY</a>
+                        </div>
+                    </details>
 
-            <a href="mode-avantgarde.html" class="block">
-                <div class="p-6 rounded-xl shadow-2xl system-card">
-                    <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
-                        <span>[MODE STYLE IMAGE]</span>
-                    </div>
-                    <h3 class="text-2xl font-bold system-name mb-2">MODE (モード)</h3>
-                    <p class="text-gray-300 text-sm">
-                        **斬新なデザインやモノトーンの配色**を多用し、個性的で前衛的な表現を追求します。芸術性や構築的なシルエットに重きを置いたスタイルです。
-                    </p>
-                    <p class="text-sm text-cyan-400 font-bold mt-3">→ アバンギャルド、ミニマリズム、ブラックモードなど</p>
-                </div>
-            </a>
+                    <details class="system-category">
+                        <summary class="sidebar-link">MODE (モード)<span class="accordion-icon"></span></summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="mode-avantgarde.html" class="sub-category">AVANT-GARDE</a>
+                            <a href="mode-minimalism.html" class="sub-category">MINIMALISM</a>
+                            <a href="mode-black.html" class="sub-category">BLACK MODE</a>
+                            <a href="mode-stylish.html" class="sub-category">STYLISH</a>
+                        </div>
+                    </details>
+                    
+                    <details class="system-category">
+                        <summary class="sidebar-link">ELEGANT (エレガント)<span class="accordion-icon"></span></summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="elegant-office.html" class="sub-category">OFFICE / CONSERVATIVE</a>
+                            <a href="elegant-chic.html" class="sub-category">CHIC</a>
+                            <a href="elegant-minimal.html" class="sub-category">MINIMAL</a>
+                        </div>
+                    </details>
 
-            <a href="elegant-office.html" class="block">
-                <div class="p-6 rounded-xl shadow-2xl system-card">
-                    <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
-                        <span>[ELEGANT STYLE IMAGE]</span>
-                    </div>
-                    <h3 class="text-2xl font-bold system-name mb-2">ELEGANT (エレガント)</h3>
-                    <p class="text-gray-300 text-sm">
-                        **上質で洗練された素材**を用い、控えめながらも気品を感じさせるスタイル。シンプルでクラシックなデザインは、オフィスやフォーマルな場にも適しています。
+                </nav>
+
+            </aside>
+
+            <div class="md:col-span-3">
+                
+                <div class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-12 border border-cyan-800">
+                    <h1 class="text-3xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
+                        FASHION NAVI とは？
+                    </h1>
+                    <p class="text-lg text-gray-300">
+                        FASHION NAVIは、<strong class="text-cyan-400">「本当に自分に合ったブランド」</strong>を効率的に見つけるためのナビゲーションシステムです。
                     </p>
-                    <p class="text-sm text-cyan-400 font-bold mt-3">→ オフィス、シック、ミニマルなど</p>
+                    <ul class="text-md text-gray-400 mt-4 space-y-2 list-disc list-inside ml-4">
+                        <li><strong class="text-gray-200">系統カテゴリ別</strong>（フェミニン、カジュアルなど）にブランドを徹底分類。</li>
+                        <li>価格帯や年齢層といった**詳細なフィルターは現在準備中**です。</li>
+                        <li>各カテゴリの**最新トレンド**と**着こなしの最適化テクニック**も合わせて提案します。</li>
+                    </ul>
                 </div>
-            </a>
+
+                <p class="text-xs font-bold text-cyan-400 mb-2">SYSTEM OVERVIEW</p>
+                <h2 class="text-4xl font-extrabold text-gray-50 mb-8">
+                    FASHION STYLES - 系統カテゴリ
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <a href="garly.html" class="block">
+                        <div class="p-6 rounded-xl shadow-2xl system-card">
+                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                                <span>[FEMININE STYLE IMAGE]</span>
+                            </div>
+                            <h3 class="text-2xl font-bold system-name mb-2">FEMININE (フェミニン)</h3>
+                            <p class="text-gray-300 text-sm">
+                                **柔らかな素材と曲線的なシルエット**を基調とし、女性らしい優雅さや可愛らしさを追求したスタイルです。ロマンティックなディテールが特徴です。
+                            </p>
+                            <p class="text-sm text-cyan-400 font-bold mt-3">→ ガーリー、スイート、エレガントフェミニンなど</p>
+                        </div>
+                    </a>
+
+                    <a href="casual.html" class="block">
+                        <div class="p-6 rounded-xl shadow-2xl system-card">
+                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                                <span>[CASUAL STYLE IMAGE]</span>
+                            </div>
+                            <h3 class="text-2xl font-bold system-name mb-2">CASUAL (カジュアル)</h3>
+                            <p class="text-gray-300 text-sm">
+                                **快適性と実用性**を重視した、日常的でリラックス感のあるスタイル。Tシャツ、デニム、スニーカーなど、普遍的で着回しのきくアイテムが中心です。
+                            </p>
+                            <p class="text-sm text-cyan-400 font-bold mt-3">→ ベーシック、ストリート、スポーティなど</p>
+                        </div>
+                    </a>
+
+                    <a href="mode-avantgarde.html" class="block">
+                        <div class="p-6 rounded-xl shadow-2xl system-card">
+                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                                <span>[MODE STYLE IMAGE]</span>
+                            </div>
+                            <h3 class="text-2xl font-bold system-name mb-2">MODE (モード)</h3>
+                            <p class="text-gray-300 text-sm">
+                                **斬新なデザインやモノトーンの配色**を多用し、個性的で前衛的な表現を追求します。芸術性や構築的なシルエットに重きを置いたスタイルです。
+                            </p>
+                            <p class="text-sm text-cyan-400 font-bold mt-3">→ アバンギャルド、ミニマリズム、ブラックモードなど</p>
+                        </div>
+                    </a>
+
+                    <a href="elegant-office.html" class="block">
+                        <div class="p-6 rounded-xl shadow-2xl system-card">
+                            <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                                <span>[ELEGANT STYLE IMAGE]</span>
+                            </div>
+                            <h3 class="text-2xl font-bold system-name mb-2">ELEGANT (エレガント)</h3>
+                            <p class="text-gray-300 text-sm">
+                                **上質で洗練された素材**を用い、控えめながらも気品を感じさせるスタイル。シンプルでクラシックなデザインは、オフィスやフォーマルな場にも適しています。
+                            </p>
+                            <p class="text-sm text-cyan-400 font-bold mt-3">→ オフィス、シック、ミニマルなど</p>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
             
         </div>
     </main>
@@ -117,6 +304,12 @@
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
         <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. - SYSTEM V3.1</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // TOPページなので、カテゴリーのアクティブ化は行いません。
+        });
+    </script>
 
 </body>
 </html>
