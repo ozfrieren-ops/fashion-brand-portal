@@ -17,16 +17,17 @@
         .system-name { color: #22d3ee; } 
 
         /* 近未来的なサイドバーデザイン */
-        /* サイドバー項目（大分類）のフォントサイズを 0.875rem (text-sm) に固定 */
+        
+        /* 【修正】大分類のフォントサイズと太さを調整 (よりコンパクトに) */
         .sidebar-link {
-            padding: 6px 12px; /* パディングをさらに縮小 */
+            padding: 6px 12px; 
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s, border-color 0.2s;
-            font-size: 0.875rem; /* text-sm */
+            font-size: 0.8125rem; /* 0.875rem (text-sm) から一段階縮小 */
             color: #9ca3af; 
             border: 1px solid transparent;
-            font-weight: 900; 
+            font-weight: 700; /* 太さを少し抑える */
             text-decoration: none; 
             white-space: nowrap; 
         }
@@ -34,14 +35,12 @@
             background-color: #1f2937; 
             color: #e5e7eb; 
         }
-        /* 大分類のアクティブリンク */
         .sidebar-link.active {
             background-color: #1f2937; 
             color: #22d3ee; 
             font-weight: 900; 
             border-color: #22d3ee; 
         }
-        /* TOPリンクのアクティブスタイル */
         .sidebar-link.top-active {
             background-color: #06b6d4; 
             color: #1f2937; 
@@ -49,14 +48,13 @@
             border-color: #22d3ee; 
         }
         
-        /* 中分類のスタイル */
+        /* 【修正】中分類のスタイル (text-xs に設定) */
         .sub-category {
-            /* 中分類のフォントサイズを 0.75rem (text-xs) に近づけ、より小さく */
-            padding: 4px 12px 4px 20px; /* パディングをさらに縮小 */
+            padding: 3px 12px 3px 20px; /* 上下のパディングをさらに縮小 */
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s;
-            font-size: 0.8125rem; /* text-xs と text-sm の中間 */
+            font-size: 0.75rem; /* text-xs (12px) に設定 */
             color: #9ca3af; 
             text-decoration: none;
             white-space: nowrap; 
@@ -64,7 +62,6 @@
         .sub-category:hover {
             background-color: #1f2937; 
         }
-        /* アクティブな中分類 */
         .sub-category.active {
             color: #22d3ee; 
             font-weight: 700;
@@ -92,17 +89,16 @@
         }
 
         .system-category summary {
-            /* パディングをさらに詰める */
-            padding: 5px 12px; /* 6px 12px から 5px 12px に変更 */
+            padding: 5px 12px; 
             list-style: none;
             cursor: pointer;
             outline: none;
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            font-size: 0.875rem; /* text-sm */
+            font-size: 0.8125rem; /* sidebar-link と統一 */
             color: #9ca3af; 
-            font-weight: 900;
+            font-weight: 700; /* sidebar-link と統一 */
             transition: background-color 0.2s, color 0.2s;
             border-radius: 4px;
             border: none; 
@@ -166,6 +162,7 @@
                             <a href="ladylike.html" class="sub-category">LADYLIKE</a>
                         </div>
                     </details>
+                    
                     <details class="system-category">
                         <summary class="sidebar-link">CASUAL (カジュアル)</summary>
                         <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
@@ -224,7 +221,59 @@
                 </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <div class="system-card p-6 rounded-xl shadow-lg">
+                        <div class="system-card-img bg-cyan-900 rounded-lg mb-4 flex items-center justify-center text-gray-400 text-sm">
+                            [IMAGE: FEMININE]
+                        </div>
+                        <h3 class="system-name text-xl font-black mb-2">FEMININE (フェミニン)</h3>
+                        <p class="text-sm text-gray-400 mb-4">
+                            女性らしさや柔らかさを追求したスタイル。ガーリーからエレガントまで幅広くカバーします。
+                        </p>
+                        <a href="garly.html" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-2 rounded hover:bg-cyan-400 transition text-sm">
+                            EXPLORE CATEGORIES //
+                        </a>
                     </div>
+
+                    <div class="system-card p-6 rounded-xl shadow-lg">
+                        <div class="system-card-img bg-cyan-900 rounded-lg mb-4 flex items-center justify-center text-gray-400 text-sm">
+                            [IMAGE: CASUAL]
+                        </div>
+                        <h3 class="system-name text-xl font-black mb-2">CASUAL (カジュアル)</h3>
+                        <p class="text-sm text-gray-400 mb-4">
+                            日常使いしやすい、リラックス感のあるスタイル。ベーシック、ストリート、スポーツMIXなど。
+                        </p>
+                        <a href="casual.html" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-2 rounded hover:bg-cyan-400 transition text-sm">
+                            EXPLORE CATEGORIES //
+                        </a>
+                    </div>
+                    
+                    <div class="system-card p-6 rounded-xl shadow-lg">
+                        <div class="system-card-img bg-cyan-900 rounded-lg mb-4 flex items-center justify-center text-gray-400 text-sm">
+                            [IMAGE: MODE]
+                        </div>
+                        <h3 class="system-name text-xl font-black mb-2">MODE (モード)</h3>
+                        <p class="text-sm text-gray-400 mb-4">
+                            デザイン性・独自性の高い、トレンドの最先端を行くスタイル。ミニマリズム、アバンギャルドなど。
+                        </p>
+                        <a href="mode-avantgarde.html" class="block w-full text-center bg-gray-600 text-white font-bold py-2 rounded hover:bg-gray-500 transition text-sm">
+                            COMMING SOON...
+                        </a>
+                    </div>
+                    
+                    <div class="system-card p-6 rounded-xl shadow-lg">
+                        <div class="system-card-img bg-cyan-900 rounded-lg mb-4 flex items-center justify-center text-gray-400 text-sm">
+                            [IMAGE: ELEGANT]
+                        </div>
+                        <h3 class="system-name text-xl font-black mb-2">ELEGANT (エレガント)</h3>
+                        <p class="text-sm text-gray-400 mb-4">
+                            オフィスやフォーマルにも対応できる、洗練された大人のスタイル。シック、コンサバティブなど。
+                        </p>
+                        <a href="elegant-office.html" class="block w-full text-center bg-gray-600 text-white font-bold py-2 rounded hover:bg-gray-500 transition text-sm">
+                            COMMING SOON...
+                        </a>
+                    </div>
+                </div>
             </div>
             
         </div>
