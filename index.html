@@ -46,7 +46,7 @@
             transition: background-color 0.2s;
             color: #9ca3af; 
             text-decoration: none;
-            /* テキストの折り返しはサイドバーの幅で解決を図るが、念のため設定はそのままに */
+            white-space: nowrap; /* テキストの折り返しを防止 */
         }
         .sub-category:hover {
             background-color: #1f2937; 
@@ -116,6 +116,7 @@
             transform: translateY(2px); 
             transition: transform 0.3s ease-out, border-top-color 0.2s;
             margin-left: 10px; 
+            flex-shrink: 0; /* アイコンが縮まないようにする */
         }
         /* summaryがactiveの時のアイコン色 */
         .system-category summary.active .accordion-icon {
@@ -134,11 +135,7 @@
             border-radius: 0 0 5px 5px;
         }
 
-        /* グリッドレイアウトの調整（サイドバーの幅を相対的に広くする） */
-        /* サイドバーに最低280pxを確保し、残りをメインコンテンツに割り当てる */
-        .custom-grid {
-            grid-template-columns: minmax(280px, 1fr) 2.5fr; 
-        }
+        /* カスタムグリッド設定は削除し、Tailwindのユーティリティに依存します */
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
@@ -152,9 +149,9 @@
     </header>
 
     <main class="max-w-6xl mx-auto py-12 px-6">
-        <div class="grid grid-cols-1 gap-8 custom-grid"> 
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8"> 
             
-            <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
+            <aside class="md:col-span-2 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
                 
                 <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS // (系統カテゴリ)</h3>
                 
@@ -298,7 +295,7 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.4</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.5</p>
     </footer>
 
     <script>
@@ -372,7 +369,6 @@
             summaries.forEach(summary => {
                 summary.addEventListener('click', (event) => {
                     // クリックされたら、全てのsummaryのアクティブを解除して、自身をアクティブにする
-                    // これは、アコーディオンを開閉した時に、その大分類が選択されている状態を維持するため
                     summaries.forEach(s => s.classList.remove('active'));
                     summary.classList.add('active');
                 });
