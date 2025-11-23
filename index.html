@@ -65,6 +65,9 @@
         }
         
         /* --- アコーディオン（<details>）のCSS調整 --- */
+        .system-category {
+            margin-bottom: 4px; /* <details>間の間隔調整 */
+        }
         .system-category summary {
             /* summaryのデフォルトスタイルをリセットし、sidebar-linkのデザインを適用 */
             list-style: none;
@@ -78,8 +81,8 @@
         }
         /* summaryとlinkのデザインを統合 */
         .system-category .sidebar-link {
-             padding: 8px 12px;
-             margin-bottom: 4px; /* <summary>と次の要素の間隔 */
+             /* summary内のaタグにはmargin-bottomは不要 */
+             margin-bottom: 0;
         }
         /* <details>展開時のリストの間隔調整 */
         .system-category-list {
@@ -254,7 +257,7 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.7</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.8</p>
     </footer>
 
 </body>
