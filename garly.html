@@ -6,7 +6,7 @@
     <title>【女性向け・フェミニン系】ガーリーブランド一覧 | FASHION NAVI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* ... 省略 ... (CSSは index.html と共通) ... */
+        /* 1. Audiowideフォントをロゴ用に導入 */
         @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Noto+Sans+JP:wght@400;700;900&display=swap');
         
         body { font-family: 'Noto Sans JP', sans-serif; }
@@ -23,13 +23,63 @@
         /* サイドバー共通スタイル (アコーディオン用CSS) */
         /* ---------------------------------------------------- */
         
-        /* ... index.html と同じ CSS 定義を使用 ... */
-        .main-category-item { ... }
-        .main-category-item::after { ... }
-        .main-category-item.expanded::after { ... }
-        .sub-category-list { ... }
-        .sub-category-link { ... }
-        .active-link { ... }
+        /* 大カテゴリのスタイル (FEMININE, CASUALなど) */
+        .main-category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            position: relative;
+        }
+        .main-category-item:hover {
+            background-color: #374151; /* hoverで少し濃くなる */
+        }
+
+        /* ＋/− アイコンのCSS */
+        .main-category-item::after {
+            content: '+';
+            font-size: 0.8rem;
+            color: #22d3ee;
+            transition: transform 0.2s;
+            font-weight: 900;
+        }
+        .main-category-item.expanded::after {
+            content: '−';
+        }
+
+        /* サブカテゴリのリスト（GARLY, SWEETなど） */
+        .sub-category-list {
+            padding-left: 12px;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            border-left: 2px solid #06b6d4;
+        }
+        .sub-category-link {
+            padding: 4px 12px;
+            display: block;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            color: #ccc;
+            transition: background-color 0.2s;
+        }
+        .sub-category-link:hover {
+            background-color: #1f2937;
+            color: #fff;
+        }
+        
+        /* アクティブなリンク */
+        .active-link {
+            background-color: #06b6d4 !important;
+            color: #000 !important;
+            font-weight: 700;
+        }
+        
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
@@ -88,27 +138,7 @@
 
                 </nav>
                 
-                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mt-6 mb-4">FILTERS</h3>
-                
-                <div class="main-category-item expanded" data-target="price-list">
-                    <p class="text-sm font-bold text-gray-400">PRICE RANGE</p>
-                </div>
-                <div class="space-y-1 sub-category-list" id="price-list">
-                    <a href="#" class="sub-category-link active-link">-5,000 JPY (LOW)</a>
-                    <a href="#" class="sub-category-link">5K-10K JPY (MID)</a>
-                    <a href="#" class="sub-category-link">10K-30K JPY (HIGH)</a>
-                </div>
-                
-                <div class="main-category-item expanded" data-target="age-list">
-                    <p class="text-sm font-bold text-gray-400 pt-3">AGE TARGET</p>
-                </div>
-                <div class="space-y-1 sub-category-list" id="age-list">
-                    <a href="#" class="sub-category-link">-24 YEARS OLD</a>
-                    <a href="#" class="sub-category-link active-link">25 - 29 YEARS OLD</a>
-                    <a href="#" class="sub-category-link">30+ YEARS OLD</a>
-                </div>
-                
-            </aside>
+                </aside>
 
             <div class="flex-grow">
                 <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT CATEGORY</p>
@@ -116,7 +146,7 @@
                     FEMININE / GARLY
                 </h1>
                 <p class="text-sm text-gray-400 mb-6">
-                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / 25-29 y.o. / -5,000 JPY**
+                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE**
                 </p>
                 
                 <h2 class="text-xl font-bold mt-10 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
@@ -148,7 +178,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // カテゴリとフィルターの開閉を全て管理
+            // カテゴリの開閉を管理
             const mainCategories = document.querySelectorAll('.main-category-item');
 
             mainCategories.forEach(item => {
