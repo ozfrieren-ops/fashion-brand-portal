@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【女性向け・カジュアル系】20代後半向けブランド一覧 | FASHION NAVI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .brand-card-img { height: 16rem; } 
+        
+        /* ダークモードの配色 */
+        .brand-name { color: #22d3ee; } /* Cyan 400 */
+        .brand-detail { color: #d1d5db; } /* Gray 300 */
+
+        /* 近未来的なサイドバーデザイン */
+        .sidebar-link {
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s, border-color 0.2s;
+            font-size: 0.95rem; 
+            color: #9ca3af; /* Gray 400 */
+            border: 1px solid transparent;
+            font-weight: 900; /* 大分類の太字を維持 */
+        }
+        .sidebar-link:hover {
+            background-color: #1f2937; /* Gray 800 */
+            color: #e5e7eb; /* Gray 200 */
+        }
+        /* 大分類のアクティブリンク：ネオンシアンの枠線とテキスト */
+        .sidebar-link.active {
+            background-color: #1f2937; /* Gray 800 */
+            color: #22d3ee; /* Cyan 400 */
+            font-weight: 900; 
+            border-color: #22d3ee; /* Cyan 400 */
+        }
+        
+        /* 中分類のスタイル */
+        .sub-category {
+            padding: 6px 12px 6px 20px; 
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            color: #9ca3af; /* Gray 400 */
+        }
+        .sub-category:hover {
+            background-color: #1f2937; 
+        }
+        /* アクティブな中分類 */
+        .sub-category.active {
+            color: #22d3ee; /* Cyan 400 */
+            font-weight: 700;
+            background-color: #111827; 
+            border-left: 3px solid #22d3ee; /* 左側にライン */
+            padding-left: 17px;
+        }
+
+        /* カードデザインの変更 */
+        .brand-card {
+            background-color: #1f2937; /* Gray 800 */
+            border-top: none; 
+            border-left: 4px solid #06b6d4; /* モダンな左ライン */
+        }
+
+        /* アコーディオン（<details>）のCSS調整 */
+        .system-category summary {
+            /* summaryのデフォルトスタイルをリセットし、sidebar-linkのデザインを適用 */
+            list-style: none;
+            cursor: pointer;
+            outline: none;
+            padding: 0;
+            margin: 0;
+        }
+        .system-category summary::-webkit-details-marker {
+            display: none;
+        }
+        /* summaryとlinkのデザインを統合 */
+        .system-category .sidebar-link {
+             padding: 8px 12px;
+             margin-bottom: 4px; /* <summary>と次の要素の間隔 */
+        }
+        /* <details>展開時のリストの間隔調整 */
+        .system-category-list {
+            padding-top: 4px; 
+            padding-bottom: 4px;
+            margin-left: -12px; /* sub-categoryのパディング調整用 */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 pt-16">
+
+    <header class="w-full py-4 px-6 bg-gray-800 shadow-xl flex justify-between items-center fixed top-0 z-50 border-b border-cyan-800">
+        <div class="text-xl font-black text-cyan-400"><a href="index.html">FASHION NAVI //</a></div>
+        <nav>
+            <a href="index.html" class="px-4 py-2 text-cyan-400 font-bold border-b-2 border-cyan-400 transition">BRANDS</a>
+            <a href="age.html" class="px-4 py-2 text-gray-400 hover:text-cyan-400 transition">AGE //</a>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto py-12 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
+                
+                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS // (系統カテゴリ)</h3>
+                
+                <nav class="space-y-1 text-gray-400 mb-6">
+                    
+                    <details class="system-category">
+                        <summary>
+                            <a href="feminine.html" class="sidebar-link">FEMININE (フェミニン)</a>
+                        </summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="index.html" class="sub-category">GARLY (ガーリー)</a>
+                            <a href="sweet.html" class="sub-category">SWEET (スウィート)</a>
+                            <a href="elegant.html" class="sub-category">ELEGANT FEMININE (エレガントフェミニン)</a>
+                            <a href="romantic.html" class="sub-category">ROMANTIC (ロマンティック)</a>
+                            <a href="naturalfemi.html" class="sub-category">NATURAL FEMININE (ナチュラルフェミニン)</a>
+                            <a href="ladylike.html" class="sub-category">LADYLIKE (レディライク)</a>
+                        </div>
+                    </details>
+
+                    <details class="system-category" open>
+                        <summary>
+                            <a href="casual.html" class="sidebar-link active">CASUAL (カジュアル)</a>
+                        </summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3">
+                            <a href="casual.html" class="sub-category active">BASIC (ベーシック)</a>
+                            <a href="casual-street.html" class="sub-category">STREET (ストリート)</a>
+                            <a href="casual-sporty.html" class="sub-category">SPORTY (スポーティ)</a>
+                            <a href="casual-denim.html" class="sub-category">DENIM (デニム)</a>
+                            <a href="casual-natural.html" class="sub-category">NATURAL (ナチュラル)</a>
+                            <a href="casual-surf.html" class="sub-category">SURF / RELAX (サーフ／リラックス)</a>
+                            <a href="casual-military.html" class="sub-category">ARMY / MILITARY (アーミー／ミリタリー)</a>
+                        </div>
+                    </details>
+
+                    <details class="system-category">
+                        <summary>
+                            <a href="mode.html" class="sidebar-link">MODE (モード)</a>
+                        </summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3 hidden">
+                            </div>
+                    </details>
+                    
+                    <details class="system-category">
+                        <summary>
+                            <a href="elegant.html" class="sidebar-link">ELEGANT (エレガント)</a>
+                        </summary>
+                        <div class="system-category-list space-y-0.5 text-sm text-gray-400 ml-3 hidden">
+                            </div>
+                    </details>
+
+                </nav>
+
+                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4 mt-6">FILTER //</h3>
+                
+                <div class="space-y-1 text-gray-400 mb-6">
+                    <p class="font-bold text-sm text-cyan-400 mb-2">PRICE RANGE</p>
+                    <a href="casual.html" class="sidebar-link active">~5,000 JPY (LOW)</a>
+                    <a href="casual-price_medium.html" class="sidebar-link">5K~10K JPY (MID)</a>
+                    <a href="casual-price_high.html" class="sidebar-link">10K~30K JPY (HIGH)</a>
+                </div>
+
+                <div class="space-y-1 text-gray-400">
+                    <p class="font-bold text-sm text-cyan-400 mb-2">AGE TARGET</p>
+                    <a href="casual-20s.html" class="sidebar-link">~ 24 YEARS OLD</a>
+                    <a href="casual.html" class="sidebar-link active">25 ~ 29 YEARS OLD</a>
+                    <a href="casual-30s.html" class="sidebar-link">30+ YEARS OLD</a>
+                </div>
+
+            </aside>
+
+            <div class="md:col-span-3">
+                <p class="text-xs font-bold text-cyan-400 mb-2">// CURRENT FILTER</p>
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-50 mb-2">
+                    CASUAL > BASIC // HIGH-GRADE LOW-COST
+                </h1>
+                <p class="text-gray-400 mb-8">
+                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / 25-29 y.o. / ~5,000 JPY**
+                </p>
+                
+                <div class="prose max-w-none">
+                    <p class="text-lg mb-6 text-gray-300">
+                        ベーシックでありながら安っぽく見えない、20代後半の大人女性に向けたカジュアルブランドを厳選。着回し力と品質を兼ね備えたアイテムで、日々のスタイルをアップデート。
+                    </p>
+        
+                    <h2 class="text-2xl font-bold mt-10 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3" id="list">
+                        // CASUAL BRAND RANKING
+                    </h2>
+        
+                    <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-card">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="w-full md:w-1/3 bg-gray-700 brand-card-img rounded-lg flex items-center justify-center text-gray-500">
+                                <span>[CASUAL BRAND A IMAGE]</span>
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <div class="flex items-center mb-2">
+                                    <span class="bg-cyan-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">TOP RATED</span>
+                                    <h3 class="text-2xl font-bold brand-name">BRAND C (EXAMPLE)</h3>
+                                </div>
+                                <p class="brand-detail mb-4">
+                                    **[DETAIL]:** 高品質なコットンやリネン素材を多用し、シンプルながら長く使える耐久性が魅力。大人カジュアルの定番を抑えています。
+                                </p>
+                                <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                                    <li>PRICE: ~5,000 JPY</li>
+                                    <li>STYLE: Minimal, Natural Fiber, High Comfort</li>
+                                </ul>
+                                <a href="#" class="block w-full text-center bg-cyan-500 text-gray-900 font-bold py-3 rounded hover:bg-cyan-400 transition">
+                                    ACCESS OFFICIAL SITE //
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="bg-gray-800 rounded-xl shadow-2xl p-6 mb-8 brand-card">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="w-full md:w-1/3 bg-gray-700 brand-card-img rounded-lg flex items-center justify-center text-gray-500">
+                                <span>[CASUAL BRAND B IMAGE]</span>
+                            </div>
+                            <div class="w-full md:w-2/3">
+                                <div class="flex items-center mb-2">
+                                    <span class="bg-gray-500 text-xs font-bold px-2 py-1 rounded text-gray-900 mr-2">COST EFFECTIVE</span>
+                                    <h3 class="text-2xl font-bold brand-name">BRAND D (EXAMPLE)</h3>
+                                </div>
+                                <p class="brand-detail mb-4">
+                                    **[DETAIL]:** トレンドを取り入れたTシャツやデニムを驚きの価格で提供。流行の色やシルエットを試すのに最適です。
+                                </p>
+                                <ul class="text-sm text-gray-400 mb-6 space-y-1">
+                                    <li>PRICE: ~3,000 JPY</li>
+                                    <li>STYLE: Street Mix, Basic Items, Wide Range</li>
+                                </ul>
+                                <a href="#" class="block w-full text-center bg-gray-600 text-white font-bold py-3 rounded hover:bg-gray-500 transition">
+                                    ACCESS OFFICIAL SITE //
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                        // CASUAL STYLE UPGRADE TIPS
+                    </h2>
+                    <ul class="list-disc list-inside text-gray-300 space-y-3">
+                        <li>**ACCESSORIZE:** カジュアルな服装には、**レザーバッグや華奢なネックレス**など、きれいめな小物をプラスして格上げする。</li>
+                        <li>**FIT CHECK:** オーバーサイズを選ぶ際も、**肩のラインや袖丈**が身体に合っているか確認し、だらしなく見えないようにする。</li>
+                        <li>**COORDINATE:** Tシャツやスウェットには、**あえてヒールのあるブーツやパンプス**を合わせ、女性らしさを残す。</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.6</p>
+    </footer>
+
+</body>
+</html>
