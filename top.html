@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASHION NAVI - システム全体概要</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .system-card-img { height: 12rem; } 
+        
+        /* ダークモードの配色 */
+        .system-name { color: #22d3ee; } 
+
+        /* カードデザイン */
+        .system-card {
+            background-color: #1f2937; 
+            border-left: 4px solid #06b6d4; 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(34, 213, 238, 0.2), 0 4px 6px -2px rgba(34, 213, 238, 0.05); 
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 pt-16">
+
+    <header class="w-full py-4 px-6 bg-gray-800 shadow-xl flex justify-between items-center fixed top-0 z-50 border-b border-cyan-800">
+        <div class="text-xl font-black text-cyan-400"><a href="index.html">FASHION NAVI</a></div>
+        <nav>
+            <a href="index.html" class="px-4 py-2 text-cyan-400 font-bold border-b-2 border-cyan-400 transition">BRANDS</a>
+            <a href="age.html" class="px-4 py-2 text-gray-400 hover:text-cyan-400 transition">AGE</a>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-12 px-6">
+        
+        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-12 border border-cyan-800">
+            <h1 class="text-3xl font-extrabold text-cyan-400 mb-4 border-b border-gray-700 pb-2">
+                FASHION NAVI とは？
+            </h1>
+            <p class="text-lg text-gray-300">
+                FASHION NAVIは、<strong class="text-cyan-400">「本当に自分に合ったブランド」</strong>を効率的に見つけるためのナビゲーションシステムです。
+            </p>
+            <ul class="text-md text-gray-400 mt-4 space-y-2 list-disc list-inside ml-4">
+                <li><strong class="text-gray-200">系統カテゴリ別</strong>（フェミニン、カジュアルなど）にブランドを徹底分類。</li>
+                <li>価格帯や年齢層といった**詳細なフィルターは現在準備中**です。</li>
+                <li>各カテゴリの**最新トレンド**と**着こなしの最適化テクニック**も合わせて提案します。</li>
+            </ul>
+        </div>
+        
+        <p class="text-xs font-bold text-cyan-400 mb-2">SYSTEM OVERVIEW</p>
+        <h2 class="text-4xl font-extrabold text-gray-50 mb-8">
+            FASHION STYLES - 系統カテゴリ
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <a href="index.html" class="block">
+                <div class="p-6 rounded-xl shadow-2xl system-card">
+                    <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                        <span>[FEMININE STYLE IMAGE]</span>
+                    </div>
+                    <h3 class="text-2xl font-bold system-name mb-2">FEMININE (フェミニン)</h3>
+                    <p class="text-gray-300 text-sm">
+                        **柔らかな素材と曲線的なシルエット**を基調とし、女性らしい優雅さや可愛らしさを追求したスタイルです。ロマンティックなディテールが特徴です。
+                    </p>
+                    <p class="text-sm text-cyan-400 font-bold mt-3">→ ガーリー、スイート、エレガントフェミニンなど</p>
+                </div>
+            </a>
+
+            <a href="casual.html" class="block">
+                <div class="p-6 rounded-xl shadow-2xl system-card">
+                    <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                        <span>[CASUAL STYLE IMAGE]</span>
+                    </div>
+                    <h3 class="text-2xl font-bold system-name mb-2">CASUAL (カジュアル)</h3>
+                    <p class="text-gray-300 text-sm">
+                        **快適性と実用性**を重視した、日常的でリラックス感のあるスタイル。Tシャツ、デニム、スニーカーなど、普遍的で着回しのきくアイテムが中心です。
+                    </p>
+                    <p class="text-sm text-cyan-400 font-bold mt-3">→ ベーシック、ストリート、スポーティなど</p>
+                </div>
+            </a>
+
+            <a href="mode-avantgarde.html" class="block">
+                <div class="p-6 rounded-xl shadow-2xl system-card">
+                    <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                        <span>[MODE STYLE IMAGE]</span>
+                    </div>
+                    <h3 class="text-2xl font-bold system-name mb-2">MODE (モード)</h3>
+                    <p class="text-gray-300 text-sm">
+                        **斬新なデザインやモノトーンの配色**を多用し、個性的で前衛的な表現を追求します。芸術性や構築的なシルエットに重きを置いたスタイルです。
+                    </p>
+                    <p class="text-sm text-cyan-400 font-bold mt-3">→ アバンギャルド、ミニマリズム、ブラックモードなど</p>
+                </div>
+            </a>
+
+            <a href="elegant-office.html" class="block">
+                <div class="p-6 rounded-xl shadow-2xl system-card">
+                    <div class="system-card-img rounded-lg flex items-center justify-center text-gray-500 bg-gray-700 mb-4">
+                        <span>[ELEGANT STYLE IMAGE]</span>
+                    </div>
+                    <h3 class="text-2xl font-bold system-name mb-2">ELEGANT (エレガント)</h3>
+                    <p class="text-gray-300 text-sm">
+                        **上質で洗練された素材**を用い、控えめながらも気品を感じさせるスタイル。シンプルでクラシックなデザインは、オフィスやフォーマルな場にも適しています。
+                    </p>
+                    <p class="text-sm text-cyan-400 font-bold mt-3">→ オフィス、シック、ミニマルなど</p>
+                </div>
+            </a>
+            
+        </div>
+    </main>
+
+    <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. - SYSTEM V3.1</p>
+    </footer>
+
+</body>
+</html>
