@@ -15,6 +15,7 @@
         .brand-detail { color: #d1d5db; } /* Gray 300 */
 
         /* 近未来的なサイドバーデザイン */
+        /* sidebar-linkは<summary>と<a href>の共通スタイルとして使用 */
         .sidebar-link {
             padding: 8px 12px;
             display: block;
@@ -24,6 +25,7 @@
             color: #9ca3af; /* Gray 400 */
             border: 1px solid transparent;
             font-weight: 900; /* 大分類の太字を維持 */
+            text-decoration: none; /* <a>タグのデフォルトの下線削除 */
         }
         .sidebar-link:hover {
             background-color: #1f2937; /* Gray 800 */
@@ -44,6 +46,7 @@
             border-radius: 4px;
             transition: background-color 0.2s;
             color: #9ca3af; /* Gray 400 */
+            text-decoration: none;
         }
         .sub-category:hover {
             background-color: #1f2937; 
@@ -73,25 +76,24 @@
             list-style: none;
             cursor: pointer;
             outline: none;
-        }
-        .system-category summary::-webkit-details-marker {
-            display: none;
-        }
-        /* <summary>に直接大分類のスタイルを適用 */
-        .system-category summary {
+            /* summaryにsidebar-linkのスタイルを適用 */
             padding: 8px 12px;
-            display: block; /* sidebar-linkと同じくブロック要素として扱う */
+            display: block;
             border-radius: 4px;
             transition: background-color 0.2s, border-color 0.2s;
             font-size: 0.95rem; 
-            color: #9ca3af; /* Gray 400 */
+            color: #9ca3af; 
             border: 1px solid transparent;
             font-weight: 900;
+        }
+        .system-category summary::-webkit-details-marker {
+            display: none;
         }
         .system-category summary:hover {
             background-color: #1f2937; /* Gray 800 */
             color: #e5e7eb; /* Gray 200 */
         }
+        /* アクティブなsummaryのスタイル */
         .system-category summary.active {
             background-color: #1f2937; /* Gray 800 */
             color: #22d3ee; /* Cyan 400 */
@@ -264,7 +266,7 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.9</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V2.0</p>
     </footer>
 
 </body>
