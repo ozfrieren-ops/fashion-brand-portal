@@ -20,7 +20,7 @@
             display: block;
             border-radius: 4px;
             transition: background-color 0.2s, border-color 0.2s;
-            font-size: 0.95rem;
+            font-size: 0.95rem; 
             color: #9ca3af; /* Gray 400 */
             border: 1px solid transparent;
         }
@@ -32,7 +32,7 @@
         .sidebar-link.active {
             background-color: #1f2937; /* Gray 800 */
             color: #22d3ee; /* Cyan 400 */
-            font-weight: bold;
+            font-weight: 900; /* より太く強調 */
             border-color: #22d3ee; /* Cyan 400 */
         }
         
@@ -47,11 +47,11 @@
         .sub-category:hover {
             background-color: #1f2937; 
         }
-        /* アクティブな中分類（現在ガーリー） */
+        /* アクティブな中分類 */
         .sub-category.active {
             color: #22d3ee; /* Cyan 400 */
-            font-weight: bold;
-            background-color: #111827; /* Gray 900より濃い */
+            font-weight: 700;
+            background-color: #111827; 
             border-left: 3px solid #22d3ee; /* 左側にライン */
             padding-left: 17px;
         }
@@ -59,7 +59,7 @@
         /* カードデザインの変更 */
         .brand-card {
             background-color: #1f2937; /* Gray 800 */
-            border-top: none; /* 上のボーダーを削除 */
+            border-top: none; 
             border-left: 4px solid #06b6d4; /* モダンな左ライン */
         }
     </style>
@@ -79,12 +79,12 @@
             
             <aside class="md:col-span-1 bg-gray-800 p-6 rounded-xl shadow-2xl h-fit sticky top-20 border border-gray-700">
                 
-                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS //</h3>
+                <h3 class="text-lg font-bold text-gray-50 border-b border-gray-700 pb-2 mb-4">SYSTEMS // (系統カテゴリ)</h3>
                 
                 <nav class="space-y-3 text-gray-400 mb-6">
                     
                     <div>
-                        <a href="feminine.html" class="sidebar-link active">💖 FEMININE (フェミニン)</a>
+                        <a href="feminine.html" class="sidebar-link active font-extrabold">FEMININE (フェミニン)</a>
                         <div class="mt-2 space-y-0.5 text-sm text-gray-400 ml-3">
                             <a href="index.html" class="sub-category active">GARLY (ガーリー)</a>
                             <a href="sweet.html" class="sub-category">SWEET (スウィート)</a>
@@ -95,16 +95,16 @@
                     </div>
 
                     <div>
-                        <a href="casual.html" class="sidebar-link">👖 CASUAL (カジュアル)</a>
+                        <a href="casual.html" class="sidebar-link font-extrabold">CASUAL (カジュアル)</a>
                         <div class="mt-2 space-y-0.5 text-sm text-gray-400 ml-3 hidden">
                             <a href="kireic.html" class="sub-category">CLEAN CASUAL</a>
                             <a href="otona.html" class="sub-category">ADULT CASUAL</a>
                         </div>
                     </div>
 
-                    <a href="mode.html" class="sidebar-link">⚫️ COOL / MODE</a>
+                    <a href="mode.html" class="sidebar-link font-extrabold">MODE (モード)</a>
                     
-                    <a href="classic.html" class="sidebar-link">📚 CLASSIC</a>
+                    <a href="elegant.html" class="sidebar-link font-extrabold">ELEGANT (エレガント)</a>
 
                 </nav>
 
@@ -207,7 +207,7 @@
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
-        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.2</p>
+        <p class="text-sm opacity-60">&copy; 2025 FASHION NAVI. ALL RIGHTS RESERVED. // SYSTEM V1.3</p>
     </footer>
 
 </body>
