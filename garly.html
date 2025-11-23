@@ -7,9 +7,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* ... 省略 ... (CSSは index.html と共通) ... */
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+        
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .logo-font {
+            font-family: 'Audiowide', cursive;
+        }
+        .brand-photo { height: 16rem; }
+        .brand-detail-card {
+            background-color: #1f2937; 
+            border-left: 4px solid #06b6d4; 
+        }
+        
+        /* ---------------------------------------------------- */
+        /* サイドバー共通スタイル (アコーディオン用CSS) */
+        /* ---------------------------------------------------- */
+        
+        /* ... index.html と同じ CSS 定義を使用 ... */
+        .main-category-item { ... }
+        .main-category-item::after { ... }
+        .main-category-item.expanded::after { ... }
+        .sub-category-list { ... }
+        .sub-category-link { ... }
+        .active-link { ... }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200 pt-16">
+
+    <header class="w-full py-4 px-6 bg-gray-800 shadow-xl flex justify-between items-center fixed top-0 z-50 border-b border-cyan-800">
+        <div class="text-xl font-black text-cyan-400 logo-font"><a href="index.html">FASHION NAVI</a></div>
+        <nav>
+            <a href="index.html" class="px-4 py-2 text-cyan-400 font-bold border-b-2 border-cyan-400 transition">BRANDS</a>
+            <a href="age.html" class="px-4 py-2 text-gray-400 hover:text-cyan-400 transition">AGE</a>
+        </nav>
+    </header>
 
     <main class="max-w-7xl mx-auto py-12 px-6">
         
@@ -32,7 +63,10 @@
                         <a href="garly.html" class="sub-category-link active-link">GARLY (ガーリー)</a>
                         <a href="#" class="sub-category-link">SWEET (スウィート)</a>
                         <a href="#" class="sub-category-link">ELEGANT FEMININE (エレガントフェミニン)</a>
-                        </div>
+                        <a href="#" class="sub-category-link">ROMANTIC (ロマンティック)</a>
+                        <a href="#" class="sub-category-link">NATURAL FEMININE (ナチュラルフェミニン)</a>
+                        <a href="#" class="sub-category-link">LADYLIKE (レディライク)</a>
+                    </div>
                     
                     <div class="main-category-item" data-target="casual-list">
                         <span>CASUAL (カジュアル)</span>
@@ -54,7 +88,7 @@
 
                 </nav>
                 
-                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mt-6 mb-4">FILTER //</h3>
+                <h3 class="text-sm font-bold text-gray-50 border-b border-gray-700 pb-2 mt-6 mb-4">FILTERS</h3>
                 
                 <div class="main-category-item expanded" data-target="price-list">
                     <p class="text-sm font-bold text-gray-400">PRICE RANGE</p>
@@ -76,7 +110,36 @@
                 
             </aside>
 
-            </div>
+            <div class="flex-grow">
+                <p class="text-xs font-bold text-cyan-400 mb-2">CURRENT CATEGORY</p>
+                <h1 class="text-2xl font-extrabold text-gray-50 mb-2">
+                    FEMININE / GARLY
+                </h1>
+                <p class="text-sm text-gray-400 mb-6">
+                    <span class="font-bold text-cyan-400">STATUS:</span> **ACTIVE / 25-29 y.o. / -5,000 JPY**
+                </p>
+                
+                <h2 class="text-xl font-bold mt-10 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    (1) 王道ガーリー・フェミニン (Mainstream Feminine)
+                </h2>
+                <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    (2) 量産型・地雷系ガーリー寄り (Idol/Subculture Feminine)
+                </h2>
+                <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    (3) ロマンティック・クラシカルガーリー (Romantic & Classical)
+                </h2>
+                <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    (4) ロリータ・クラシカル寄り (Lolita-Influenced)
+                </h2>
+                <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    (5) 韓国ガーリー (K-Style Feminine)
+                </h2>
+                <h2 class="text-xl font-bold mt-12 mb-6 text-cyan-400 border-l-4 border-cyan-400 pl-3">
+                    OPTIMIZATION TECHNIQUES (GARLY)
+                </h2>
+                </div>
+            
+        </div>
     </main>
 
     <footer class="bg-gray-950 text-white py-8 text-center mt-12 border-t border-cyan-800">
